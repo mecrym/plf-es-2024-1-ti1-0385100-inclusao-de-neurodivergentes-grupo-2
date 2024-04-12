@@ -7,6 +7,7 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 * Pénelope Cristine Loures Antunes
 * Bruna Costa Markowisk
 * Maria Eduarda Constância Rocha Moreira
+* Cauã Homero Gonçalves Rodrigues
 
 ## Professores responsáveis
 
