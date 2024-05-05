@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    
+  
+}
+
+ .title{
+    text-align: center;
+    margin-top: 120px;
+
+}
+h1{
+    font-size: 2.0rem;
+}
+
+ .container-category {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(6,1fr);
+    gap:2em; /*gap entre os cards*/
+    margin-top: 80px;
+}
+
+.card-sport {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+    margin-left: 45px;
+}
+
+.sport {
+    flex: 0 0 auto; /* Define o tamanho do contêiner da imagem como auto, para ocupar apenas o espaço necessário */
+    margin-right: 20px; 
+    background-color: #FF5C00;
+    border-radius: 20%;
+}
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+p {
+    margin: 0; /* Remove as margens padrão do parágrafo */  
+}
+img{
+    display: block;
+    height: 40px;
+    
+}
+.card-art {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+
+}
+
+.art {
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #FF017B;
+    border-radius: 20%;
+}
+.card-health {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+    margin-left: 45px;
+
+}
+
+.health {
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #4AA633;
+    border-radius: 20%;
+}
+.card-work {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+
+}
+
+.work {
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #34FF9D;
+    border-radius: 20%;
+}
+.card-nutrition {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+    margin-left: 45px;
+}
+
+.nutrition {
+
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #FF9A51;
+    border-radius: 20%;
+}
+
+.card-home {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+}
+
+.home {
+
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #818260;
+    border-radius: 20%;
+}
+.card-study {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+    margin-left: 45px;
+}
+
+.study {
+
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #1400FF;
+    border-radius: 20%;
+}
+.card-badHabit {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+}
+
+.badHabit {
+
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #FD6161;
+    border-radius: 20%;
+}
+
+.card-entertainment {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+    margin-left: 45px;
+}
+
+.entertainment {
+
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #9E00FF;
+    border-radius: 20%;
+}
+.card-read {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+}
+
+.read {
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #2AFFD9;
+    border-radius: 20%;
+}
+.card-finance {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+    margin-left: 45px;
+}
+
+.finance {
+
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #FFC700;
+    border-radius: 20%;
+}
+.card-other {
+    display: flex; 
+    align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
+}
+
+.other {
+
+    flex: 0 0 auto;
+    margin-right: 20px; 
+    background-color: #EF31C5;
+    border-radius: 20%;
+}
+
+
+.footer-gradient {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Altura do gradient no final da página */
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
+}
+
