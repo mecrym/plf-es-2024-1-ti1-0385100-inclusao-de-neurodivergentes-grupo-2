@@ -1,0 +1,154 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFFFFF;
+    font-size: 1.3rem; 
+    
+}
+.container-text{
+    display: flex;
+   justify-content: space-between;
+    background-color: transparent;
+    border: 2px solid #83E5F8;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 24px;
+    width: 80%;
+    height: 20%;
+ 
+}
+.container-p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.container-text button img{
+    width: 98%;
+    position: absolute;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.container-type-text{
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.container-select-completion{
+    text-align: center;
+    margin-top: 40px;
+}
+.container-text .container-button button{
+   background-color: #FFC700;
+   position: relative;
+   width: 40px;
+   height: 40px;
+   padding: 20px;
+   margin: 0;
+   vertical-align:middle;
+   display: inline-block;
+   border-radius: 100%;
+  
+}
+.container-text .container-button{
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+.container-select{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 20px 30px;
+}
+.switch {
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+} 
+
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 40px;
+  height: 20px;
+  background: #d0d0d0;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+
+ content: "";
+ position: absolute;
+ top: 4px;
+ left: 4px;
+ width: 12px;
+ height: 12px;
+ background: #5e5959;
+ border-radius: 90px;
+ transition: 0.3s;
+
+}
+
+input:checked + label {
+ 
+  background: #09A321;
+
+}
+
+input:checked + label:after {
+
+  background: #ffffff;  
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+
+}
+
+label:active:after {
+
+  width: 15px;
+
+}
+
+main .add-button button{
+    background-color: #ED3AFC;
+    text-align: center;
+    height: 40px;
+    width: 350px;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    display: block;
+    margin:auto;
+    margin-top: 50px;
+
+}
+
+.footer-gradient {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Altura do gradient no final da página */
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
+}

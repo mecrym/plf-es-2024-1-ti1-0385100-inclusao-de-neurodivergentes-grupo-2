@@ -11,32 +11,28 @@ body{
     font-weight: 400;
     font-style: normal;
     color: #FFFFFF;
-    font-size: 1.3rem;
-    
-  
+    font-size: 1.3rem;  
 }
 
  .title{
     text-align: center;
     margin-top: 120px;
-
 }
 h1{
     font-size: 2.0rem;
 }
-
  .container-category {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(6,1fr);
-    gap:2em; /*gap entre os cards*/
+    gap:1.5em; /*gap entre os cards*/
     margin-top: 80px;
 }
 
 .card-sport {
     display: flex; 
     align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
-    margin-left: 45px;
+    margin-left: 30px;
 }
 
 .sport {
@@ -73,7 +69,7 @@ img{
 .card-health {
     display: flex; 
     align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
-    margin-left: 45px;
+    margin-left: 30px;
 
 }
 
@@ -98,7 +94,7 @@ img{
 .card-nutrition {
     display: flex; 
     align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
-    margin-left: 45px;
+    margin-left: 30px;
 }
 
 .nutrition {
@@ -124,7 +120,7 @@ img{
 .card-study {
     display: flex; 
     align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
-    margin-left: 45px;
+    margin-left: 30px;
 }
 
 .study {
@@ -150,7 +146,7 @@ img{
 .card-entertainment {
     display: flex; 
     align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
-    margin-left: 45px;
+    margin-left: 30px;
 }
 
 .entertainment {
@@ -174,7 +170,7 @@ img{
 .card-finance {
     display: flex; 
     align-items: center; /* Centraliza os itens verticalmente imagem ao lado do texto */
-    margin-left: 45px;
+    margin-left: 30px;
 }
 
 .finance {
