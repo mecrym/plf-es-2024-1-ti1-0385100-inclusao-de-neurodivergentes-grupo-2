@@ -49,7 +49,7 @@ body{
     text-align: center;
     margin-top: 40px;
 }
-.container-text .container-button button{
+.container-text .container-button .add{
    background-color: #FFC700;
    position: relative;
    width: 40px;
@@ -67,8 +67,26 @@ body{
 }
 .container-select{
     display: flex;
+    flex: auto;
     justify-content: space-evenly;
-    margin: 20px 20px 30px;
+    margin: 20px 10px 30px;
+}
+.completed-task{
+    display: flex;
+    flex: auto;
+    justify-content: space-evenly;
+    margin: 20px -20px 30px;
+}
+.container-paragraph {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.switch2{
+  align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .switch {
 
@@ -80,6 +98,7 @@ body{
 
 } 
 
+
 input[type=checkbox] {
   height: 0;
   width: 0;
@@ -89,7 +108,7 @@ input[type=checkbox] {
 label {
   cursor: pointer;
   text-indent: -9999px;
-  width: 35px;
+  width: 40px;
   height: 20px;
   background: #d0d0d0;
   display: block;
@@ -120,7 +139,7 @@ input:checked + label {
 input:checked + label:after {
 
   background: #ffffff;  
-  left: calc(100% - 5px);
+  left: calc(100% - 4px);
   transform: translateX(-100%);
 
 }
@@ -145,15 +164,22 @@ main .add-button button{
 }
 .container-date{
     height: 100px;
-    color:#0D1C2E;
-
+    color:#ffffff;
     
 }
-.container-date #timeStart{
+
+.container-date p{
+  
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  width: 30%;
+}
+.container-date #time{
     background-color:transparent;
 
     height: 100%;
-    width: 30%;
+    width: 40%;
     border-radius: 30px;
     color:#0D1C2E;
     display: block;
@@ -166,7 +192,8 @@ input[type=time]::-webkit-datetime-edit-fields-wrapper {
 /* The space between the fields - between hour and minute, the minute and 
 second, second and am/pm */
 input[type=time]::-webkit-datetime-edit-text {
-    padding: 19px 4px;
+    padding: 19px 2px;
+   
   }
   
 
@@ -191,6 +218,7 @@ input[type=time]::-webkit-datetime-edit-text {
     border-radius: 15%;
     color: #0D1C2E;
     padding: 19px 13px;
+    
   }
   input[type="time"]::-webkit-calendar-picker-indicator {
     background-color: #fff;
