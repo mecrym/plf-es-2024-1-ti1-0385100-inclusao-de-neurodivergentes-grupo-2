@@ -166,10 +166,11 @@ header {
 .carousel-container {
     position: relative;
     overflow: hidden;
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     /* Reduz a largura para acomodar as setas de rolagem */
-    margin: 20px 0;
-    border: 1px solid #ccc;
+    margin: 20px auto;
+    /* Centraliza horizontalmente */
+    border: 1px solid rgba(253, 253, 253, 0.01);
     /* Adicionado para destacar a área do carrossel */
     border-radius: 5px;
     /* Adicionado para suavizar as bordas */
@@ -181,11 +182,11 @@ header {
 }
 
 .day {
-    flex: 0 0 100px;
+    flex: 0 0 calc(100% / 7);
     height: 140px;
     /* Aumentei a altura para acomodar o texto abaixo */
-    border: 1px solid #ccc;
-    margin: 0 5px;
+    border: 1px solid rgba(253, 253, 253, 0.01);
+    margin: 0 0px;
     display: flex;
     flex-direction: column;
     /* Alterado para exibir o texto abaixo do dia */
@@ -198,6 +199,10 @@ header {
 
 .selected {
     background-color: #ffcc00;
+    color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 500;
+
 }
 
 .arrow {
@@ -225,4 +230,23 @@ header {
     /* Reduzi o tamanho da fonte para caber melhor */
     text-align: center;
     /* Centraliza o texto */
+}
+.task-period {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.morning {
+    background-color: #ffcc00; /* Amarelo para manhã */
+}
+
+.fulltime {
+    background-color: #ff6666; /* Vermelho para dia todo */
+}
+
+.afternoon {
+    background-color: #66ccff; /* Azul para tarde */
 }

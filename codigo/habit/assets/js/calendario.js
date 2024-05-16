@@ -50,6 +50,26 @@ async function renderCarousel(selectedDate, startIndex) {
     });
 }
 
+// Função para renderizar as informações da tarefa para o dia selecionado
+async function renderTaskInfo(day) {
+    const taskInfo = document.getElementById('taskInfo');
+    taskInfo.innerHTML = ''; // Limpa o conteúdo existente
+
+    const data = await loadData('tasks_data.json'); // Carrega os dados das tarefas do arquivo JSON local
+
+    const tasks = data[day] || []; // Obtém as tarefas para o dia selecionado
+
+    // Divide as tarefas em períodos do dia: manhã, dia todo e tarde
+    const morningTasks = tasks.filter(task => task.period === 'morning');
+    const fullDayTasks = tasks.filter(task => task.period === 'fulltime');
+    const afternoonTasks = tasks.filter(task => task.period === 'afternoon');
+
+    // Renderiza as informações de tarefas em cada período do dia
+    renderTaskPeriodInfo('Manhã', morningTasks.length, 'morning');
+    renderTaskPeriodInfo('Dia Todo', fullDayTasks.length, 'fulltime');
+    renderTaskPeriodInfo('Tarde', afternoonTasks.length, 'afternoon');
+}
+
 // Chamada inicial para renderizar o carrossel com a data atual e índice inicial
 const currentDate = new Date().getDate();
 let startIndex = 0;
@@ -71,41 +91,14 @@ arrowRight.addEventListener('click', () => {
     renderCarousel(currentDate, startIndex);
 });
 
-// Função para renderizar as informações da tarefa para o dia selecionado
-async function renderTaskInfo(day) {
-    const taskInfo = document.getElementById('taskInfo');
-    taskInfo.innerHTML = ''; // Limpa o conteúdo existente
-
-    const data = await loadData('tasks_data.json'); // Carrega os dados das tarefas do arquivo JSON local
-
-    const tasks = data[day] || []; // Obtém as tarefas para o dia selecionado
-
-    taskInfo.textContent = `Número de tarefas para o dia ${day}: ${tasks.length}`;
-}
-// Função para renderizar as informações da tarefa para o dia selecionado
-async function renderTaskInfo(day) {
-    const taskInfo = document.getElementById('taskInfo');
-    taskInfo.innerHTML = ''; // Limpa o conteúdo existente
-
-    const data = await loadData('tasks_data.json'); // Carrega os dados das tarefas do arquivo JSON local
-
-    const tasks = data[day] || []; // Obtém as tarefas para o dia selecionado
-
-    // Divide as tarefas em períodos do dia: manhã, dia todo e tarde
-    const morningTasks = tasks.filter(task => task.period === 'morning');
-    const fullDayTasks = tasks.filter(task => task.period === 'fulltime');
-    const afternoonTasks = tasks.filter(task => task.period === 'afternoon');
-
-    // Renderiza as informações de tarefas em cada período do dia
-    renderTaskPeriodInfo('Manhã', morningTasks.length);
-    renderTaskPeriodInfo('Dia Todo', fullDayTasks.length);
-    renderTaskPeriodInfo('Tarde', afternoonTasks.length);
-}
-
 // Função para renderizar as informações de tarefas em um período do dia específico
-function renderTaskPeriodInfo(period, taskCount) {
+function renderTaskPeriodInfo(period, taskCount, periodClass) {
     const imageCarousel = document.getElementById('imageCarousel');
-    const periodElement = document.createElement('div');
+    let periodElement = document.querySelector(`.${periodClass}`);
+    if (!periodElement) {
+        periodElement = document.createElement('div');
+        periodElement.classList.add('task-period', periodClass);
+        imageCarousel.appendChild(periodElement);
+    }
     periodElement.textContent = `${period}: ${taskCount} tarefas`;
-    imageCarousel.appendChild(periodElement);
 }
