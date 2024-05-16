@@ -1,0 +1,121 @@
+
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    /*isso aq q esta dando bo com o resto*/
+    width: 100%;
+    z-index: auto;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /*delisga bullet points e numeros*/
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.navbar li a {
+    display: block;
+    outline: 1px solid #ddd;
+    padding: 20px;
+    border-right: 1px solid #aaa;
+    text-decoration: none;
+}
+
+.navbar ul a:hover {
+    background-color: #ddd;
+
+}
+
+.navbar .logo {
+    float: left;
+    display: block;
+    font-size: 2em;
+    padding: 10px 20px;
+
+}
+
+.navbar .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    /*animação de sair e entrar do menu*/
+}
+
+.navbar .menu-icon {
+    /*para aparecer as três barrinhas lá*/
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+
+}
+
+.navbar .menu-icon .nav-icon {
+    background-color: #333;
+    display: block;
+    height: 2px;
+    width: 18px;
+    /*realy whobly until now*/
+    position: relative;
+    transition: background 0.2s ease-out;
+    /*animação de novo*/
+}
+
+.navbar .menu-icon .nav-icon:before {
+    background: #333;
+    content: " ";
+    /*voltar aq*/
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    /*animação de novo*/
+    top: 5px;
+    /*sobe 5px da posição inicial da barrinha, são 3 barrinhas, essa é a segunda*/
+}
+
+.navbar .menu-icon .nav-icon:after {
+    background: #333;
+    content: " ";
+    /*voltar aq*/
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    /*animação de novo*/
+    top: -5px;
+    /*desce 5px da posição inicial da barrinha, são 3 barrinhas, essa é a terceira*/
+}
+
+.navbar .menu-btn {
+    display: none;
+}
+
+/*tutorial: FollowAndrew*/
+.navbar .menu-btn:checked~.menu {
+    /*checked: quando o menu está clicado, aparece o menu*/
+    max-height: 240px;
+    /*está animando por causa dos transition lá encima, sem isso só brota do nd*/
+
+}
+
+.navbar .menu-btn:checked~.menu-icon .nav-icon {
+    background: transparent;
+}
+
+.navbar .menu-btn:checked~.menu-icon .nav-icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.navbar .menu-btn:checked~.menu-icon .nav-icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+

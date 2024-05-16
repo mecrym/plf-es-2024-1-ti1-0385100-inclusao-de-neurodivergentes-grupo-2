@@ -1,0 +1,44 @@
+{
+    "1": [
+        {
+            "task_id": "1",
+            "description": "Tarefa 1 do dia 1 (Manhã)",
+            "due_date": "2024-05-01",
+            "period": "morning"
+        },
+        {
+            "task_id": "2",
+            "description": "Tarefa 2 do dia 1 (Tarde)",
+            "due_date": "2024-05-01",
+            "period": "afternoon"
+        }
+    ],
+    "5": [
+        {
+            "task_id": "3",
+            "description": "Tarefa 1 do dia 5 (Período Integral)",
+            "due_date": "2024-05-05",
+            "period": "fulltime"
+        }
+    ],
+    "10": [
+        {
+            "task_id": "4",
+            "description": "Tarefa 1 do dia 10 (Manhã)",
+            "due_date": "2024-05-10",
+            "period": "morning"
+        },
+        {
+            "task_id": "5",
+            "description": "Tarefa 2 do dia 10 (Período Integral)",
+            "due_date": "2024-05-10",
+            "period": "fulltime"
+        },
+        {
+            "task_id": "6",
+            "description": "Tarefa 3 do dia 10 (Tarde)",
+            "due_date": "2024-05-10",
+            "period": "afternoon"
+        }
+    ]
+}
