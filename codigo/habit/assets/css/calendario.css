@@ -163,11 +163,12 @@ header {
 
 
 
-.carousel-container {
+#carousel-container {
     position: relative;
     overflow: hidden;
     width: calc(100% - 60px);
     /* Reduz a largura para acomodar as setas de rolagem */
+    height: 80px;
     margin: 20px auto;
     /* Centraliza horizontalmente */
     border: 1px solid rgba(253, 253, 253, 0.01);
@@ -183,7 +184,7 @@ header {
 
 .day {
     flex: 0 0 calc(100% / 7);
-    height: 140px;
+    height: 80px;
     /* Aumentei a altura para acomodar o texto abaixo */
     border: 1px solid rgba(253, 253, 253, 0.01);
     margin: 0 0px;
@@ -194,26 +195,33 @@ header {
     align-items: center;
     font-size: 16px;
     /* Reduzi o tamanho da fonte para caber melhor */
-    cursor: pointer;
+    cursor: pointer;/*passar para o media query do notebook depois*/
+    text-transform: uppercase;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 500;
 }
 
+/*descobrir como fazer para clicar de novo e des-selecionar (essa palavra existe??)*/
 .selected {
     background-color: #ffcc00;
     color: #0D1C2E;
     font-family: "Istok Web", sans-serif;
     font-weight: 500;
-
+    font-size: 18px;
+    /* Aumentei o tamanho da fonte para destacar o dia selecionado */
+    border-radius: 5%;
+    max-height: 75px;
 }
 
 .arrow {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(70%);
     width: 20px;
     height: 20px;
-    background-color: #ccc;
     cursor: pointer;
     z-index: 1;
+    color: rgba(177, 177, 177, 0.2);
 }
 
 .arrow-left {
@@ -225,6 +233,7 @@ header {
 }
 
 .task-info {
+    font-family: "Istok Web", sans-serif;
     margin-top: 10px;
     font-size: 14px;
     /* Reduzi o tamanho da fonte para caber melhor */
@@ -239,14 +248,20 @@ header {
     margin-right: 10px;
 }
 
+#carousel-tarefas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 95px;
+}
 .morning {
-    background-color: #ffcc00; /* Amarelo para manhã */
+    background-color: none; /* Amarelo para manhã */
 }
 
 .fulltime {
-    background-color: #ff6666; /* Vermelho para dia todo */
+    background-color: none; /* Vermelho para dia todo */
 }
 
 .afternoon {
-    background-color: #66ccff; /* Azul para tarde */
+    background-color: none; /* Azul para tarde */
 }
