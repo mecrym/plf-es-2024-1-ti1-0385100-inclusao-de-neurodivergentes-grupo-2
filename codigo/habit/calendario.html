@@ -6,9 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendário</title>
     <link rel="stylesheet" href="assets\css\calendario.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Jersey+20&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <header>
+        <nav class="navbar">   
+
+            <input type="checkbox" class="menu-btn" id="menu-btn"/>
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <!--div class="menu"-->
+                <ul class="menu">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            <!--/div-->
+        </nav>
+    </header>
+
+    <br><br><br>
+
+    <h1 id="title">Today</h1>
+
+    <br><br><br>
+    
 
     <div class="calendar-container">
         <div class="carousel-container">
@@ -25,8 +51,9 @@
         <div id="taskPeriodInfo"></div>
     </div>
 
-    <script src="assets\js\calendario.js"></script>
+
 
 </body>
-
+    <footer class="footer-gradient"></footer>
+    <script src="assets\js\calendario.js"></script>
 </html>
