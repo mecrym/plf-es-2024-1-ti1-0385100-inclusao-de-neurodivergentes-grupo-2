@@ -65,9 +65,9 @@ async function renderTaskInfo(day) {
     const afternoonTasks = tasks.filter(task => task.period === 'nigth');
 
     // Renderiza as informações de tarefas em cada período do dia
-    renderTaskPeriodInfo('Manhã', morningTasks.length, 'morning');
-    renderTaskPeriodInfo('Dia Todo', fullDayTasks.length, 'fulltime');
-    renderTaskPeriodInfo('Tarde', afternoonTasks.length, 'nigth');
+    renderTaskPeriodInfo('Morning', morningTasks.length, 'morning');
+    renderTaskPeriodInfo('Fulltime', fullDayTasks.length, 'fulltime');
+    renderTaskPeriodInfo('Nigth', afternoonTasks.length, 'nigth');
 }
 
 // Chamada inicial para renderizar o carrossel com a data atual e índice inicial
@@ -100,5 +100,5 @@ function renderTaskPeriodInfo(period, taskCount, periodClass) {
         periodElement.classList.add('task-period', periodClass);
         imageCarousel.appendChild();
     }
-    periodElement.textContent = `${period}: ${taskCount} tarefas`;
+    periodElement.textContent = `${period} \n ${taskCount}`;
 }
