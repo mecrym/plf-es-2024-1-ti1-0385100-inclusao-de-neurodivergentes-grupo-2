@@ -264,9 +264,40 @@ header {
 }
 
 #texto-m{
-    font-size: 5px;
+    font-size: 12px;
+    align-items: center;
     text-align: center;
-    margin-top: 20px;
-    font-family: "Istok Web", sans-serif;
     font-weight: 400;
+}
+
+#texto-f{
+    font-size: 12px;
+    align-items: center;
+    text-align: center;
+    font-weight: 400;
+}
+
+#texto-n{
+    font-size: 12px;
+    align-items: center;
+    text-align: center;
+    font-weight: 400;
+}
+
+
+/* Estilo para o círculo de alta importância */
+.high-importance {
+    position: relative;
+}
+
+.high-importance:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px; /* Tamanho do círculo */
+    height: 20px; /* Tamanho do círculo */
+    border-radius: 50%; /* Faz com que o elemento seja um círculo */
+    background-color: red; /* Cor do círculo */
 }

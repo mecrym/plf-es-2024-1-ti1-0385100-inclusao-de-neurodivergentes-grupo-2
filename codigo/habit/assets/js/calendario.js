@@ -20,9 +20,6 @@ async function renderCarousel(selectedDate, startIndex) {
     // Array com os nomes dos dias da semana em inglês (abreviados)
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-    // Calcula o índice do dia selecionado
-    const selectedIndex = data.findIndex(item => item.day === selectedDate);
-
     // Calcula o intervalo de datas para exibir no carrossel
     const endIndex = Math.min(data.length - 1, startIndex + 6); // Fim do intervalo (no máximo o último índice)
 
@@ -36,7 +33,6 @@ async function renderCarousel(selectedDate, startIndex) {
         dayElement.dataset.day = item.day; // Armazena o dia como um atributo de dados
         carousel.appendChild(dayElement);
     }
-
     // Adiciona um evento de clique para destacar o dia selecionado e mostrar as tarefas
     carousel.addEventListener('click', event => {
         const selectedDay = event.target.closest('.day');
@@ -46,6 +42,25 @@ async function renderCarousel(selectedDate, startIndex) {
             selectedDay.classList.add('selected');
             const day = selectedDay.dataset.day;
             renderTaskInfo(day);
+        }
+    });
+
+    // Destaque os dias com alta importância após o carrossel ser renderizado
+    highlightDaysWithHighImportance(data);
+}
+
+// Função para destacar os dias com alta importância com um círculo vermelho
+function highlightDaysWithHighImportance(data) {
+    const daysWithHighImportance = data.filter(item => item.importancia === 'alta');
+    const days = document.querySelectorAll('.day');
+    days.forEach(day => {
+        const dayElement = day.querySelector('div:nth-child(2)');
+        const dayNumber = dayElement.textContent; // Obtém o número do dia dentro do div.day
+        const hasHighImportance = daysWithHighImportance.some(item => item.day === parseInt(dayNumber));
+        if (hasHighImportance) {
+            const circle = document.createElement('div'); // Crie um novo elemento para o círculo
+            circle.classList.add('circle');
+            day.appendChild(circle); // Adicione o círculo como filho do elemento do dia
         }
     });
 }
@@ -61,13 +76,26 @@ async function renderTaskInfo(day) {
 
     // Divide as tarefas em períodos do dia: manhã, dia todo e tarde
     const morningTasks = tasks.filter(task => task.period === 'morning');
-    const fullDayTasks = tasks.filter(task => task.period === 'fulltime');
-    const afternoonTasks = tasks.filter(task => task.period === 'nigth');
+    const nightTasks = tasks.filter(task => task.period === 'night'); // Corrigido para 'night'
+
+    // Calcula a contagem total de tarefas para o período "fulltime"
+    const fullTimeTaskCount = morningTasks.length + nightTasks.length;
 
     // Renderiza as informações de tarefas em cada período do dia
     renderTaskPeriodInfo('Morning', morningTasks.length, 'morning');
-    renderTaskPeriodInfo('Fulltime', fullDayTasks.length, 'fulltime');
-    renderTaskPeriodInfo('Nigth', afternoonTasks.length, 'nigth');
+    renderTaskPeriodInfo('Fulltime', fullTimeTaskCount, 'fulltime');
+    renderTaskPeriodInfo('Night', nightTasks.length, 'night'); // Corrigido para 'night'
+}
+
+function renderTaskPeriodInfo(period, taskCount, periodClass) {
+    const imageCarousel = document.getElementById('carousel-tarefas'); // Corrigido para 'carousel-tarefas'
+    let periodElement = document.querySelector(`.${periodClass}`);
+    if (!periodElement) {
+        periodElement = document.createElement('div');
+        periodElement.classList.add('task-period', periodClass);
+        imageCarousel.appendChild(periodElement); // Corrigido para adicionar 'periodElement' ao 'imageCarousel'
+    }
+    periodElement.textContent = `${period} \n ${taskCount}`;
 }
 
 // Chamada inicial para renderizar o carrossel com a data atual e índice inicial
@@ -90,15 +118,3 @@ arrowRight.addEventListener('click', () => {
     startIndex += 7;
     renderCarousel(currentDate, startIndex);
 });
-
-// Função para renderizar as informações de tarefas em um período do dia específico
-function renderTaskPeriodInfo(period, taskCount, periodClass) {
-    const imageCarousel = document.getElementById('imageCarousel');
-    let periodElement = document.querySelector(`.${periodClass}`);
-    if (!periodElement) {
-        periodElement = document.createElement('div');
-        periodElement.classList.add('task-period', periodClass);
-        imageCarousel.appendChild();
-    }
-    periodElement.textContent = `${period} \n ${taskCount}`;
-}
