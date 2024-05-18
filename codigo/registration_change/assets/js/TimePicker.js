@@ -40,7 +40,6 @@ export function buildTimePicker(){
 }
 export function selectHandle(timePicker, type){
     const selects = getSelectsFromSelection(timePicker);
-    console.log(selects);
     var data = {type: type,
         hour:"00", 
         minute:"00", 
