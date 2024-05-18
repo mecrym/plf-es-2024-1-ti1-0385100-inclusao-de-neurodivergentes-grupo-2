@@ -23,7 +23,6 @@ export function saveToServer(taskData){
     .then(response => response.json())
     .then(data => {
         console.log('Dados salvos com sucesso:', taskData);
-        // Aqui você pode realizar outras operações após o salvamento
     })
     .catch(error => {
         console.error('Erro ao salvar task via API JSONServer:', error);

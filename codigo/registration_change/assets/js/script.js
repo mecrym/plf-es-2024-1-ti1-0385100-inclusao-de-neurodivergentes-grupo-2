@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, false);
 
     function removeExistingSections() {
-        const sections = document.querySelectorAll('.container-select-completion, .container-select, .completed-task');
+        const sections = document.querySelectorAll('.container-select-completion, .container-select, .completed-task, .removeExistingSections, .container-date ');
         sections.forEach(section => {
             section.remove();
         });

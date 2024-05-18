@@ -45,16 +45,21 @@ export function selectHandle(timePicker, type,data){
     selects.hour.addEventListener('change', () => {
         data[type].hour = Number(selects.hour.value);
         LocalStorage.dataSave("data",data);
+        Server.saveToServer(data);
+
     });
 
     selects.minute.addEventListener('change', () => {
         data[type].minute = Number(selects.minute.value);
         LocalStorage.dataSave("data",data);
+        Server.saveToServer(data);
     });
 
     selects.meridiem.addEventListener('change', () => {
         data[type].meridiem = selects.meridiem.value;
         LocalStorage.dataSave("data",data);
+        Server.saveToServer(data);
+
     });
     
 
