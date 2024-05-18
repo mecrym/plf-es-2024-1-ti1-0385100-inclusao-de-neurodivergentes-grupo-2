@@ -1,3 +1,5 @@
+import * as Server from './serverHandle.js';
+import * as LocalStorage from './LocalStorage.js';
 
 
  export function getSelectsFromSelection(timePicker){
@@ -38,35 +40,23 @@ export function buildTimePicker(){
     `;
     return divInput;
 }
-export function selectHandle(timePicker, type){
+export function selectHandle(timePicker, type,data){
     const selects = getSelectsFromSelection(timePicker);
-    var data = {type: type,
-        hour:"00", 
-        minute:"00", 
-        meridiem:"am"
-        };
-     /*Default values*/ 
-  
     selects.hour.addEventListener('change', () => {
-        console.log('Selected time:', selects.hour.value);
-        data.hour = selects.hour.value;
-        console.log(data);
+        data[type].hour = Number(selects.hour.value);
+        LocalStorage.dataSave("data",data);
     });
 
     selects.minute.addEventListener('change', () => {
-        console.log('Selected minute:', selects.minute.value);
-        data.minute = selects.minute.value;
-        console.log(data);
+        data[type].minute = Number(selects.minute.value);
+        LocalStorage.dataSave("data",data);
     });
 
     selects.meridiem.addEventListener('change', () => {
-        console.log('Selected period:', selects.meridiem.value);
-        data.meridiem = selects.meridiem.value;
-        console.log(data);
+        data[type].meridiem = selects.meridiem.value;
+        LocalStorage.dataSave("data",data);
     });
-    console.log(data);
     
-    return data;
 
 }
 

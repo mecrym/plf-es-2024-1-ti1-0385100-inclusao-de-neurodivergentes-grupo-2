@@ -1,7 +1,10 @@
 import * as TimePicker from './TimePicker.js';
 import * as CreateElements from './CreateElements.js';
+//import * as Server from './serverHandle.js';
+import * as LocalStorage from './LocalStorage.js';
 
 document.addEventListener('DOMContentLoaded', function () {
+    
     const buttonDone = document.querySelector('#addBtn');
     const addBtn2 = document.querySelector('#addText');
     const containerTextDiv = document.querySelector('.container-text');
@@ -11,7 +14,29 @@ document.addEventListener('DOMContentLoaded', function () {
     var textP = divP.childNodes;
     var onClick = true;
     var selectCompletionCreated = false;
-
+    var data = {
+        category: "Sports",
+        completion: checkboxDone.checked,
+        startTime: {
+            hour: 0,
+            minute: 0,
+            meridiem: "am"
+        },
+        endTime: {
+            hour: 0,
+            minute: 0,
+            meridiem: "pm"
+        },
+        message:"Add your text",
+        title:"Add your title",
+    }
+    LocalStorage.dataSave("data",data);
+    /* var db = []
+        readContato(dados => {
+            db = dados;
+            ListaContatos()
+        });*/
+    
     function attachEventListeners() {
         const checkboxDone = document.querySelector('#switchBtn2');
         const checkbox = document.querySelector('#switch');
@@ -45,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     addBtn2.addEventListener('click', (event) => {
         if (onClick) {
+            var data = {"message":""};
             onClick = false;
             console.log("on click");
             containerTextDiv.style.height = '100%';
@@ -57,10 +83,22 @@ document.addEventListener('DOMContentLoaded', function () {
             textArea.setAttribute("rows", "10");
             textArea.setAttribute("cols", "25");
             textArea.setAttribute("class", "text");
-            textArea.textContent = "Add your text";
+            textArea.textContent = LocalStorage.dataLoad("message");
             containerTextDiv.appendChild(textArea);
             var elementParent = elementChild.parentNode;
             elementParent.insertBefore(containerTextDiv, elementChild);
+            var title = document.querySelector('#textTitle');
+            data.title = title;
+            LocalStorage.dataSave(title);
+            const titleElement = document.querySelector('.text');
+            if(titleElement){
+                var titleValue = titleElement.value;
+                data.title = titleValue;
+                console.log(`O valor de title eh : ${titleValue}`);
+                LocalStorage.dataSave("data",data);
+            }
+            
+            
         } else {
             onClick = true;
             console.log("is not clicked");
@@ -163,8 +201,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var timePickerEnd = timePickers[1];
 
         try {
-            TimePicker.selectHandle(timePickerStart, "start");
-            TimePicker.selectHandle(timePickerEnd, "end");
+            TimePicker.selectHandle(timePickerStart, "startTime",data);
+            TimePicker.selectHandle(timePickerEnd, "endTime",data);
         } catch (error) {
             console.error(error.message);
         }
