@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             onClick = false;
             console.log("on click");
             containerTextDiv.style.height = '100%';
-            addBtn2.src = "/assets/images/minus.svg";
+            addBtn2.src = "../assets/images/minus.svg";
             textP[1].textContent = data.title;
             textP[1].style.color = '#FFC700';
             removeExistingSections();
