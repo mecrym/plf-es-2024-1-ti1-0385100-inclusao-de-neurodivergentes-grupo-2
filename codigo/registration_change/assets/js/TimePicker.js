@@ -14,10 +14,10 @@ import * as LocalStorage from './LocalStorage.js';
         meridiem
     };
 }
-function addOptions(number){
+function addOptions(number,selectedValue){
     const padded = number.toString().padStart(2,"0"); /* if is a signle number like 5, add 0 on the left side ex: 05*/ 
-
-    return `<option value="${padded}">${padded}</option>`;
+    const isSelected = number === selectedValue ? ' selected' : '';/* number in array is equal to value on local storage? if is true is selected but if isnot is '' */
+    return `<option value="${padded}"${isSelected}>${padded}</option>`;
 }
 export function buildTimePicker(initialTime){
     var divInput = document.createElement("div");
@@ -33,8 +33,8 @@ export function buildTimePicker(initialTime){
         ${minuteOptions.join("")}
     </select>
     <select class="time-picker__select" id="am-pm">
-        <option value="am">AM</option>
-        <option value="pm">PM</option>
+    <option value="am"${initialTime.meridiem === 'am' ? ' selected' : ''}>AM</option>
+    <option value="pm"${initialTime.meridiem === 'pm' ? ' selected' : ''}>PM</option>
     </select>
     
     `;

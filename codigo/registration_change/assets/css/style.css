@@ -154,7 +154,9 @@ input:checked + label {
   background: #09A321;
 
 }
-
+.greenFlag {
+  border-color: #09A321;
+}
 input:checked + label:after {
 
   background: #ffffff;  

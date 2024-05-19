@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
             ListaTask()
         });*/
     function dataHandle(data){
+        const checkboxDone = document.querySelector('#switchBtn2');
+        const checkbox = document.querySelector('#switch');
+        const sectionDone = document.querySelector('.completed-task');
+
         if(data==null){
             data = {
                 category: "Sports",
@@ -50,6 +54,22 @@ document.addEventListener('DOMContentLoaded', function () {
             data.title = "Add your title";
             LocalStorage.dataSave("data",data);
         }
+        if(data.completion == true){
+            checkboxDone.checked = true; 
+            checkboxDone.classList.add('greenFlag');
+            checkbox.classList.remove('greenFlag'); 
+            removeTimePickerSections();
+            sectionDone.style.visibility = "visible";
+            checkbox.setAttribute("disabled", true);
+
+        }else{
+            checkbox.checked = true; 
+            checkboxDone.classList.remove('greenFlag');
+            checkbox.classList.add('greenFlag'); 
+            createOrUpdateTimePickerSections();
+            sectionDone.style.visibility = "hidden";
+        }
+        
 
     }
     function titleHandle(data){
@@ -64,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const textArea = document.querySelector('.text');
         data = LocalStorage.dataLoad("data");
         dataHandle(data);
+
         if(textArea){
             textArea.addEventListener('input', function() {
                 data.message =  textArea.value;
-            console.log(`O valor de data eh ${JSON.stringify(data)}`);
                 LocalStorage.dataSave("data", data);
 
             });
@@ -80,11 +100,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         if (checkboxDone) {
             checkboxDone.addEventListener('change', () => {
+                let check;
                 if (checkboxDone.checked) {
                     console.log("checked 2° btn");
                     checkbox.setAttribute("disabled", true);
+                    check = true;
+                    data.completion = check;
+                    LocalStorage.dataSave("data",data);
+                    console.log(`the value of checked is ${data.completion}`);
+                   
                 } else {
                     checkbox.removeAttribute('disabled');
+                    check = false;
+                    data.completion = check;
+                    console.log(`the value of checked is ${data.completion}`);
+                    LocalStorage.dataSave("data",data);
                 }
             });
         }
@@ -198,6 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createOrUpdateTimePickerSections() {
+        removeTimePickerSections();
         var section = document.createElement("section");
         section.setAttribute("class", "container-date");
         var text = document.createElement('p');
@@ -205,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
         text.style.marginTop = '-100px';
         section.appendChild(text);
         let elementChild = document.querySelector('body > main > section.add-button');
-        var divTimePicker = TimePicker.buildTimePicker(data["endTime:"]);
+        var divTimePicker = TimePicker.buildTimePicker(data.endTime);
         section.appendChild(divTimePicker);
 
         var elementParent = elementChild.parentNode;
@@ -218,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
         textStart.style.marginTop = '-200px';
         sectionStart.appendChild(textStart);
         elementChild = document.querySelector('body > main > section.container-date');
-        divTimePicker = TimePicker.buildTimePicker(data["startTime:"]);
+        divTimePicker = TimePicker.buildTimePicker(data.startTime);
         divTimePicker.style.marginTop = '-100px';
         sectionStart.appendChild(divTimePicker);
         elementParent = elementChild.parentNode;
