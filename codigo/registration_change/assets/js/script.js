@@ -9,38 +9,75 @@ document.addEventListener('DOMContentLoaded', function () {
     const addBtn2 = document.querySelector('#addText');
     const containerTextDiv = document.querySelector('.container-text');
     const divP = document.querySelector('.container-p');
-    const checkboxDone = document.querySelector('#switchBtn2');
-    const checkbox = document.querySelector('#switch');
     var textP = divP.childNodes;
     var onClick = true;
     var selectCompletionCreated = false;
-    var data = {
-        category: "Sports",
-        completion: checkboxDone.checked,
-        startTime: {
-            hour: 0,
-            minute: 0,
-            meridiem: "am"
-        },
-        endTime: {
-            hour: 0,
-            minute: 0,
-            meridiem: "pm"
-        },
-        message:"Add your text",
-        title:"Add your title",
-    }
-    LocalStorage.dataSave("data",data);
+    var data = LocalStorage.dataLoad("data");
+    dataHandle(data);
+    console.log(data);
+    titleHandle(data);
+   // console.log(`pego do locla storage ${JSON.stringify(LocalStorage.dataLoad("data"))}`);
     /* var db = []
         readContato(dados => {
             db = dados;
-            ListaContatos()
+            ListaTask()
         });*/
-    
+    function dataHandle(data){
+        if(data==null){
+            data = {
+                category: "Sports",
+                completion: false,
+                startTime: {
+                    hour: 0,
+                    minute: 0,
+                    meridiem: "am"
+                },
+                endTime: {
+                    hour: 0,
+                    minute: 0,
+                    meridiem: "pm"
+                },
+                message:"Add your text",
+                title:"Add your title"
+            }
+            LocalStorage.dataSave("data",data);
+        }
+        if(data.message==""){
+            data.message = "Add your text";
+            LocalStorage.dataSave("data",data);
+        }
+        if(data.title==""){
+            data.title = "Add your title";
+            LocalStorage.dataSave("data",data);
+        }
+
+    }
+    function titleHandle(data){
+        const titleArea = document.querySelector('#textTitle');
+        titleArea.textContent = data.title;
+
+    }
     function attachEventListeners() {
         const checkboxDone = document.querySelector('#switchBtn2');
         const checkbox = document.querySelector('#switch');
+        const titleArea = document.querySelector('#textTitle');
+        const textArea = document.querySelector('.text');
+        data = LocalStorage.dataLoad("data");
+        dataHandle(data);
+        if(textArea){
+            textArea.addEventListener('input', function() {
+                data.message =  textArea.value;
+            console.log(`O valor de data eh ${JSON.stringify(data)}`);
+                LocalStorage.dataSave("data", data);
 
+            });
+        }
+        titleArea.addEventListener('input', function() {
+            data.title =  titleArea.value;
+        //    console.log(`O valor de data eh ${JSON.stringify(data)}`);
+            LocalStorage.dataSave("data", data);
+
+        });
         if (checkboxDone) {
             checkboxDone.addEventListener('change', () => {
                 if (checkboxDone.checked) {
@@ -69,13 +106,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     addBtn2.addEventListener('click', (event) => {
+
         if (onClick) {
-            var data = {"message":""};
             onClick = false;
             console.log("on click");
             containerTextDiv.style.height = '100%';
             addBtn2.src = "/assets/images/minus.svg";
-            textP[1].textContent = "Add your title";
+            textP[1].textContent = data.title;
             textP[1].style.color = '#FFC700';
             removeExistingSections();
             var textArea = document.createElement("textarea");
@@ -83,22 +120,12 @@ document.addEventListener('DOMContentLoaded', function () {
             textArea.setAttribute("rows", "10");
             textArea.setAttribute("cols", "25");
             textArea.setAttribute("class", "text");
-            textArea.textContent = LocalStorage.dataLoad("message");
+             
+            textArea.textContent = data.message;
             containerTextDiv.appendChild(textArea);
             var elementParent = elementChild.parentNode;
             elementParent.insertBefore(containerTextDiv, elementChild);
-            var title = document.querySelector('#textTitle');
-            data.title = title;
-            LocalStorage.dataSave(title);
-            const titleElement = document.querySelector('.text');
-            if(titleElement){
-                var titleValue = titleElement.value;
-                data.title = titleValue;
-                console.log(`O valor de title eh : ${titleValue}`);
-                LocalStorage.dataSave("data",data);
-            }
-            
-            
+            attachEventListeners();     
         } else {
             onClick = true;
             console.log("is not clicked");
@@ -154,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 attachEventListeners(); 
             }
+             
         }
     }, false);
 
@@ -177,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         text.style.marginTop = '-100px';
         section.appendChild(text);
         let elementChild = document.querySelector('body > main > section.add-button');
-        var divTimePicker = TimePicker.buildTimePicker();
+        var divTimePicker = TimePicker.buildTimePicker(data["endTime:"]);
         section.appendChild(divTimePicker);
 
         var elementParent = elementChild.parentNode;
@@ -190,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
         textStart.style.marginTop = '-200px';
         sectionStart.appendChild(textStart);
         elementChild = document.querySelector('body > main > section.container-date');
-        divTimePicker = TimePicker.buildTimePicker();
+        divTimePicker = TimePicker.buildTimePicker(data["startTime:"]);
         divTimePicker.style.marginTop = '-100px';
         sectionStart.appendChild(divTimePicker);
         elementParent = elementChild.parentNode;
@@ -216,4 +244,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     attachEventListeners(); 
+
 });
