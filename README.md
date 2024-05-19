@@ -4,10 +4,12 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
 
-* Pénelope Cristine Loures Antunes
+
 * Bruna Costa Markowisk
-* Maria Eduarda Constância Rocha Moreira
 * Cauã Homero Gonçalves Rodrigues
+* Maria Eduarda Constância Rocha Moreira
+* Pénelope Cristine Loures Antunes
+  
 
 ## Professores responsáveis
 
