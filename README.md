@@ -1,6 +1,6 @@
-# Nome do projeto
+# HabitR - Inclusão de neurodivergentes (TDAH)
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+O objetivo deste projeto é oferecer uma interface simples e minimalista que permite adicionar, gerenciar e acompanhar gráficos de desempenho do usuário na realização de tarefas pendentes e hábitos saudáveis.
 
 ## Alunos integrantes da equipe
 
