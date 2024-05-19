@@ -23,10 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
             ListaTask()
         });*/
     function dataHandle(data){
-        const checkboxDone = document.querySelector('#switchBtn2');
-        const checkbox = document.querySelector('#switch');
-        const sectionDone = document.querySelector('.completed-task');
-
+        
+      
         if(data==null){
             data = {
                 category: "Sports",
@@ -46,29 +44,38 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             LocalStorage.dataSave("data",data);
         }
-        if(data.message==""){
-            data.message = "Add your text";
-            LocalStorage.dataSave("data",data);
+        else{
+            const checkboxDone = document.querySelector('#switchBtn2');
+            const checkbox = document.querySelector('#switch');
+            const sectionDone = document.querySelector('.completed-task');
+            if(data.message==""){
+                data.message = "Add your text";
+                LocalStorage.dataSave("data",data);
+            }
+            if(data.title==""){
+                data.title = "Add your title";
+                LocalStorage.dataSave("data",data);
+            }
+            if(checkbox){
+                if(data.completion == true){
+                    checkboxDone.checked = true; 
+                    checkboxDone.classList.add('greenFlag');
+                    checkbox.classList.remove('greenFlag'); 
+                    removeTimePickerSections();
+                    sectionDone.style.visibility = "visible";
+                    checkbox.setAttribute("disabled", true);
+        
+                }else{
+                    checkbox.checked = true; 
+                    checkboxDone.classList.remove('greenFlag');
+                    checkbox.classList.add('greenFlag'); 
+                    createOrUpdateTimePickerSections();
+                    sectionDone.style.visibility = "hidden";
+                }
+            }
+           
         }
-        if(data.title==""){
-            data.title = "Add your title";
-            LocalStorage.dataSave("data",data);
-        }
-        if(data.completion == true){
-            checkboxDone.checked = true; 
-            checkboxDone.classList.add('greenFlag');
-            checkbox.classList.remove('greenFlag'); 
-            removeTimePickerSections();
-            sectionDone.style.visibility = "visible";
-            checkbox.setAttribute("disabled", true);
-
-        }else{
-            checkbox.checked = true; 
-            checkboxDone.classList.remove('greenFlag');
-            checkbox.classList.add('greenFlag'); 
-            createOrUpdateTimePickerSections();
-            sectionDone.style.visibility = "hidden";
-        }
+        
         
 
     }
@@ -92,12 +99,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             });
         }
-        titleArea.addEventListener('input', function() {
-            data.title =  titleArea.value;
-        //    console.log(`O valor de data eh ${JSON.stringify(data)}`);
-            LocalStorage.dataSave("data", data);
-
-        });
+        if(titleArea){
+            titleArea.addEventListener('input', function() {
+                data.title =  titleArea.value;
+            //    console.log(`O valor de data eh ${JSON.stringify(data)}`);
+                LocalStorage.dataSave("data", data);
+    
+            });
+        }
+        
         if (checkboxDone) {
             checkboxDone.addEventListener('change', () => {
                 let check;
