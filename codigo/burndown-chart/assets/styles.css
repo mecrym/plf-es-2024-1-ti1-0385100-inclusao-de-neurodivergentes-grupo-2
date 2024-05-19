@@ -1,0 +1,74 @@
+body {
+    background-color: #0c1a2b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.canvas-container {
+    position: relative;
+    width: 90%; 
+    max-width: 600px; 
+    margin: 20px auto; 
+}
+
+canvas {
+    background-color: #112233;
+    border: 1px solid #67ffff;
+    width: 100%; 
+}
+
+.buttonShow{
+    display: flex;
+    justify-content: center;
+}
+button#durationCalc {
+    font-family: Arial, sans-serif;
+    background-color: #f39c12;
+    color: #112233;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button#durationCalc:hover {
+    background-color: #e08e0b;
+}
+.tasks {
+    color: #f39c12;
+    text-align: left;
+    margin-left: 0 auto; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column; 
+}
+
+.tasks div {
+    margin: 5px ;
+}
+
+.tasks span {
+    color: #ED3AFC;
+}
+
+.footer-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Altura do gradient no final da página */
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
+    z-index: -1;
+}
+@media screen and (max-width: 768px) {
+    #myChart {
+        height:300px !important;
+    }
+}
