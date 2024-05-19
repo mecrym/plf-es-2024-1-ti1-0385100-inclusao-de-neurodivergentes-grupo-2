@@ -50,7 +50,7 @@ async function renderCarousel(selectedDate, startIndex) {
 }
 
 // Função para destacar os dias com alta importância com um círculo vermelho
-function highlightDaysWithHighImportance(data) {
+/*function highlightDaysWithHighImportance(data) {
     const daysWithHighImportance = data.filter(item => item.importancia === 'alta');
     const days = document.querySelectorAll('.day');
     days.forEach(day => {
@@ -63,7 +63,7 @@ function highlightDaysWithHighImportance(data) {
             day.appendChild(circle); // Adicione o círculo como filho do elemento do dia
         }
     });
-}
+}*/
 
 // Função para renderizar as informações da tarefa para o dia selecionado
 async function renderTaskInfo(day) {
@@ -76,10 +76,13 @@ async function renderTaskInfo(day) {
 
     // Divide as tarefas em períodos do dia: manhã, dia todo e tarde
     const morningTasks = tasks.filter(task => task.period === 'morning');
+
     const nightTasks = tasks.filter(task => task.period === 'night'); // Corrigido para 'night'
 
     // Calcula a contagem total de tarefas para o período "fulltime"
     const fullTimeTaskCount = morningTasks.length + nightTasks.length;
+    
+
 
     // Renderiza as informações de tarefas em cada período do dia
     renderTaskPeriodInfo('Morning', morningTasks.length, 'morning');
@@ -95,7 +98,7 @@ function renderTaskPeriodInfo(period, taskCount, periodClass) {
         periodElement.classList.add('task-period', periodClass);
         imageCarousel.appendChild(periodElement); // Corrigido para adicionar 'periodElement' ao 'imageCarousel'
     }
-    periodElement.textContent = `${period} \n ${taskCount}`;
+    periodElement.textContent = `${period}  ${taskCount}`;
 }
 
 // Chamada inicial para renderizar o carrossel com a data atual e índice inicial

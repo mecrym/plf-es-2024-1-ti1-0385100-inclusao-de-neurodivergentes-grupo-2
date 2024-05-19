@@ -12,7 +12,7 @@ body {
     font-family: "Istok Web", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #FFFFFF;
+    color: #e4e0e0;
     font-size: 1.3rem;
 }
 
@@ -26,17 +26,9 @@ h1 {
     text-align: center;
 }
 
-.footer-gradient {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px; /* Altura do gradient no final da página */
-    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
-}
+
 
 header {
-    background-color: #0D1C2E;
     color: #FFFFFF;
     padding: 10px 0;
     text-align: center;
@@ -62,14 +54,12 @@ header {
 
 .navbar li a {
     display: block;
-    outline: 1px solid #ddd;
-    padding: 20px;
-    border-right: 1px solid #ddd;
+    padding: 300px;
     text-decoration: none;
 }
 
 .navbar ul a:hover {
-    background-color: #ddd;
+    background-color: rgba(56, 54, 54, 0.5);
 }
 
 .navbar .logo {
@@ -264,40 +254,18 @@ header {
 }
 
 #texto-m{
-    font-size: 12px;
-    align-items: center;
+    font-size: 5px;
     text-align: center;
+    margin-top: 20px;
+    font-family: "Istok Web", sans-serif;
     font-weight: 400;
 }
 
-#texto-f{
-    font-size: 12px;
-    align-items: center;
-    text-align: center;
-    font-weight: 400;
-}
-
-#texto-n{
-    font-size: 12px;
-    align-items: center;
-    text-align: center;
-    font-weight: 400;
-}
-
-
-/* Estilo para o círculo de alta importância */
-.high-importance {
-    position: relative;
-}
-
-.high-importance:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px; /* Tamanho do círculo */
-    height: 20px; /* Tamanho do círculo */
-    border-radius: 50%; /* Faz com que o elemento seja um círculo */
-    background-color: red; /* Cor do círculo */
+.footer-gradient {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Altura do gradient no final da página */
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
 }
