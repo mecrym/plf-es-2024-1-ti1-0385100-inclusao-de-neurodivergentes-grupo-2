@@ -11,6 +11,12 @@ body{
     font-style: normal;
     color: #FFFFFF;
     font-size: 1.3rem; 
+    margin: 0 ;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    
     
 }
 .container-text{
@@ -22,7 +28,8 @@ body{
     margin-right: 10%;
     padding: 24px;
     width: 80%;
-    height: 20%;
+    height: 100px;
+    flex: 1;
  
 }
 .container-text textarea{
@@ -175,12 +182,13 @@ main .add-button button{
     background-color: #ED3AFC;
     text-align: center;
     height: 40px;
-    width: 350px;
+    width: 80%;
     border-radius: 20px;
     font-size: 1.3rem;
     display: block;
     margin:auto;
     margin-top: 50px;
+    margin-bottom: 30px;
 
 }
 .container-date{
@@ -231,12 +239,34 @@ main .add-button button{
   #am-pm{
     background-color: #FFC700;
   }
-  
+ 
 .footer-gradient {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px; /* Altura do gradient no final da página */
-    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin-top: auto;
+  min-height: max-content;
+  height: 100px;
+ 
+ background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
+}
+
+@media (max-width: 399px){
+  
+  .container-p{
+    width: 30%;
+  }
+  .completed-task{
+    justify-content: space-around;
+  }
+  .container-paragraph{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+    
+  }
+  #addBtn{
+    width: 80%;
+  }
 }
