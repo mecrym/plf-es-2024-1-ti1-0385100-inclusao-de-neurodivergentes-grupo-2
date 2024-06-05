@@ -11,13 +11,139 @@ body {
     font-weight: 400;
     font-style: normal;
     color: #e4e0e0;
-    font-size: 1.3rem;
+
 }
 
 .title {
     text-align: center;
     margin-top: 120px;
 }
+
+header {
+    color: #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.navbar {
+    position: fixed;
+    /*isso aq q esta dando bo com o resto*/
+    width: 100%;
+    z-index: auto;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    list-style: none;
+    /*delisga bullet points e numeros*/
+    overflow: hidden;
+    background-color: rgba(27, 27, 27, 0.86);
+}
+
+.navbar li a {
+    display: block;
+    padding: 300px;
+    text-decoration: none;
+}
+
+.navbar ul a:hover {
+    background-color: rgba(56, 54, 54, 0.5);
+}
+
+.navbar .logo {
+    float: left;
+    display: block;
+    font-size: 2em;
+    padding: 10px 20px;
+}
+
+.navbar .menu {
+    clear: both;
+    max-height: 0;
+    /*animação de sair e entrar do menu*/
+}
+
+.navbar .menu-icon {
+    /*para aparecer as três barrinhas lá*/
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.navbar .menu-icon .nav-icon {
+    background-color: #ddd;
+    display: block;
+    height: 2px;
+    width: 18px;
+    /*realy whobly until now*/
+    position: relative;
+    transition: background 0.2s ease-out;
+    /*animação de novo*/
+}
+
+.navbar .menu-icon .nav-icon:before {
+    background: #ddd;
+    content: " ";
+    /*voltar aq*/
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    /*animação de novo*/
+    top: 5px;
+    /*sobe 5px da posição inicial da barrinha, são 3 barrinhas, essa é a segunda*/
+}
+
+.navbar .menu-icon .nav-icon:after {
+    background: #ddd;
+    content: " ";
+    /*voltar aq*/
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    /*animação de novo*/
+    top: -5px;
+    /*desce 5px da posição inicial da barrinha, são 3 barrinhas, essa é a terceira*/
+}
+
+.navbar .menu-btn {
+    display: none;
+}
+
+.navbar .menu-btn:checked~.menu {
+    /*checked: quando o menu está clicado, aparece o menu*/
+    max-height: 100%;
+    /*está animando por causa dos transition lá encima, sem isso só brota do nd*/
+}
+
+.navbar .menu-btn:checked~.menu-icon .nav-icon {
+    background: transparent;
+}
+
+.navbar .menu-btn:checked~.menu-icon .nav-icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.navbar .menu-btn:checked~.menu-icon .nav-icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 120px;
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
 
 .footer-gradient {
     position: fixed;
