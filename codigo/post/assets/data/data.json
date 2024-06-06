@@ -1,0 +1,101 @@
+{
+    "task": [
+      {
+        "id": 12345,
+        "category": "Sports",
+        "completion": false,
+        "startTime": {
+          "hour": 0,
+          "minute": 0,
+          "meridiem": "am"
+        },
+        "endTime": {
+          "hour": 0,
+          "minute": 0,
+          "meridiem": "pm"
+        },
+        "message": "Add your text",
+        "title": "Add your title",
+        "startDate": "2024-06-01",
+        "endDate": "2024-07-02",
+        "reminder": [
+            {
+          "id": 5236,
+              "time": "9:00"
+            }
+      ],
+        "priority":false,
+        "frequency": "daily"
+  
+      }
+    ],
+    "post": [
+      {
+        "name": "Emily",
+        "id": 67891,
+        "profilePhotoUrl": "https://ex.com/profile/emily.jpg",
+        "caption": "At the gym",
+        "photoUrl": "https://example.com/photo.jpg",
+        "likes": [
+          {
+            "name": "Alice",
+            "id": 111213,
+            "profilePhotoUrl": "https://ex.com/profile/alice.jpg"
+          }
+        ],
+        "comments": [
+          {
+            "name": "Peter",
+            "id": 141516,
+            "profilePhotoUrl": "https://ex.com/profile/peter.jpg",
+            "comment": "I need this"
+          }
+        ]
+      }
+    ],
+    "2024-01-01": [
+          {
+              "task_id": "1",
+              "description": "Task 1 on January 1st",
+              "due_date": "2024-01-01",
+              "period": "afternoon",
+              "importance": "low",
+              "conclude": true
+          },
+          {
+              "task_id": "2",
+              "description": "Task 2 on January 1st",
+              "due_date": "2024-01-01",
+              "period": "morning",
+              "importance": "low",
+              "conclude": false
+          }],
+     "ranking": [
+      {
+        "name": "Tomar remédios diariamente",
+        "category": "Saúde Pessoal",
+        "points": 180
+      },
+      {
+        "name": "Lavar vasilhas",
+        "category": "Higiene da Casa",
+        "points": 130
+      },
+      {
+        "name": "Trabalho da faculdade",
+        "category": "Estudos",
+        "points": 220
+      },
+      {
+        "name": "Limpar o quarto",
+        "category": "Higiene da Casa",
+        "points": 100
+      },
+      {
+        "name": "Exercícios físicos",
+        "category": "Saúde Pessoal",
+        "points": 200
+      }
+    ]
+  
+  }
