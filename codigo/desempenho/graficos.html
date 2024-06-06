@@ -30,14 +30,21 @@
     
     <h1>Performace</h1>
 
-    <div class="calendarControl-container">
-        <div id="calendarControl-container">
-            <div class="carousel" id="carousel"></div>
+    <div id="carousel-container">
+        <div class="buttons">
+            <button class="carousel-button"
+                onclick="showPeriod('day')">Day</button>
+            <button class="carousel-button"
+                onclick="showPeriod('week')">Week</button>
+            <button class="carousel-button"
+                onclick="showPeriod('month')">Month</button>
+            <button class="carousel-button"
+                onclick="showPeriod('year')">Year</button>
         </div>
-        <div class="task-info" id="taskInfo"></div>
     </div>
 
 </body>
 <footer class="footer-gradient"></footer>
 <script src="assets\js\script.js"></script>
+
 </html>

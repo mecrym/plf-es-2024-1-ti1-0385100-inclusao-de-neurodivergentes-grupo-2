@@ -144,6 +144,29 @@ h1 {
     font-size: 2rem;
 }
 
+#carousel-container {
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+.carousel-button {
+    background-color: #0D1C2E;
+    color: #ddd;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: #ddd 1px solid;
+}
+.carousel-button:hover {
+    background-color: #ffcc00;
+    color:#0D1C2E;
+    font-weight: 600;
+}
 
 .footer-gradient {
     position: fixed;
