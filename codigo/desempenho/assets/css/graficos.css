@@ -1,0 +1,224 @@
+/* Reset de estilos e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body */
+body {
+    background-color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #e4e0e0;
+}
+
+/* Título principal */
+.title {
+    text-align: center;
+    margin-top: 120px;
+}
+
+/* Cabeçalho */
+header {
+    color: #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Barra de navegação */
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: auto;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    list-style: none;
+    overflow: hidden;
+    background-color: rgba(27, 27, 27, 0.86);
+}
+
+.navbar li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.navbar ul a:hover {
+    background-color: rgba(56, 54, 54, 0.5);
+}
+
+.navbar .logo {
+    float: left;
+    display: block;
+    font-size: 2em;
+    padding: 10px 20px;
+}
+
+.navbar .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}
+
+.navbar .menu-icon {
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.navbar .menu-icon .nav-icon {
+    background-color: #ddd;
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition: background 0.2s ease-out;
+}
+
+.navbar .menu-icon .nav-icon:before {
+    background: #ddd;
+    content: " ";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    top: 5px;
+}
+
+.navbar .menu-icon .nav-icon:after {
+    background: #ddd;
+    content: " ";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    top: -5px;
+}
+
+.navbar .menu-btn {
+    display: none;
+}
+
+.navbar .menu-btn:checked ~ .menu {
+    max-height: 100%;
+}
+
+.navbar .menu-btn:checked ~ .menu-icon .nav-icon {
+    background: transparent;
+}
+
+.navbar .menu-btn:checked ~ .menu-icon .nav-icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.navbar .menu-btn:checked ~ .menu-icon .nav-icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/* Estilo do h1 */
+h1 {
+    text-align: center;
+    margin-top: 120px;
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+/* Contêiner do carrossel */
+#carousel-container {
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: #ddd 1px solid;
+    border-radius: 5px;
+    background-color: #0D1C2E;
+
+
+}
+
+#day, #week, #month, #year {
+
+    flex: 1;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.0);
+    font-family: "Istok Web", sans-serif;
+    color: #ddd;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+
+#week, #month, #year {
+    border-left: #ddd 1px solid;
+}
+
+
+#day:hover, #week:hover, #month:hover, #year:hover {
+    background-color: #ffcc00;
+    border: #ddd 1px solid;
+    color: #0D1C2E;
+    font-weight: 600;
+}
+
+/* Gradiente do rodapé */
+.footer-gradient {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E);
+}
+
+/* Contêiner principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #0D1C2E;
+    color: #e4e0e0;
+}
+
+/* Contêiner do gráfico */
+#chart-container {
+    position: relative;
+    height: 400px;
+    margin-top: 20px;
+}
+
+/* Contêiner do dropdown */
+#dropdown-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+select {
+    background-color: #0D1C2E;
+    color: #e4e0e0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    cursor: pointer;
+}
