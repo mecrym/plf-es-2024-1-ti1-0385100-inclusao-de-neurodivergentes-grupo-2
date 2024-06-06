@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graficos de desempenho</title>
-    <link rel="stylesheet" href="assets\css\graficos.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Jersey+20&display=swap" rel="stylesheet">
-</head>
+    <title>Task Visualization</title>
+    <link rel="stylesheet" href=" assets\css\graficos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head
 <body>
 
     <header>
@@ -27,24 +25,37 @@
             <!--/div-->
         </nav>
     </header>
-    
+
     <h1>Performace</h1>
 
     <div id="carousel-container">
+
         <div class="buttons">
-            <button class="carousel-button"
-                onclick="showPeriod('day')">Day</button>
-            <button class="carousel-button"
-                onclick="showPeriod('week')">Week</button>
-            <button class="carousel-button"
-                onclick="showPeriod('month')">Month</button>
-            <button class="carousel-button"
-                onclick="showPeriod('year')">Year</button>
+            <button id="day">Day</button>
+            <button id="week">Week</button>
+            <button id="month">Month</button>
+            <button id="year">Year</button>
+        </div>
+        <div id="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+        <div id="dropdown-container">
+            <select id="month-select" style="display: none;">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+            </select>
         </div>
     </div>
-
+    <script src="script.js"></script>
 </body>
-<footer class="footer-gradient"></footer>
-<script src="assets\js\script.js"></script>
-
 </html>
