@@ -127,7 +127,8 @@ h1 {
     text-align: center;
     margin-top: 60px;
     color: #FFFFFF;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 20px;/*utilizar media query para adaptar para computador*/
 }
 
 /* Contêiner do carrossel */
@@ -159,7 +160,7 @@ h1 {
     font-family: "Istok Web", sans-serif;
     color: #ddd;
     padding: 10px;
-    cursor: pinter;
+    cursor: pointer;
     
 }
 
@@ -168,7 +169,7 @@ h1 {
 }
 
 
-#day:hover #week:hover, #month:hover, #year:hover {
+#day:hover, #week:hover, #month:hover, #year:hover {
     background-color: #ffcc00;
     border: #ddd 1px solid;
     color: #0D1C2E;

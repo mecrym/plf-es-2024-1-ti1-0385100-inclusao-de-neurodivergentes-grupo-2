@@ -123,9 +123,9 @@ function updateChart(chart, labels, data, title) {
         datasets: [{
             label: 'Completed Tasks',
             data: data,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'none',
-            borderWidth: 1
+            backgroundColor: '#f1c40f',
+            borderColor: '#f1c40f',
+            Width: 1
         }]
     };
     chart.options = {
