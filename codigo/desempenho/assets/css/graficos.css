@@ -15,18 +15,12 @@ body {
     color: #e4e0e0;
 }
 
-/* Título principal */
-.title {
-    text-align: center;
-    margin-top: 120px;
-}
-
 /* Cabeçalho */
 header {
     color: #FFFFFF;
     padding: 10px 0;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 /* Barra de navegação */
@@ -131,9 +125,9 @@ header {
 /* Estilo do h1 */
 h1 {
     text-align: center;
-    margin-top: 120px;
+    margin-top: 60px;
     color: #FFFFFF;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 /* Contêiner do carrossel */
@@ -147,6 +141,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     max-width: 50%;
+    min-width: fit-content;
     margin: 0 auto;
     margin-top: 20px;
     border: #ddd 1px solid;
@@ -164,7 +159,7 @@ h1 {
     font-family: "Istok Web", sans-serif;
     color: #ddd;
     padding: 10px;
-    cursor: pointer;
+    cursor: pinter;
     
 }
 
@@ -173,7 +168,7 @@ h1 {
 }
 
 
-#day:hover, #week:hover, #month:hover, #year:hover {
+#day:hover #week:hover, #month:hover, #year:hover {
     background-color: #ffcc00;
     border: #ddd 1px solid;
     color: #0D1C2E;
@@ -191,28 +186,30 @@ h1 {
 }
 
 /* Contêiner principal */
-.container {
-    max-width: 800px;
+#carousel-container {
+    max-width: 70%;
+
     margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #0D1C2E;
-    color: #e4e0e0;
+    margin-top: 50px;
+
 }
 
+/*corrigir erro de renderização do grafico pq ele não é pequeno o suficiente*/
 /* Contêiner do gráfico */
 #chart-container {
     position: relative;
-    height: 400px;
+    min-height: 2000px;
     margin-top: 20px;
-}
 
+}
+/*outro erro: o conteiner do dropdown n muda em nd msm alterando o css
+**devo deixar o tamanho dele menor tbm*/
 /* Contêiner do dropdown */
 #dropdown-container {
-    text-align: center;
+    align-items: left;
+    text-align: left;
     margin-top: 20px;
+    margin-left: 5%;
 }
 
 select {
