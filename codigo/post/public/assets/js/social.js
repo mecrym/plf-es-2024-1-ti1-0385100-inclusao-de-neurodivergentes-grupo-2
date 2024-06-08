@@ -4,7 +4,7 @@ const selectImage = new SelectImage();
 
 async function selectImages(){
   
-    const photo = await selectImage.getPhoto(0);
+    const photoUrl = await selectImage.getPhoto(0);
     
 
 }
