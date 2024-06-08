@@ -3,8 +3,10 @@ import { SelectImage } from "./selectImage.js";
 const selectImage = new SelectImage();
 
 async function selectImages(){
-    const users = await selectImage.getUsers();
-  console.log("users:", users);
+  
+    const photoUrl = await selectImage.getPhoto(0);
+    
+
 }
 
 
