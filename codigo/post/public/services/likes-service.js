@@ -18,28 +18,28 @@ export class LikeService{
             console.log("Error in fetch db from JSONServer");
         } 
     }
-    async createLike(user){
+    async createLike(like){
         try{
             const res = await fetch(this.urlBase,{
                 method: 'POST',
             headers: {
             'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(like)
             });
             return res.json();
         }catch{
             console.log("Error in fetch db from JSONServer");
         }
     }
-    async updateLike(id, user){
+    async updateLike(id, like){
         try{
             const res = await fetch(`${this.urlBase}/${id}`, {
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(like)
               });
               return res.json();
         }catch{
