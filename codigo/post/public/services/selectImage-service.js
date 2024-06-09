@@ -44,4 +44,11 @@ export class SelectImageService {
         this.url = StorageService.loadData(1);
        return this.url;
     }
+    setQuery(newQuery) {
+        if (typeof newQuery === 'string' && newQuery.trim() !== '') {
+            this.query = newQuery;
+        } else {
+            console.error("Invalid query");
+        }
+    }
 }
