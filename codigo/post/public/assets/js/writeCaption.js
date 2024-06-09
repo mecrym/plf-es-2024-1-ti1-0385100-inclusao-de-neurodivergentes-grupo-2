@@ -1,9 +1,9 @@
-import { SelectImage } from "../../services/selectImage-service.js";
+import { SelectImageService } from "../../services/selectImage-service.js";
 import {PostService} from "../../services/post-service.js";
 import {UserService} from "../../services/user-service.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
-    const selectImage = new SelectImage();
+    const selectImage = new SelectImageService();
     const post = new PostService();
     const user = new UserService();
 
@@ -51,15 +51,11 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.error('Erro ao obter dados:', error);
         }
         
-
-        
     });
 
-    
     const button = document.querySelector('.share');
     button.addEventListener('click', async()=>{
         await post.createPost(newPost);
     })
 
-    
 });

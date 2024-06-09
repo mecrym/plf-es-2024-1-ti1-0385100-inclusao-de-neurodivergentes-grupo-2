@@ -1,13 +1,19 @@
-import { SelectImage } from "./selectImage.js";
+import { SelectImageService } from "../../services/selectImage-service.js";
+import {PostService} from "../../services/post-service.js";
+import {UserService} from "../../services/user-service.js";
+document.addEventListener('DOMContentLoaded', async function () {
+    const selectImage = new SelectImageService();
+    const post = new PostService();
+    const user = new UserService();
 
-const selectImage = new SelectImage();
-
-async function selectImages(){
-  
-    const photoUrl = await selectImage.getPhoto(0);
+    async function selectPost(){
+      
+        const obj = await post.getPosts();
+        return obj;
+    }
+    console.log(await selectPost());
+    const sectionElement = document.querySelector('.content-post');
+    const postElement = document.createElement('img');
     
-
-}
-
-
-window.addEventListener("load", selectImages);
+   // window.addEventListener("load", selectPost); 
+});

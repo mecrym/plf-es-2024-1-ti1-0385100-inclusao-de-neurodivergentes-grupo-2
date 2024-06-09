@@ -17,6 +17,32 @@ body{
     min-height: 100vh;  
     
 }
+header{
+    min-height: 10vh;
+    max-height: 10vh;
+    max-width: 640px;
+    min-width: 40vh;
+}
+.container{
+    min-height: 80vh;
+    max-width: 80vh;
+    max-width: 640px;
+    min-width: 40vh;
+}
+.rank{
+    min-height: 30vh;
+    max-width: 30vh;
+    max-width: 640px;
+    min-width: 40vh;
+}
+.content-post{
+    overflow-y: auto; /*rolagem vertical*/
+    min-height: 50vh;
+    max-width: 50vh;
+    max-width: 640px;
+    min-width: 40vh;
+
+}
 
 
 .container-button .add{
@@ -57,7 +83,11 @@ body{
     bottom: 0;
     margin-top: auto;
     min-height: max-content;
-    height: 200px;
+    min-height: 10vh;
+    max-width: 10vh;
+    max-width: 640px;
+    min-width: 40vh;
+
    
    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
   }

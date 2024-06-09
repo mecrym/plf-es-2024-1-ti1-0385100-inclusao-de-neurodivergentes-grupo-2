@@ -1,5 +1,5 @@
 import { StorageService } from "../services/localStorage-service.js";
-export class SelectImage {
+export class SelectImageService {
     
     constructor() {
         this.key = 'Lt9am0k6ijWEDjgVOyxWsfjNV06AAdZ91lhqOM1yh5IwNgxgpyaDENqu';
