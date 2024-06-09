@@ -86,6 +86,9 @@
       "id": 78222,
       "postId": 56715,
       "userId": 59054
+    },
+    {
+      "id": 78223
     }
   ],
   "comments": [
@@ -126,6 +129,18 @@
       "userId": 5632,
       "content": "At the gym",
       "photoUrl": "https://example.com/photo.jpg"
+    },
+    {
+      "id": 56716,
+      "userId": 5632,
+      "content": "I  buy this :)",
+      "photoUrl": "https://images.pexels.com/photos/221247/pexels-photo-221247.jpeg"
+    },
+    {
+      "id": 56717,
+      "userId": 5632,
+      "content": "my dumbbells!",
+      "photoUrl": "https://images.pexels.com/photos/260352/pexels-photo-260352.jpeg"
     }
   ]
 }
