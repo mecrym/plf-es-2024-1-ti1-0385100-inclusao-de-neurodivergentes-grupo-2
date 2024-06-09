@@ -1,7 +1,7 @@
-import { SelectImage } from "../../services/selectImage-service.js";
+import { SelectImageService } from "../../services/selectImage-service.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
-    const selectImage = new SelectImage();
+    const selectImage = new SelectImageService();
 
     async function selectImages(pos) {
         return await selectImage.getPhoto(pos);
