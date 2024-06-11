@@ -46,13 +46,21 @@ document.addEventListener('DOMContentLoaded', async function () {
         const profilePic = obj[pos].profilePhotoUrl;
         return profilePic;
     }
+    async function filterCommentsByPostId(postId) {
+        const objComments = await getComments();
+       // console.log("array original:", objComments);
+        let objFiltered = objComments.filter(comment => comment.postId === postId);
+      //  console.log("array filtered:", objFiltered);
+        return objFiltered;
+    }
     
+    var postId = 56715;
     const objComments = await getComments();
-    console.log(objComments);
-    objComments.reverse().map(async(currentValue, index)=>{
+    let objFiltered = await filterCommentsByPostId(postId);
+    objFiltered.reverse().map(async(currentValue, index)=>{
         console.log(currentValue);
         const userId = await getUserId(currentValue);
-        const postId = await getPostId(currentValue); /* leadData from local storage and use this postId */
+         postId = await getPostId(currentValue); /* leadData from local storage and use this postId */
         const sectionMain = document.querySelector('.comments-container');
         const borderComment = document.createElement('section');
         borderComment.setAttribute("class","section-comment");
@@ -60,7 +68,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         const usersObj = await getUsers();
         const imgProfile = document.createElement("img");
         console.log(usersObj);
-        console.log(userId);
         
         const profilePicture = await getProfilePic(usersObj,userId);
         imgProfile.setAttribute("src", profilePicture);
@@ -82,12 +89,31 @@ document.addEventListener('DOMContentLoaded', async function () {
         divNameComment.appendChild(divComment);
         borderComment.appendChild(divImg);
         borderComment.appendChild(divNameComment);
-       //const divContainer = document.createElement("div");
-       // divContainer.setAttribute("class","container");
-       // divContainer.appendChild(borderComment);
         sectionMain.appendChild(borderComment);
+
         
 
+    });
+    var idUser = await getUsers();
+    const ID = idUser[0].id ;
+    const inputElement = document.querySelector('.inputText');
+    var idComment, newComment;
+    let tam = objComments.length;
+    idComment = objComments[tam-1].id;
+    idComment++;
+    inputElement.addEventListener('input', async (event)=>{
+        newComment = {
+            id:idComment,
+            userId:ID,
+            postId:postId,
+            comment:event.target.value,
+        };
+
+    });
+    
+    const button = document.querySelector('.share');
+    button.addEventListener('click', async()=>{
+        await comments.createComment(newComment); 
     });
 
 
