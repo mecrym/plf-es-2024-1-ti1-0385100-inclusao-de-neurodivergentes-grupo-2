@@ -88,9 +88,12 @@ document.addEventListener('DOMContentLoaded', async function () {
         divCont.setAttribute("class","cont-like-comment");
         const like = document.createElement("img");
         like.setAttribute("src","../assets/images/heart.svg");
+        like.setAttribute("class", "like");
+        like.setAttribute("id",`${index}`);
         divCont.appendChild(like);
         const comment = document.createElement("img");
         comment.setAttribute("src","../assets/images/comment.svg");
+        comment.setAttribute("class","comment");
         divCont.appendChild(comment);
         section.appendChild(divCont);
 
@@ -101,10 +104,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         pContent.innerHTML = content;
         sectionContent.appendChild(pContent);
         divElement.appendChild(sectionContent);
-
+        const likes = document.querySelector(`[id="${index}"]`);
+        likes.addEventListener('click',async()=>{
+            console.log("oi");
+          
+        });
         
+
 
         
     });
+    
 
+ 
 });
