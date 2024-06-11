@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         var id = obj[len-1].id;
         return id;
     }
+
     // console.log(await selectPost());
     const object = await selectPost();
     let idUser = await getUsers();
