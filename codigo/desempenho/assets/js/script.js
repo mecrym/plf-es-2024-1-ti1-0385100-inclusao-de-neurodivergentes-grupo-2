@@ -1,18 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
+//adaptar para funcionar com o novo json
+document.addEventListener("DOMContentLoaded", () => {//faz com q espere carregar td no html
+    //constroi o grafico mas sem os dados
     const ctx = document.getElementById('chart').getContext('2d');
     let chart = new Chart(ctx, {
         type: 'bar',
         data: {},
         options: {}
     });
-
+//instrucoes para os botoes
+    //dia
     document.getElementById('day').addEventListener('click', () => {
         document.getElementById('month-select').style.display = 'none';
         chart.data = { labels: [], datasets: [] };
         chart.options = { plugins: { title: { display: true, text: 'Gráfico em construção' } } };
         chart.update();
     });
-
+    //semana
     document.getElementById('week').addEventListener('click', () => {
         document.getElementById('month-select').style.display = 'none';
         fetchData(data => {
@@ -21,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateChart(chart, weekData.labels, weekData.data, 'Tasks Completed This Week');
         });
     });
-
+    //mes
     document.getElementById('month').addEventListener('click', () => {
         document.getElementById('month-select').style.display = 'block';
         const monthSelect = document.getElementById('month-select');
@@ -34,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         monthSelect.dispatchEvent(new Event('change'));
     });
-
+    //ano
     document.getElementById('year').addEventListener('click', () => {
         document.getElementById('month-select').style.display = 'none';
         fetchData(data => {
