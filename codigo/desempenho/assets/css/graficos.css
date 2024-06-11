@@ -176,9 +176,7 @@ h1 {
 
 #day:hover, #week:hover, #month:hover, #year:hover {
     background-color: #ffcc00;
-    border: #ddd 1px solid;
     color: #0D1C2E;
-    font-weight: 600;
 }
 
 /* Gradiente do rodapé */
