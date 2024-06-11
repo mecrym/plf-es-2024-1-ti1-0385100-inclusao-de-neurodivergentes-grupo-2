@@ -56,6 +56,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     const button = document.querySelector('.share');
     button.addEventListener('click', async()=>{
         await post.createPost(newPost);
-    })
+    });
 
 });

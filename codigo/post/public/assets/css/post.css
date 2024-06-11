@@ -49,8 +49,8 @@ header {
 
 .content-post {
     overflow-y: auto;
-    min-height: 50vh;
-    max-height: 50vh;
+    min-height: 55vh;
+    max-height: 55vh;
     max-width: 640px;
     min-width: 40vh;
 
@@ -63,6 +63,14 @@ header {
         align-items: center;
 
     }
+    .user-profile-name{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        min-width: 20vh;
+        max-width: 20vh;
+        
+    }
     .cont-like-comment{
         display: flex;
         flex-direction: row;
@@ -74,6 +82,9 @@ header {
             max-height: 3vh;
             min-height: 3vh;
         }
+    }
+    .content-div{    
+       margin-left: 10px;   
     }
     .posts {
         border: 1px solid #83E5F8;
@@ -89,8 +100,8 @@ header {
 
         .post-img {
             
-            min-height: 30vh;
-            max-height: 30vh;
+            min-height: 37vh;
+            max-height: 37vh;
             max-width: 35vh;
             min-width: 35vh;
             border-radius: 10px;
@@ -122,6 +133,14 @@ header {
             }
         }
 
+    }
+    .content{
+        min-width: 35vh;
+        max-width: 35vh;
+        margin: 10px 20px 0px;
+        p{
+            font-size: 1rem;
+        }
     }
     
 
@@ -169,8 +188,8 @@ header {
    /* max-width: 100%;*/
     bottom: 0;
     margin-top: auto;
-    min-height: 10vh;
-    max-height: 10vh;
+    min-height: 5vh;
+    max-height: 5vh;
     max-width: 640px;
     min-width: 640px;
 
