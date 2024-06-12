@@ -2,11 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = document.getElementById('chartRing').getContext('2d');
     let chart = new Chart(ctx, {
         type: 'doughnut',
-        data: { labels: [], datasets: [] },
+        data: { datasets: [] },
         options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             responsive: true,
             maintainAspectRatio: false, // Para garantir que o gráfico preencha o contêiner
-        }
+
+        },
+
     });
 
     const monthSelect = document.getElementById('month-select');
@@ -21,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchData(data => {
             const weekData = getWeeklyData(data);
             console.log("Weekly Data: ", weekData);
-            updateChart(chart, weekData.labels, weekData.data, 'Porcentagem de tarefas concluídas na semana');
+            updateChart(chart, weekData.labels, weekData.data);
         });
     });
 
@@ -31,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             fetchData(data => {
                 const monthData = getMonthlyData(data, parseInt(monthSelect.value));
                 console.log("Monthly Data: ", monthData);
-                updateChart(chart, monthData.labels, monthData.data, 'Porcentagem de tarefas concluídas no mês');
+                updateChart(chart, monthData.labels, monthData.data);
             });
         });
         monthSelect.dispatchEvent(new Event('change'));
@@ -42,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchData(data => {
             const yearData = getYearlyData(data);
             console.log("Yearly Data: ", yearData);
-            updateChart(chart, yearData.labels, yearData.data, 'Porcentagem de tarefas concluídas no ano');
+            updateChart(chart, yearData.labels, yearData.data);
         });
     });
 
@@ -101,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const completedPercentage = (result.completed / result.total) * 100;
-        return { labels: ['Completed', 'Incompleted'], data: [completedPercentage, 100 - completedPercentage] };
+        //return { labels: ['Completed', 'Incompleted'], data: [completedPercentage, 100 - completedPercentage] };
     }
 
     function updateChart(chart, labels, data, title) {

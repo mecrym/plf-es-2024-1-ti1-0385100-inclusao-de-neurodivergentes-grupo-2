@@ -3,13 +3,41 @@ document.addEventListener("DOMContentLoaded", () => {
     let chart = new Chart(ctx, {
         type: 'bar',
         data: {},
-        options: {}
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,//garante que preencha o conteiner em que está contido o gráfico
+            scales: {//configuração dos eixos
+                y: {
+                    min: 0,
+                    ticks: {
+                        callback: function (value) {
+                            if (Number.isInteger(value) || value === 0) {
+                                return value;
+                            }else{
+                                return null;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            
+        }
     });
 
     document.getElementById('day').addEventListener('click', () => {
         document.getElementById('month-select').style.display = 'none';
-        chart.data = { labels: [], datasets: [] };
-        chart.options = { plugins: { title: { display: true, text: 'Gráfico em construção' } } };
+        chart.data = {
+            labels: [],
+            datasets: []
+        };
+        chart.options.plugins.title.text = 'Gráfico em construção';
         chart.update();
     });
 
@@ -17,8 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('month-select').style.display = 'none';
         fetchData(data => {
             const weekData = getWeeklyData(data);
-            console.log("Weekly Data: ", weekData);
-            updateChart(chart, weekData.labels, weekData.data, 'Tasks Completed This Week');
+            updateChart(chart, weekData.labels, weekData.data);
         });
     });
 
@@ -28,8 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         monthSelect.addEventListener('change', () => {
             fetchData(data => {
                 const monthData = getMonthlyData(data, parseInt(monthSelect.value));
-                console.log("Monthly Data: ", monthData);
-                updateChart(chart, monthData.labels, monthData.data, 'Tasks Completed This Month');
+                updateChart(chart, monthData.labels, monthData.data);
             });
         });
         monthSelect.dispatchEvent(new Event('change'));
@@ -39,26 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('month-select').style.display = 'none';
         fetchData(data => {
             const yearData = getYearlyData(data);
-            console.log("Yearly Data: ", yearData);
-            updateChart(chart, yearData.labels, yearData.data, 'Tasks Completed This Year');
+            updateChart(chart, yearData.labels, yearData.data);
         });
     });
 
-    // New function to fetch data from JSON
     function fetchData(callback) {
         fetch('tasks_data.json')
             .then(response => response.json())
             .then(data => callback(data));
     }
 
-    // New function to get weekly data
     function getWeeklyData(data) {
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         const result = new Array(7).fill(0);
         const today = new Date();
         const weekStart = new Date(today.setDate(today.getDate() - today.getDay() + 1));
         const weekEnd = new Date(today.setDate(today.getDate() - today.getDay() + 7));
-        
+
         Object.keys(data).forEach(date => {
             const taskDate = new Date(date);
             if (taskDate >= weekStart && taskDate <= weekEnd) {
@@ -73,17 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
-        
-        console.log("Week Start: ", weekStart, "Week End: ", weekEnd, "Result: ", result);
+
         return { labels: days, data: result };
     }
 
-    // New function to get monthly data
     function getMonthlyData(data, month) {
         const result = new Array(4).fill(0);
         const today = new Date();
         const currentYear = today.getFullYear();
-        
+
         Object.keys(data).forEach(date => {
             const taskDate = new Date(date);
             if (taskDate.getFullYear() === currentYear && taskDate.getMonth() === month) {
@@ -97,14 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        console.log("Month: ", month, "Result: ", result);
         return { labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], data: result };
     }
 
-    // New function to get yearly data
     function getYearlyData(data) {
         const result = new Array(12).fill(0);
-        
+
         Object.keys(data).forEach(date => {
             const taskDate = new Date(date);
             const month = taskDate.getMonth();
@@ -116,43 +135,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        console.log("Year Result: ", result);
         return { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], data: result };
     }
 
-    // Updated function to update the chart
     function updateChart(chart, labels, data, title) {
         chart.data = {
             labels: labels,
             datasets: [{
-                label: 'Completed Tasks',
+                label: 'tarefas concluidas',
                 data: data,
                 backgroundColor: '#f1c40f',
                 borderColor: '#f1c40f',
-                Width: 1
+                borderWidth: 1,
+                fill: false
             }]
         };
-        chart.options = {
-            responsive: true,
-            plugins: {
-                title: {
-                    display: true,
-                    text: title
-                }
-            }
-        };
+        chart.options.plugins.title.text = title;
         chart.update();
     }
-    
-    //grafico Doughnut
-    const ctx2 = document.getElementById('chart2').getContext('2d');
-    let chart2 = new Chart(ctx2, {
-        type: 'doughnut',
-        data: {},
-        options: {}
+
     });
-});  
-
-
-
-
