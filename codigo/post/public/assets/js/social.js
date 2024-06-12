@@ -61,11 +61,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     async function getPostId(array){
         return await array.id;
     }
+    async function getLikebyId(obj, id){
+       return await  obj.filter(item=>item.postId===id);
+    }
     // console.log(await selectPost());
     const object = await selectPost();
     let idUser = await getUsers();
     const ID = idUser[0].id ;
     object.reverse().map(async (currentValue, index) => {
+       
         const sectionElement = document.querySelector('.content-post');
         const divElement = document.createElement('div');
         divElement.setAttribute("class", "posts");
@@ -103,11 +107,31 @@ document.addEventListener('DOMContentLoaded', async function () {
         sectionUser.appendChild(divContent);
         section.appendChild(sectionUser);
         divElement.appendChild(section);
-
+        var likesObj = await getLikes();
+        console.log("likesObj:  ", likesObj);
+       // console.log("current value", currentValue.id);
+        var likeArray = await getLikebyId(likesObj,currentValue.id);
+        console.log("likeArray: ", likeArray );
         const divCont = document.createElement("div");
         divCont.setAttribute("class","cont-like-comment");
         const like = document.createElement("img");
-        like.setAttribute("src","../assets/images/heart.svg");
+        console.log("currentValue.id: ", currentValue.id);
+        console.log("likeArray.id : ",likeArray.id);
+    
+        if(likeArray.length > 0){
+            const likeCount = likeArray.length;
+            like.setAttribute("src","../assets/images/filled_heart.svg");
+            var divContLikes = document.createElement("div");
+            divContLikes.setAttribute("class", "cont-likes");
+            divContLikes.style.pointerEvents = "none";
+            var pLikesElement = document.createElement("p");
+            pLikesElement.innerHTML = likeCount;
+            divContLikes.appendChild(pLikesElement);
+            divCont.appendChild(divContLikes);
+        }else{
+            like.setAttribute("src","../assets/images/heart.svg");
+        }
+        
         like.setAttribute("class", "like");
         like.setAttribute("id",`${index}`);
         divCont.appendChild(like);
@@ -146,15 +170,17 @@ document.addEventListener('DOMContentLoaded', async function () {
                 postId : currentValue.id,
                 userId: ID,
             };
-            StorageService.saveData(key,newLike);
-            //await likeServ.createLike(newLike);
+          //  StorageService.saveData(key,newLike);
+            await likeServ.createLike(newLike);
             
             
         });
-        aElement.addEventListener('click', async()=>{
-            const test = await getPostId(currentValue);
-            console.log(test);
-            StorageService.saveData(keyComment,test);
+        aElement.addEventListener('click', async(event)=>{
+            if (event.target.matches('.cont-likes')) {
+                const test = await getPostId(currentValue);
+                console.log(test);
+                StorageService.saveData(keyComment,test);
+            }
         });
         
 

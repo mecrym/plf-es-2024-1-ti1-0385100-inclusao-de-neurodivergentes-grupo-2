@@ -25,6 +25,6 @@ const middlewares = jsonServer.defaults()
 server.use(cors())
 server.use(middlewares)
 server.use(router)
-server.listen(5500, () => {
-  console.log('JSON Server is running em http://localhost:5500')
+server.listen(3000, () => {
+  console.log('JSON Server is running em http://localhost:3000')
 });
