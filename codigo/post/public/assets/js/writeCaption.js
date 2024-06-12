@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const inputElement = document.querySelector('.inputText');
     var userById, idPost, newPost;
     inputElement.addEventListener('input', async (event)=>{
-        console.log('O valor do input mudou para:', event.target.value);
+       // console.log('O valor do input mudou para:', event.target.value);
         try {
              userById = await getUserId(5632);
             //console.log('Usuário:', userById);
