@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     const post = new PostService();
     const user = new UserService();
     const likeServ = new LikeService();
-    const storage = new StorageService();
     const key = "like";
+    const keyComment = "comment";
 
 
     
@@ -58,7 +58,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         var id = obj[len-1].id;
         return id;
     }
-
+    async function getPostId(array){
+        return await array.id;
+    }
     // console.log(await selectPost());
     const object = await selectPost();
     let idUser = await getUsers();
@@ -109,10 +111,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         like.setAttribute("class", "like");
         like.setAttribute("id",`${index}`);
         divCont.appendChild(like);
+        const aElement = document.createElement("a");
+        aElement.setAttribute("href","./comments.html");
+        aElement.setAttribute("class","link-comment");
         const comment = document.createElement("img");
         comment.setAttribute("src","../assets/images/comment.svg");
         comment.setAttribute("class","comment");
-        divCont.appendChild(comment);
+        aElement.appendChild(comment);
+        divCont.appendChild(aElement);
+     // divCont.appendChild(comment);
         section.appendChild(divCont);
 
         const content = await getContent(currentValue); 
@@ -124,7 +131,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         divElement.appendChild(sectionContent);
         const likes = document.querySelector(`[id="${index}"]`);
         likes.addEventListener('click',async(event)=>{
-            event.preventDefault();
+           // event.preventDefault();
             console.log("oi");
             like.setAttribute("src", "../assets/images/filled_heart.svg");
             console.log("Liked post ID:", currentValue.id);
@@ -139,10 +146,15 @@ document.addEventListener('DOMContentLoaded', async function () {
                 postId : currentValue.id,
                 userId: ID,
             };
-            storage.saveData(key,newLike);
+            StorageService.saveData(key,newLike);
             //await likeServ.createLike(newLike);
             
             
+        });
+        aElement.addEventListener('click', async()=>{
+            const test = await getPostId(currentValue);
+            console.log(test);
+            StorageService.saveData(keyComment,test);
         });
         
 

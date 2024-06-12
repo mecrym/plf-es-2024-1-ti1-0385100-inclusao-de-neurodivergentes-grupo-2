@@ -10,9 +10,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     const post = new PostService();
     const user = new UserService();
     const likeServ = new LikeService();
-    const storage = new StorageService();
     const comments = new CommentsService();
-    
+    const keyComment = "comment";
 
     async function getComments(){
         return await comments.getComments();
@@ -54,11 +53,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         return objFiltered;
     }
     
-    var postId = 56715;
+    var postId = StorageService.loadData(keyComment);
     const objComments = await getComments();
     let objFiltered = await filterCommentsByPostId(postId);
     objFiltered.reverse().map(async(currentValue, index)=>{
-        console.log(currentValue);
+       // console.log(currentValue);
         const userId = await getUserId(currentValue);
          postId = await getPostId(currentValue); /* leadData from local storage and use this postId */
         const sectionMain = document.querySelector('.comments-container');
@@ -67,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const divImg = document.createElement("div");
         const usersObj = await getUsers();
         const imgProfile = document.createElement("img");
-        console.log(usersObj);
+       // console.log(usersObj);
         
         const profilePicture = await getProfilePic(usersObj,userId);
         imgProfile.setAttribute("src", profilePicture);
