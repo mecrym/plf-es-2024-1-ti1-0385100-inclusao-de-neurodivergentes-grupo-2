@@ -25,8 +25,24 @@ header{
     max-height: 10vh;
     min-height: 10vh;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: end;
+  /*  justify-content: center;*/
+        
+    }
+    
+    .arrow-back{
+        min-width: 5vh;
+        max-width: 5vh;
+        margin-left: 220px;
+        img{
+            justify-self: right;
+            min-width: 3vh;
+            max-width: 3vh;
+            opacity: 40%;
+        }
+    
+        
 }
 .comments-container{
     overflow-y: auto;
