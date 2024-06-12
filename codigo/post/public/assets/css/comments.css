@@ -243,3 +243,17 @@ div.omrs-input-group {
     }
 
 }
+.footer-gradient {
+    /* z-index: -1;*/
+    position: fixed;
+   /* max-width: 100%;*/
+    bottom: 0;
+    margin-top: auto;
+    min-height: 8vh;
+    max-height: 8vh;
+    max-width: 640px;
+    min-width: 640px;
+
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E);
+    /*gradient de baixo pra cima*/
+}

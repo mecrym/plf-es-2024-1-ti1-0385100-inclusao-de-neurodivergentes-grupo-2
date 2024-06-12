@@ -41,6 +41,7 @@ button{
     border-radius: 10px;
     background-color: #FFC700;
     font-family: inherit;
+    font-size: 1.2rem;
     color: #0D1C2E;
 }
 .exclude img .cls-1{fill:#FFFFFF;}
