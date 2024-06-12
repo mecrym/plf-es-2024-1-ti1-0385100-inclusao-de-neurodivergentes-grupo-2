@@ -67,6 +67,7 @@ header {
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         min-width: 20vh;
         max-width: 20vh;
         
@@ -100,8 +101,8 @@ header {
 
         .post-img {
             
-            min-height: 37vh;
-            max-height: 37vh;
+            min-height: 30vh;
+            max-height: 30vh;
             max-width: 35vh;
             min-width: 35vh;
             border-radius: 10px;
@@ -139,7 +140,7 @@ header {
         max-width: 35vh;
         margin: 10px 20px 0px;
         p{
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
     }
     
@@ -196,3 +197,43 @@ header {
     background-image: linear-gradient(to top, #013B5B, #0D1C2E);
     /*gradient de baixo pra cima*/
 }
+/*
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .container, .rank, .content-post, .posts, .post-img, .content {
+        width: 100%;
+    }
+
+    .user-profile-name, .content-div, .cont-like-comment {
+        width: 100%;
+        justify-content: center;
+    }
+}*/
+/*
+
+@media (min-width: 640px)  {
+    body {
+        font-size: 0.9rem;
+        width: 1000px;
+    }
+
+    .container, .rank, .content-post, .posts, .post-img, .content {
+        width: 100%;
+    }
+
+    .user-profile-name, .content-div, .cont-like-comment {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cont-like-comment img {
+        max-width: 2.5vh;
+        max-height: 2.5vh;
+    }
+    .footer-gradient {
+        width: 100%;
+    }
+}*/
