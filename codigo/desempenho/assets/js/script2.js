@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
             plugins: {
                 legend: {
                     display: false,
-
                 }
             },
             responsive: true,

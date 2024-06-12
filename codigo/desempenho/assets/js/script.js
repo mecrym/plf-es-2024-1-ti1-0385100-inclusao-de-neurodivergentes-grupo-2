@@ -10,11 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             },
             responsive: true,
-            maintainAspectRatio: false, // Para garantir que o gráfico preencha o contêiner
-
+            maintainAspectRatio: false // Para garantir que o gráfico preencha o contêiner
         },
-
-    });
+    })
 
     const monthSelect = document.getElementById('month-select');
 
