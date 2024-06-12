@@ -46,7 +46,11 @@ header {
     max-width: 640px;
     min-width: 40vh;
 }
-
+.cont-likes{
+    p{
+        font-size: 1.0rem;
+    }
+}
 .content-post {
     overflow-y: auto;
     min-height: 55vh;
