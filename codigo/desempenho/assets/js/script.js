@@ -6,13 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
         options: {
             plugins: {
                 legend: {
-                    display: false
+                    display: false // Ensure legend is hidden
+                },
+                title: {
+                    display: true,
+                    text: 'Gráfico de Tarefas'
                 }
             },
             responsive: true,
-            maintainAspectRatio: false // Para garantir que o gráfico preencha o contêiner
+            maintainAspectRatio: false // To ensure the chart fills the container
         },
-    })
+    });
 
     const monthSelect = document.getElementById('month-select');
 
@@ -26,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchData(data => {
             const weekData = getWeeklyData(data);
             console.log("Weekly Data: ", weekData);
-            updateChart(chart, weekData.labels, weekData.data);
+            updateChart(chart, weekData.labels, weekData.data, 'Dados Semanais');
         });
     });
 
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             fetchData(data => {
                 const monthData = getMonthlyData(data, parseInt(monthSelect.value));
                 console.log("Monthly Data: ", monthData);
-                updateChart(chart, monthData.labels, monthData.data);
+                updateChart(chart, monthData.labels, monthData.data, 'Dados Mensais');
             });
         });
         monthSelect.dispatchEvent(new Event('change'));
@@ -47,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchData(data => {
             const yearData = getYearlyData(data);
             console.log("Yearly Data: ", yearData);
-            updateChart(chart, yearData.labels, yearData.data);
+            updateChart(chart, yearData.labels, yearData.data, 'Dados Anuais');
         });
     });
 
@@ -106,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const completedPercentage = (result.completed / result.total) * 100;
-        //return { labels: ['Completed', 'Incompleted'], data: [completedPercentage, 100 - completedPercentage] };
+        return { labels: ['Completed', 'Incompleted'], data: [completedPercentage, 100 - completedPercentage] };
     }
 
     function updateChart(chart, labels, data, title) {
@@ -120,16 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 borderWidth: 1
             }]
         };
-        chart.options = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                title: {
-                    display: true,
-                    text: title
-                }
-            }
-        };
+        chart.options.plugins.title.text = title;
         chart.update();
     }
 });
