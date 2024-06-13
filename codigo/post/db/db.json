@@ -2,63 +2,57 @@
   "users": [
     {
       "id": 5632,
-      "name": "Emily",
-      "profilePhotoUrl": "https://br.pinterest.com/pin/914862419412733/",
-      "email": "emily@mail.com"
-    },
-    {
-      "id": 22590,
-      "name": "Lucas",
-      "profilePhotoUrl": "https://example.com/lucas.jpg",
-      "email": "lucas@mail.com"
-    },
-    {
-      "id": 15065,
-      "name": "Isabela",
-      "profilePhotoUrl": "https://br.pinterest.com/pin/914862419412734/",
-      "email": "isabela@mail.com"
-    },
-    {
-      "id": 9068,
       "name": "Gabriel",
-      "profilePhotoUrl": "https://example.com/gabriel.jpg",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/60/0e/cd/600ecd4a3aed586febbb92918e39fce6.jpg",
       "email": "gabriel@mail.com"
     },
     {
-      "id": 59054,
+      "id": 5633,
+      "name": "Lucas",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/6e/bc/e8/6ebce830643a31f0320d2efcf2b1835d.jpg",
+      "email": "lucas@mail.com"
+    },
+    {
+      "id": 5634,
+      "name": "Isabela",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/50/0e/a6/500ea6a72ef2a7232f6d4a4ad33edde7.jpg",
+      "email": "isabela@mail.com"
+    },
+    {
+      "id": 5635,
+      "name": "Jonas",
+      "profilePhotoUrl": "https://i.pinimg.com/736x/1f/b6/3e/1fb63efe00433758035a7cd1c4ac62b5.jpg",
+      "email": "jonas@mail.com"
+    },
+    {
+      "id": 5636,
       "name": "Ana",
-      "profilePhotoUrl": "https://br.pinterest.com/pin/914862419412735/",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/d0/e7/75/d0e77518d5f481a4298af1d4d28813f9.jpg",
       "email": "ana@mail.com"
     },
     {
-      "id": 43976,
+      "id": 5637,
       "name": "Rafael",
-      "profilePhotoUrl": "https://example.com/rafael.jpg",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/a3/ef/84/a3ef8488540e9ca0b3e1ecae415cf34e.jpg",
       "email": "rafael@mail.com"
     },
     {
-      "id": 67679,
+      "id": 5638,
       "name": "Mariana",
-      "profilePhotoUrl": "https://br.pinterest.com/pin/914862419412736/",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/71/86/1f/71861fb47a1dfe1e42c42c262229dbd9.jpg",
       "email": "mariana@mail.com"
     },
     {
-      "id": 24343,
+      "id": 5639,
       "name": "Felipe",
-      "profilePhotoUrl": "https://example.com/felipe.jpg",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/d0/a0/f2/d0a0f2ed89c50f375aeef5dd97503a53.jpg",
       "email": "felipe@mail.com"
     },
     {
-      "id": 85002,
+      "id": 5640,
       "name": "Juliana",
-      "profilePhotoUrl": "https://br.pinterest.com/pin/914862419412737/",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/6a/62/eb/6a62eb99cef0ffd27a3bb837c81ee9c4.jpg",
       "email": "juliana@mail.com"
-    },
-    {
-      "id": 16741,
-      "name": "Bruno",
-      "profilePhotoUrl": "https://example.com/bruno.jpg",
-      "email": "bruno@mail.com"
     }
   ],
   "likes": [
@@ -147,6 +141,216 @@
       "userId": 5632,
       "content": "My gym partner during cardio :0",
       "photoUrl": "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 12345,
+      "userId": 5632,
+      "categoryId": 3,
+      "completion": true,
+      "startTime": "08:20:00",
+      "endTime": "10:15:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-07-02"
+    },
+    {
+      "id": 1234,
+      "userId": 5632,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "12:20:00",
+      "endTime": "13:15:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-07-02"
+    },
+    {
+      "id": 1235,
+      "userId": 5633,
+      "categoryId": 1,
+      "completion": true,
+      "startTime": "09:10:00",
+      "endTime": "10:15:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-07-02"
+    },
+    {
+      "id": 1345,
+      "userId": 5633,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "06:30:00",
+      "endTime": "08:15:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-04",
+      "endDate": "2024-06-04"
+    }, 
+    {
+      "id": 2345,
+      "userId": 5633,
+      "categoryId": 1,
+      "completion": true,
+      "startTime": "20:20:00",
+      "endTime": "21:15:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-03",
+      "endDate": "2024-06-03"
+    },
+    {
+      "id": 125,
+      "userId": 5634,
+      "categoryId": 3,
+      "completion": true,
+      "startTime": "07:20:00",
+      "endTime": "09:15:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-07-02",
+      "endDate": "2024-07-02"
+    },
+    {
+      "id": 345,
+      "userId": 5634,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "10:20:00",
+      "endTime": "11:15:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-02",
+      "endDate": "2024-06-02"
+    },
+    {
+      "id": 235,
+      "userId": 5635,
+      "categoryId": 1,
+      "completion": true,
+      "startTime": "10:40:00",
+      "endTime": "11:00:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01"
+    },
+    {
+      "id": 265,
+      "userId": 5635,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "12:30:00",
+      "endTime": "13:00:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-02"
+    },
+    {
+      "id": 2385,
+      "userId": 5635,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "16:40:00",
+      "endTime": "17:00:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01"
+    },
+    {
+      "id": 285,
+      "userId": 5636,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "21:40:00",
+      "endTime": "22:30:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01"
+    },
+    {
+      "id": 238,
+      "userId": 5636,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "16:40:00",
+      "endTime": "17:00:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01"
+    },
+    {
+      "id": 238,
+      "userId": 5637,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "20:40:00",
+      "endTime": "21:30:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01"
+    },
+    {
+      "id": 238,
+      "userId": 5637,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "16:40:00",
+      "endTime": "17:00:20",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01"
+    }
+  ],
+  "categorys":[
+    {
+      "id": 1,
+      "name": "Saúde Pessoal"
+    },
+    {
+      "id": 2,
+      "name": "Higiene da casa"
+    },
+    {
+      "id": 3,
+      "name": "Esportes"
+    },
+    {
+      "id": 4,
+      "name": "Estudos"
+    }
+  ],
+  "ranking": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "points": 450
+    },
+    {
+      "id": 2,
+      "categoryId": 2,
+      "points": 380
+    },
+    {
+      "id": 3,
+      "categoryId": 3,
+      "points": 320
+    },
+    {
+      "id": 4,
+      "categoryId": 4,
+      "points": 360
     }
   ]
 }

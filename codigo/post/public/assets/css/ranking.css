@@ -1,0 +1,110 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  background-color: #0D1C2E; 
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+
+.carousel-inner {
+  display: flex;
+}
+
+.carousel-item {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  text-align: center;
+  padding-top: 27px;
+}
+.carousel-item .fa-star {
+  position: absolute;
+  top: 2px; 
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px; 
+
+}
+
+.carousel-item img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.carousel-caption {
+  margin-top: 10px;
+}
+.carousel-caption h5{
+  padding-bottom: 10px;
+}
+.carousel-caption i {
+  position: absolute;
+  top: 0; 
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  font-size: 24px; 
+}
+
+
+.carousel-score {
+  font-weight: bold;
+  font-size: 78%;
+}
+
+
+.gold {
+  color: gold;
+}
+.silver {
+  color: silver;
+}
+.bronze {
+  color: #ac6116; 
+}
+.gold i {
+  color: gold; 
+}
+
+.silver i {
+  color: silver; 
+}
+
+.bronze i {
+  color: #ac6116;
+}
+.gold-border img {
+  border: 2px solid gold;
+}
+.silver-border img {
+  border: 2px solid silver;
+}
+.bronze-border img {
+  border: 2px solid #ac6116; /* Bronze */
+}
+.carousel::-webkit-scrollbar {
+  height: 9px;
+  
+}
+.carousel::-webkit-scrollbar-thumb {
+  background-color: #FFC700; 
+  border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+  background-color: #555555; 
+}
+
+.carousel::-webkit-scrollbar-track {
+  background-color: #0D1C2E; 
+}
+@media screen and (max-width: 767px) {
+  .carousel::-webkit-scrollbar {
+    height: 1px;
+  }
+}
