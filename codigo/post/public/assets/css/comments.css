@@ -34,7 +34,7 @@ header{
     .arrow-back{
         min-width: 5vh;
         max-width: 5vh;
-        margin-left: 220px;
+        margin-left: 40%;
         img{
             justify-self: right;
             min-width: 3vh;
@@ -77,17 +77,17 @@ header{
         display: flex;
         flex-direction: column;
         align-items: center;
+        min-width: 20vh;
+            max-width: 20vh;
         .comment-user{
-            min-width: 15vh;
-            max-width: 15vh;
+            width: 100%;
             margin-left: 10px;
             p{
                 font-size: 1.0rem;
             }
         }
         .name-user{
-            min-width: 15vh;
-            max-width: 15vh;
+            width: 100%;
             margin-left: 10px;
             p{
                 color:#83E5F8;
@@ -105,7 +105,6 @@ div.container {
     min-width: 30vh;
     max-height: 10vh;
     min-height: 10vh;
-    padding: 20px;
 
 }
 
@@ -124,7 +123,7 @@ div.container {
 div.omrs-input-group {
   margin-bottom: 1.5rem;
   position: relative;
-  width: 100%;
+  width: 90%;
 }
 
 .omrs-input-underlined > input,
