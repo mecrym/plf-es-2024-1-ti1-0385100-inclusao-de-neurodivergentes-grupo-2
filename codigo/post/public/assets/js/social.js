@@ -173,6 +173,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             pLikesElement.innerHTML = String(Number(pLikesElement.innerHTML) + 1);
             like.setAttribute("src", "../assets/images/filled_heart.svg");
+
+        });
+
+        aElement.addEventListener('click', async()=>{
+            const postId = currentValue.id;
+            StorageService.saveData(keyComment,postId);
+
         });
     });
 });

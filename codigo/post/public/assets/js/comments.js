@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const user = new UserService();
     const likeServ = new LikeService();
     const comments = new CommentsService();
-    const keyComment = "comment";
+    var keyComment = "comment";
 
     async function getComments(){
         return await comments.getComments();
