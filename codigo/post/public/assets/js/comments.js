@@ -113,6 +113,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     const button = document.querySelector('.share');
     button.addEventListener('click', async()=>{
         await comments.createComment(newComment); 
+        location.reload();
+
     });
 
 

@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     const post = new PostService();
     const user = new UserService();
 
+    async function getUsers() {
+        const users = await user.getUsers();
+        return users;
+    }
     async function getUserId(id){
         const array = await user.getUser(id);
         return array.id;
@@ -19,6 +23,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         const getId = obj[len-1].id;
         return getId;
     }
+    let idUser = await getUsers();
+    const ID = idUser[0].id;
     //console.log("url selected: ",selectImage.getUrlPhoto());
     const url = selectImage.getUrlPhoto();
     const sectionPhoto = document.querySelector('.photo');
@@ -27,23 +33,27 @@ document.addEventListener('DOMContentLoaded', async function () {
     tagImg.setAttribute("src",url);
     sectionPhoto.appendChild(tagImg);
     const inputElement = document.querySelector('.inputText');
-    var userById, idPost, newPost;
+    var  idPost, newPost;
+    var contentPost = "";
+    const obj = await getPosts();
+    idPost = await getIdPost(obj);
+    idPost++;
+    
     inputElement.addEventListener('input', async (event)=>{
        // console.log('O valor do input mudou para:', event.target.value);
         try {
-             userById = await getUserId(5632);
+           
             //console.log('Usuário:', userById);
-
-            const obj = await getPosts();
-           // console.log("Objeto:", obj);
             
-            idPost = await getIdPost(obj);
+           // console.log("Objeto:", obj);
+            contentPost = event.target.value;
+            console.log("contentPost", contentPost);
+            if(contentPost === undefined) contentPost="";
             console.log("ID do último post:", idPost);
-            idPost++;
             newPost = {
                 id: idPost,
-                userId: userById,
-                content: event.target.value,
+                userId: ID,
+                content: contentPost,
                 photoUrl: url,
             };
             
@@ -55,6 +65,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const button = document.querySelector('.share');
     button.addEventListener('click', async()=>{
+        var newPost = {
+            id: idPost,
+            userId: ID,
+            content: contentPost,
+            photoUrl: url,
+        };
+        console.log("newPost", newPost);
         await post.createPost(newPost);
     });
 
