@@ -219,7 +219,7 @@ div.omrs-input-group {
 
 .button{
     min-width: 40vh;
-    max-width: 40vh;
+    max-width: 640px;
     min-height: 15vh;
     max-height: 15vh;
     display: flex;
@@ -230,6 +230,7 @@ div.omrs-input-group {
         max-height: 4vh;
     }
     .button-login{
+        width: 100%;
         width: 100%;
         min-height: 5vh;
         max-height: 5vh;
