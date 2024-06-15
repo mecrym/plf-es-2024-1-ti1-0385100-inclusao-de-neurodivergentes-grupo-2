@@ -1,52 +1,73 @@
 {
+  "loggedUser":[
+    {
+
+    }
+
+    ],
   "users": [
     {
       "id": 5632,
       "name": "Gabriel",
       "profilePhotoUrl": "https://i.pinimg.com/564x/60/0e/cd/600ecd4a3aed586febbb92918e39fce6.jpg",
-      "email": "gabriel@mail.com"
+      "email": "gabriel@mail.com",
+      "password" : "gabriel123"
     },
     {
       "id": 5633,
       "name": "Lucas",
       "profilePhotoUrl": "https://i.pinimg.com/564x/6e/bc/e8/6ebce830643a31f0320d2efcf2b1835d.jpg",
-      "email": "lucas@mail.com"
+      "email": "lucas@mail.com",
+      "password" : "lucas123"
+
     },
     {
       "id": 5634,
       "name": "Isabela",
       "profilePhotoUrl": "https://i.pinimg.com/564x/50/0e/a6/500ea6a72ef2a7232f6d4a4ad33edde7.jpg",
-      "email": "isabela@mail.com"
+      "email": "isabela@mail.com",
+      "password" : "isabela123"
+
     },
     {
       "id": 5635,
       "name": "Jonas",
       "profilePhotoUrl": "https://i.pinimg.com/736x/1f/b6/3e/1fb63efe00433758035a7cd1c4ac62b5.jpg",
-      "email": "jonas@mail.com"
+      "email": "jonas@mail.com",
+      "password" : "jonas123"
+
     },
     {
       "id": 5636,
       "name": "Ana",
       "profilePhotoUrl": "https://i.pinimg.com/564x/d0/e7/75/d0e77518d5f481a4298af1d4d28813f9.jpg",
-      "email": "ana@mail.com"
+      "email": "ana@mail.com",
+      "password" : "ana123"
+
     },
     {
       "id": 5637,
       "name": "Rafael",
       "profilePhotoUrl": "https://i.pinimg.com/564x/a3/ef/84/a3ef8488540e9ca0b3e1ecae415cf34e.jpg",
-      "email": "rafael@mail.com"
+      "email": "rafael@mail.com",
+      "password" : "rafael123"
+
     },
     {
       "id": 5638,
       "name": "Mariana",
       "profilePhotoUrl": "https://i.pinimg.com/564x/71/86/1f/71861fb47a1dfe1e42c42c262229dbd9.jpg",
-      "email": "mariana@mail.com"
+      "email": "mariana@mail.com",
+      "password" : "mariana123"
+
     },
     {
       "id": 5639,
       "name": "Felipe",
       "profilePhotoUrl": "https://i.pinimg.com/564x/d0/a0/f2/d0a0f2ed89c50f375aeef5dd97503a53.jpg",
-      "email": "felipe@mail.com"
+      "email": "felipe@mail.com",
+      "password" : "felipe123"
+
     },
     {
       "id": 5640,
@@ -170,6 +191,16 @@
       "id": 78231,
       "postId": 56720,
       "userId": 5634
+    },
+    {
+      "id": 78232,
+      "postId": 56720,
+      "userId": 5632
+    },
+    {
+      "id": 78233,
+      "postId": 56721,
+      "userId": 5632
     }
   ],
   "comments": [
@@ -286,6 +317,12 @@
       "userId": 5640,
       "postId": 56718,
       "comment": "of course #TeamIsabela"
+    },
+    {
+      "id": 47401,
+      "userId": 5632,
+      "postId": 56721,
+      "comment": "auhciauh"
     }
   ],
   "post": [
@@ -330,6 +367,12 @@
       "userId": 5633,
       "content": "Mode Toji Fushiguro",
       "photoUrl": "https://i.pinimg.com/736x/42/16/97/4216977e09b85248a5e0f666eac3adba.jpg"
+    },
+    {
+      "id": 56722,
+      "userId": 5632,
+      "content": "iauicuah",
+      "photoUrl": "https://images.pexels.com/photos/260352/pexels-photo-260352.jpeg"
     }
   ]
 }

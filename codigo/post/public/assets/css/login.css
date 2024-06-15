@@ -20,7 +20,7 @@ body{
 }
 
 header{
-    height: 10vh;
+    height: 30vh;
     max-width: 640px;
     min-width: 40vh;
     display: flex;
@@ -29,35 +29,49 @@ header{
     font-family: "Istok Web", sans-serif;
     font-weight: 400;
     font-style: inherit;
+    margin-top: 50px;
 }
+
 main{
     max-height: 70vh;
     min-height: 70vh;
-}
-.conatiner{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
-.photo {
-    margin: 20px 20px 0px ;
-    min-height: 40vh;
-    max-height: 40vh;
     max-width: 640px;
     min-width: 40vh;
-    img{
-        min-height: 40vh;
-        max-height: 40vh;
-        min-width: 100%;
-        max-width: 100%;
-        border-radius: 5px;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .name-HabitR{
+        display: flex;
+        flex-direction: row;
+    }
+    .H{
+        color:#FFC700;
+        font-weight: bold;
+    }
+    .abitR{
+        color:#83E5F8;
+        font-weight: bold;
     }
 }
-
+.logo-img{
+    max-width: 15vh;
+    min-width: 15vh;
+    min-height: 15vh;
+    max-width: 15vh;
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+}
 div.container {
    
+	margin-top: 60px;
 	border-radius: 4px;
     font-style: inherit;
     font-size: 1.3rem;
@@ -65,7 +79,7 @@ div.container {
     min-width: 40vh;
     max-height: 10vh;
     min-height: 10vh;
-  /*  padding: 20px;*/
+    padding: 20px;
 
 }
 
@@ -180,37 +194,8 @@ div.omrs-input-group {
 .omrs-input-underlined > input:disabled ~ svg {
 	fill: var(--omrs-color-ink-low-contrast);
 }
-.button{
-    max-width: 640px;
-    min-width: 40vh;
-    max-height: 10vh;
-    min-height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-}
-a{
-    display: flex;
-    max-height: 10vh;
-    min-height: 10vh;
-    text-decoration: none;
-}
-.share{
-    
-     max-height: 4vh;
-     min-height: 4vh;
-     max-width: 640px;
-     min-width: 40vh;
-     border-radius: 20px;
-     background-color: #FFC700;
-     font-family: inherit;
-     font-size: 1.2rem;
-     color: #0D1C2E;
-     align-self: end;  
-
- }
- .footer-gradient {
+.footer-gradient {
     /* z-index: -1;*/
      position: fixed;
      width: 100%;
