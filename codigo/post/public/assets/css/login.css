@@ -71,7 +71,7 @@ main{
 }
 div.container {
    
-	margin-top: 60px;
+	margin-top: 10px;
 	border-radius: 4px;
     font-style: inherit;
     font-size: 1.3rem;
@@ -194,6 +194,53 @@ div.omrs-input-group {
 .omrs-input-underlined > input:disabled ~ svg {
 	fill: var(--omrs-color-ink-low-contrast);
 }
+.container-signup{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    color: #70d2e6;
+    justify-content: center;
+    font-size: 1.0rem;
+    min-height: 15vh;
+    max-height: 15vh;
+    min-width: 40vh;
+    max-width: 640px;
+}
+.signup{
+    margin-left: 5px;
+    text-decoration: none;
+    color: #83E5F8;
+    font-weight: bold;
+
+
+
+
+}
+
+.button{
+    min-width: 40vh;
+    max-width: 40vh;
+    min-height: 15vh;
+    max-height: 15vh;
+    display: flex;
+    align-items: center;
+    .link-button{
+        width: 100%;
+        min-height: 4vh;
+        max-height: 4vh;
+    }
+    .button-login{
+        width: 100%;
+        min-height: 5vh;
+        max-height: 5vh;
+        border: 2px solid #FFC700;
+        background-color: transparent;
+        color: #FFC700;
+        border-radius: 30px;
+        font-size: 1.5rem;
+    }
+}
+
 
 .footer-gradient {
     /* z-index: -1;*/
