@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     const object = await selectPost();
     let idUser = await getUsers();
     const ID = idUser[0].id;
-
     object.reverse().map(async (currentValue, index) => {
         const sectionElement = document.querySelector('.content-post');
         const divElement = document.createElement('div');

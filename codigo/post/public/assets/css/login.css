@@ -48,6 +48,7 @@ main{
     .name-HabitR{
         display: flex;
         flex-direction: row;
+        margin-top: 8px;
     }
     .H{
         color:#FFC700;
@@ -59,10 +60,10 @@ main{
     }
 }
 .logo-img{
-    max-width: 15vh;
-    min-width: 15vh;
-    min-height: 15vh;
-    max-width: 15vh;
+    max-width: 16vh;
+    min-width: 16vh;
+    min-height: 16vh;
+    max-width: 16vh;
     img{
         width: 100%;
         height: 100%;
@@ -71,7 +72,6 @@ main{
 }
 div.container {
    
-	margin-top: 10px;
 	border-radius: 4px;
     font-style: inherit;
     font-size: 1.3rem;
@@ -212,9 +212,6 @@ div.omrs-input-group {
     color: #83E5F8;
     font-weight: bold;
 
-
-
-
 }
 
 .button{
@@ -230,6 +227,7 @@ div.omrs-input-group {
         max-height: 4vh;
     }
     .button-login{
+        margin-top: 20px;
         width: 100%;
         width: 100%;
         min-height: 5vh;
@@ -239,6 +237,7 @@ div.omrs-input-group {
         color: #FFC700;
         border-radius: 30px;
         font-size: 1.5rem;
+       
     }
 }
 
