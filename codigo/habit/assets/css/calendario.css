@@ -262,10 +262,11 @@ header {
 }
 
 .footer-gradient {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px; /* Altura do gradient no final da página */
-    background-image: linear-gradient(to top, #013B5B, #0D1C2E); /*gradient de baixo pra cima*/
+    height: 100px;
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E);
+    z-index: -1;
 }
