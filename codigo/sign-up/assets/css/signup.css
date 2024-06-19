@@ -96,23 +96,24 @@ img{
     color: #87EBFF;
 }
 
-#submit{
-    
+#submit {
     border: #F1C40F 1px solid;
     background-color: #0D1C2E;
     border-radius: 32px;
     width: 310px;
     height: 55px;
-    margin-top: 20px;
+    margin: 20px auto;  /* Centers the button horizontally */
+    display: block;     /* Makes the button a block element */
     color: #F1C40F;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
 }
 
-#submit:hover{
+#submit:hover {
     background-color: #F1C40F;
     color: #0D1C2E;
 }
+
 
 
