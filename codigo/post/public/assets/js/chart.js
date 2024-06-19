@@ -45,31 +45,45 @@ document.addEventListener('DOMContentLoaded', () => {
         const completedTasks = tasksData.filter(task => task.completion && task.startDate === task.endDate);
         console.log('Tarefas concluídas no mesmo dia:', completedTasks);
 
-        // Extrair os horários de término das tarefas concluídas no mesmo dia
+        if (completedTasks.length === 0) {
+            console.log('Nenhuma tarefa concluída no mesmo dia encontrada.');
+            return;
+        }
+
+        // Ordenar as tarefas por horário de término
+        completedTasks.sort((a, b) => a.endTime.localeCompare(b.endTime));
+
+        // Extrair os horários de início e término das tarefas concluídas no mesmo dia
+        const startTimes = completedTasks.map(task => task.startTime.slice(0, 5)); // Extrair horas e minutos
         const finishTimes = completedTasks.map(task => task.endTime.slice(0, 5)); // Extrair horas e minutos
-        console.log('Horários de término das tarefas:', finishTimes);
+        const times = [...new Set([...startTimes, ...finishTimes])].sort(); // Combinar e ordenar horários
+
+        console.log('Horários das tarefas:', times);
 
         let remainingTasks = completedTasks.length;
 
         // Criar um array para armazenar a contagem de tarefas restantes ao longo do tempo
         const taskCountsOverTime = [];
-        finishTimes.forEach(finishTime => {
+        times.forEach(time => {
+            completedTasks.forEach(task => {
+                if (task.endTime.slice(0, 5) === time) {
+                    remainingTasks--;
+                }
+            });
             taskCountsOverTime.push(remainingTasks);
-            remainingTasks--;
         });
-        taskCountsOverTime.push(0); // Adicionar 0 para garantir que o gráfico alcance o zero
 
         // Criando o gráfico com os dados atualizados
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'line', // Tipo do gráfico
             data: {
-                labels: [...finishTimes, ''],
+                labels: times,
                 datasets: [{
                     label: 'Tarefas restantes',
                     data: taskCountsOverTime,
                     borderColor: '#f39c12',
-                    backgroundColor: 'rgba(243, 156, 18)',
+                    backgroundColor: 'rgba(243, 156, 18, 0.2)',
                     borderWidth: 3,
                     fill: false
                 }]
@@ -96,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         },
                         title: {
                             display: true,
-                            text: 'Horário de término',
+                            text: 'Horário das tarefas',
                             color: '#ffc0cb'
                         }
                     }
@@ -115,8 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const [startHour, startMinute, startSecond] = startTime.split(':').map(Number);
             const [endHour, endMinute, endSecond] = endTime.split(':').map(Number);
 
-            const startTotalSeconds = startHour * 3600 + startMinute * 60 + startSecond;
-            const endTotalSeconds = endHour * 3600 + endMinute * 60 + endSecond;
+            const startTotalSeconds = startHour * 3600 + startMinute * 60 + (startSecond || 0);
+            const endTotalSeconds = endHour * 3600 + endMinute * 60 + (endSecond || 0);
 
             const durationSeconds = endTotalSeconds - startTotalSeconds;
 
@@ -132,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tasksContainer.innerHTML = ''; // Limpar qualquer conteúdo existente
 
             completedTasks.forEach(task => {
-                const category = categoriesData.find(category => category.id === task.categoryId);
+                const category = categoriesData.find(category => category.id == task.categoryId);
                 const categoryName = category ? category.name : 'Categoria desconhecida';
                 const duration = calculateDuration(task.startTime, task.endTime);
 
