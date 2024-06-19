@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         options: {
             plugins: {
                 legend: {
-                    display: false // Ensure legend is hidden
+                    display: false
                 },
                 title: {
                     display: true,
@@ -14,22 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             },
             responsive: true,
-            maintainAspectRatio: false // To ensure the chart fills the container
+            maintainAspectRatio: false
         },
     });
 
     const monthSelect = document.getElementById('month-select');
 
-    document.getElementById('day').addEventListener('click', () => {
-        monthSelect.style.display = 'none';
-        updateChart(chart, ['Completed', 'Incompleted'], [0, 100], 'Gráfico em construção');
-    });
-
     document.getElementById('week').addEventListener('click', () => {
         monthSelect.style.display = 'none';
         fetchData(data => {
             const weekData = getWeeklyData(data);
-            console.log("Weekly Data: ", weekData);
             updateChart(chart, weekData.labels, weekData.data, 'Dados Semanais');
         });
     });
@@ -39,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         monthSelect.addEventListener('change', () => {
             fetchData(data => {
                 const monthData = getMonthlyData(data, parseInt(monthSelect.value));
-                console.log("Monthly Data: ", monthData);
                 updateChart(chart, monthData.labels, monthData.data, 'Dados Mensais');
             });
         });
@@ -50,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         monthSelect.style.display = 'none';
         fetchData(data => {
             const yearData = getYearlyData(data);
-            console.log("Yearly Data: ", yearData);
             updateChart(chart, yearData.labels, yearData.data, 'Dados Anuais');
         });
     });
@@ -58,7 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function fetchData(callback) {
         fetch('tasks_data.json')
             .then(response => response.json())
-            .then(data => callback(data));
+            .then(data => callback(data))
+            .catch(error => console.error('Error fetching data:', error));
     }
 
     function getWeeklyData(data) {
