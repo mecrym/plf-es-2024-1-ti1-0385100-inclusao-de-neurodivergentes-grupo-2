@@ -1,4 +1,4 @@
-export class LikeService{
+export class TaskService{
     constructor() {
         this.urlBase = 'http://localhost:3000/task';
       }
