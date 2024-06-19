@@ -20,11 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const monthSelect = document.getElementById('month-select');
 
-    document.getElementById('day').addEventListener('click', () => {
-        monthSelect.style.display = 'none';
-        updateChart(chart, ['Completed', 'Incompleted'], [0, 100], 'Gráfico em construção');
-    });
-
     document.getElementById('week').addEventListener('click', () => {
         monthSelect.style.display = 'none';
         fetchData(data => {

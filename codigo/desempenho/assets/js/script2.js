@@ -28,16 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.getElementById('day').addEventListener('click', () => {
-        document.getElementById('month-select').style.display = 'none';
-        chart.data = {
-            labels: [],
-            datasets: []
-        };
-        chart.options.plugins.title.text = 'Gráfico em construção';
-        chart.update();
-    });
-
     document.getElementById('week').addEventListener('click', () => {
         document.getElementById('month-select').style.display = 'none';
         fetchData(data => {

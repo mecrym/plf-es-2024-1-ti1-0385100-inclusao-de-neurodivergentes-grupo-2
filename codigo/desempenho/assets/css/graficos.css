@@ -180,7 +180,7 @@ h1 {
 /* Botões */
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     max-width: 50%;
     min-width: fit-content;
     margin: 0 auto;
@@ -190,7 +190,7 @@ h1 {
     background-color: #0D1C2E;
 }
 
-#day, #week, #month, #year {
+#week, #month, #year {
     flex: 1;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.0);
@@ -200,11 +200,11 @@ h1 {
     cursor: pointer;
 }
 
-#week, #month, #year {
+#month, #year {
     border-left: #83E5F8 1px solid;
 }
 
-#day:hover, #week:hover, #month:hover, #year:hover {
+#week:hover, #month:hover, #year:hover {
     background-color: #ffcc00;
     color: #0D1C2E;
 }
