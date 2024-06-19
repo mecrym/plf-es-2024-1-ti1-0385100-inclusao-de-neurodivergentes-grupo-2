@@ -15,6 +15,23 @@ body {
     color: #FFFFFF;
 }
 
+/* Reset de estilos e box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body */
+body {
+    background-color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
 /* Cabeçalho */
 header {
     color: #FFFFFF;
@@ -26,46 +43,54 @@ header {
 /* Barra de navegação */
 .navbar {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
     z-index: 1;
 }
 
 .navbar ul {
     margin: 0;
     padding: 0;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     list-style: none;
-    overflow: hidden;
     background-color: rgba(27, 27, 27, 0.86);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.navbar li {
+    margin: 10px 0;
 }
 
 .navbar li a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 20px;
     text-decoration: none;
+    color: #FFFFFF;
+}
+
+.navbar li img {
+    margin-right: 10px;
 }
 
 .navbar ul a:hover {
     background-color: rgba(56, 54, 54, 0.5);
 }
 
-.navbar .logo {
-    float: left;
-    display: block;
-    font-size: 2em;
-    padding: 10px 20px;
-}
-
-.navbar .menu {
-    clear: both;
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-}
-
 .navbar .menu-icon {
     padding: 28px 20px;
-    position: relative;
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
 }
 
@@ -78,17 +103,7 @@ header {
     transition: background 0.2s ease-out;
 }
 
-.navbar .menu-icon .nav-icon:before {
-    background: #FFFFFF;
-    content: " ";
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transition: all 0.2s ease-out;
-    top: 5px;
-}
-
+.navbar .menu-icon .nav-icon:before,
 .navbar .menu-icon .nav-icon:after {
     background: #FFFFFF;
     content: " ";
@@ -97,6 +112,13 @@ header {
     width: 100%;
     position: absolute;
     transition: all 0.2s ease-out;
+}
+
+.navbar .menu-icon .nav-icon:before {
+    top: 5px;
+}
+
+.navbar .menu-icon .nav-icon:after {
     top: -5px;
 }
 
@@ -105,7 +127,11 @@ header {
 }
 
 .navbar .menu-btn:checked ~ .menu {
-    max-height: 10%;
+    max-height: 100%;
+}
+
+.navbar .menu-btn:checked ~ .menu-icon {
+    background-color: rgba(27, 27, 27, 0.86);
 }
 
 .navbar .menu-btn:checked ~ .menu-icon .nav-icon {
@@ -121,6 +147,9 @@ header {
     transform: rotate(45deg);
     top: 0;
 }
+
+
+
 
 /* Estilo do h1 */
 h1 {
