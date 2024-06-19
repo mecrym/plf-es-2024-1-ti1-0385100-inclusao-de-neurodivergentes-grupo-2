@@ -15,23 +15,6 @@ body {
     color: #FFFFFF;
 }
 
-/* Reset de estilos e box-sizing */
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
-
-/* Estilo do body */
-body {
-    background-color: #0D1C2E;
-    font-family: "Istok Web", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #FFFFFF;
-}
-
 /* Cabeçalho */
 header {
     color: #FFFFFF;
@@ -46,9 +29,11 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height:auto;
     z-index: 1;
 }
+
+
 
 .navbar ul {
     margin: 0;
@@ -62,8 +47,19 @@ header {
     align-items: center;
     justify-content: center;
     max-height: 0;
+    /*height: 100vh; !!!!!!!*/
+    transition: height 0.3s ease-out;
+
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    pointer-events: all; /* Habilita interação !!!!!!!*/
+}
+
+.navbar .menu-btn {
+    display: none; /* Esconder checkbox padrão */
+} 
+
+.navbar .menu-btn:checked ~ ul {
+    max-height: 100vh; /* Mostra o menu quando o botão está checado */
 }
 
 .navbar li {
@@ -87,11 +83,18 @@ header {
 }
 
 .navbar .menu-icon {
+    /*padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;*/
     padding: 28px 20px;
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
+    background-color: #0D1C2E;
+    z-index: 2;
+    transition: background-color 0.2s ease-out;
 }
 
 .navbar .menu-icon .nav-icon {
@@ -127,7 +130,9 @@ header {
 }
 
 .navbar .menu-btn:checked ~ .menu {
+    /*max-height: 100vh;*/
     max-height: 100%;
+    
 }
 
 .navbar .menu-btn:checked ~ .menu-icon {
@@ -148,7 +153,13 @@ header {
     top: 0;
 }
 
+.navbar .menu-btn:checked ~ .navbar ~ header {
+    background-color: rgba(27, 27, 27, 0.86);
+}
 
+.navbar .menu-btn:checked ~ .menu-btn {
+    background: #FFFFFF;
+}
 
 
 /* Estilo do h1 */

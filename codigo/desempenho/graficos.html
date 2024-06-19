@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Visualization</title>
-    <link rel="stylesheet" href="assets\css\graficos.css">
+    <link rel="stylesheet" href="assets/css/graficos.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-
-</head
+</head>
 <body>
-
     <header>
         <nav class="navbar">   
             <input type="checkbox" class="menu-btn" id="menu-btn"/>
@@ -19,40 +16,37 @@
                 <span class="nav-icon"></span>
             </label>
             <ul class="menu">
-                <li><a href="#"><img src="assets/img/chart 1 (2).png" alt="icone habit"> Habit</a></li>
-                <li><a href="#"><img src="assets/img/rank 1.png" alt="icone rank"> Ranking</a></li>
-                <li><a href="#"><img src="assets/img/Vector.png" alt="icone tasks"> Burndown</a></li>
-                <li><a href="#"><img src="assets/img/task 1.png" alt="icone Performace"> Performace</a></li>
-            </ul>
-        </nav>
+                <li><a href="#habit"><img src="assets/img/chart 1 (2).png" alt="icone habit"> Habit</a></li>
+                <li><a href="#ranking"><img src="assets/img/rank 1.png" alt="icone rank"> Ranking</a></li>
+                <li><a href="#burndown"><img src="assets/img/Vector.png" alt="icone tasks"> Burndown</a></li>
+                <li><a href="#performace"><img src="assets/img/task 1.png" alt="icone Performace"> Performace</a></li>
+            </ul>            
+        </nav-->
     </header>
 
     <section id="carousel-container">
         <h1>Performace</h1>
-            
-            <div class="buttons">
-                <button id="day">Day</button>
-                <button id="week">Week</button>
-                <button id="month">Month</button>
-                <button id="year">Year</button>
-            </div>
+        <div class="buttons">
+            <button id="week">Week</button>
+            <button id="month">Month</button>
+            <button id="year">Year</button>
+        </div>
 
-            <div id="dropdown-container">
-                <select id="month-select">
-                    <option value="0">January</option>
-                    <option value="1">February</option>
-                    <option value="2">March</option>
-                    <option value="3">April</option>
-                    <option value="4">May</option>
-                    <option value="5">June</option>
-                    <option value="6">July</option>
-                    <option value="7">August</option>
-                    <option value="8">September</option>
-                    <option value="9">October</option>
-                    <option value="10">November</option>
-                    <option value="11">December</option>
-                </select>
-            </div>
+        <div id="dropdown-container">
+            <select id="month-select">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+            </select>
         </div>
 
         <div id="chart-container">
@@ -64,14 +58,11 @@
         <div id="ringChartCanvas" style="width: 100%; height: 100%; position: relative;">
             <canvas id="chartRing"></canvas>
         </div>
-
     </section>
 
+    <footer class="footer-gradient"></footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script2.js"></script>
 </body>
-
-<footer class="footer-gradient"></footer>
-
-<script src="assets\js\script.js"></script>
-<script src="assets\js\script2.js"></script>
-
 </html>

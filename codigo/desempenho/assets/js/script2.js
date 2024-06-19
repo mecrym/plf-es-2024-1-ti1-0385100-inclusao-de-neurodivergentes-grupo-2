@@ -10,23 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             },
             responsive: true,
-            maintainAspectRatio: false,//garante que preencha o conteiner em que está contido o gráfico
-            scales: {//configuração dos eixos
+            maintainAspectRatio: false,
+            scales: {
                 y: {
                     min: 0,
                     ticks: {
                         callback: function (value) {
                             if (Number.isInteger(value) || value === 0) {
                                 return value;
-                            }else{
+                            } else {
                                 return null;
                             }
-                            
                         }
                     }
                 }
             }
-            
         }
     });
 
@@ -44,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('month-select').style.display = 'none';
         fetchData(data => {
             const weekData = getWeeklyData(data);
-            updateChart(chart, weekData.labels, weekData.data);
+            updateChart(chart, weekData.labels, weekData.data, 'Dados Semanais');
         });
     });
 
@@ -54,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         monthSelect.addEventListener('change', () => {
             fetchData(data => {
                 const monthData = getMonthlyData(data, parseInt(monthSelect.value));
-                updateChart(chart, monthData.labels, monthData.data);
+                updateChart(chart, monthData.labels, monthData.data, 'Dados Mensais');
             });
         });
         monthSelect.dispatchEvent(new Event('change'));
@@ -64,14 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('month-select').style.display = 'none';
         fetchData(data => {
             const yearData = getYearlyData(data);
-            updateChart(chart, yearData.labels, yearData.data);
+            updateChart(chart, yearData.labels, yearData.data, 'Dados Anuais');
         });
     });
 
     function fetchData(callback) {
         fetch('tasks_data.json')
             .then(response => response.json())
-            .then(data => callback(data));
+            .then(data => callback(data))
+            .catch(error => console.error('Error fetching data:', error));
     }
 
     function getWeeklyData(data) {
@@ -137,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], data: result };
     }
 
-    function updateChart(chart, labels, data, title) {
+    function updateChart(chart, labels, data) {
         chart.data = {
             labels: labels,
             datasets: [{
@@ -149,8 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 fill: false
             }]
         };
-        chart.options.plugins.title.text = title;
         chart.update();
     }
-
-    });
+});
