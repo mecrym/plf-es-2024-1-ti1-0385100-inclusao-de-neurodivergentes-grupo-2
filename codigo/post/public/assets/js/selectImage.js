@@ -1,10 +1,11 @@
 import { SelectImageService } from "../../services/selectImage-service.js";
+import { PostService } from "../../services/post-service.js";
 import { UserService } from "../../services/user-service.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
     const selectImage = new SelectImageService();
+    const post = new PostService();
     const user = new UserService();
-
 
     async function getUser(id) {
         return user.getUser(id);
@@ -13,17 +14,27 @@ document.addEventListener('DOMContentLoaded', async function () {
         const users = await user.getUsers();
         return users;
     }
+
+    async function getPost(id) {
+        return post.getPost(id);
+    }
+    async function getPosts() {
+        return await post.getPosts();    
+    }
     async function selectImages(pos) {
         return await selectImage.getPhoto(pos);
     }
-
     let idUser = await getUsers();
     const ID = idUser[0].id;
     const userAccount = await getUser(ID);
-    var boxesIsPress = false;
+
+    let idLastPost = await getPosts();
+    var lenPosts = idLastPost.length;
+    idLastPost = parseInt(idLastPost[lenPosts-1].id) +1;
+    
+ 
     var sectionPhotos = document.querySelector('.wrapper');
-    var aux;
-    var buttonLink = document.querySelector(".button-next>a");
+
     const positions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
     const mainPhoto = document.querySelector('.main-photo');
     const tagPhoto = document.createElement('img');
@@ -74,22 +85,22 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
 
 
-        const buttonNext = document.querySelector(".next");
-        buttonNext.addEventListener('click', async () => {
-            var infoJSON = {
-                id: ID,
-                name: userAccount.name,
-                profilePhotoUrl: tagPhoto.getAttribute("src"),
-                email: userAccount.email,
-                password: userAccount.password
-            };
-
-            user.updateUser(ID, infoJSON);
-        });
     });
 
 
+    
+    const buttonNext = document.querySelector(".next");
+    buttonNext.addEventListener('click', async () => {
+        var infoJSON = {
+            id: idLastPost.toString(),
+            userId: parseInt(userAccount.id),
+            content: '',
+            photoUrl: tagPhoto.getAttribute("src")
+         
+        };
 
+        post.createPost(infoJSON);
+    });
 
 
 });
