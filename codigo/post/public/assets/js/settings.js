@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const ID = idUser[0].id;
     const userAccount = await getUser(ID);
 
-   
+    console.log(userAccount);
     const img = document.querySelector('.profile-picture>img');
     img.setAttribute("src",userAccount.profilePhotoUrl);
     const inputName = document.querySelector('.name');

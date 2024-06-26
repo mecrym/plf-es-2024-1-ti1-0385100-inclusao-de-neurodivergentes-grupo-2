@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,19 +12,38 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/settings.css">
+    <link rel="stylesheet" href="../assets/css/editPicture.css">
 </head>
-<body>
-    <header>
 
+<body class="w-100">
+    <header>
+        <div class="d-flex flex-row align-items-center justify-content-between mt-4">
+            <div class="exclude">
+                <a href="./settings.html">
+                    <img src="../assets/images/x_icon.svg" alt="">
+                </a>
+                
+            </div>
+            <div class="button-next ">
+                <a href="./settings.html" >
+                    <button class="next " id="next" name="button">Next</button>
+                </a>
+            </div>
+        </div>
     </header>
     <main>
-        
+        <section class="main-photo">
+        </section>
+        <section class="wrapper ">
+
+        </section>
     </main>
 
-
+    <footer class="footer-gradient w-100"></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script type="module" src="../assets/js/editPicture.js"></script>
 </body>
+
 </html>
