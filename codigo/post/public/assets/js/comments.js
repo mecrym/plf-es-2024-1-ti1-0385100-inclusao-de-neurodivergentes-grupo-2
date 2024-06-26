@@ -47,9 +47,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     async function filterCommentsByPostId(postId) {
         const objComments = await getComments();
-       // console.log("array original:", objComments);
         let objFiltered = objComments.filter(comment => comment.postId === postId);
-      //  console.log("array filtered:", objFiltered);
         return objFiltered;
     }
     
@@ -57,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const objComments = await getComments();
     let objFiltered = await filterCommentsByPostId(postId);
     objFiltered.reverse().map(async(currentValue, index)=>{
-       // console.log(currentValue);
+
         const userId = await getUserId(currentValue);
          postId = await getPostId(currentValue); /* leadData from local storage and use this postId */
         const sectionMain = document.querySelector('.comments-container');
@@ -66,7 +64,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         const divImg = document.createElement("div");
         const usersObj = await getUsers();
         const imgProfile = document.createElement("img");
-       // console.log(usersObj);
         
         const profilePicture = await getProfilePic(usersObj,userId);
         imgProfile.setAttribute("src", profilePicture);

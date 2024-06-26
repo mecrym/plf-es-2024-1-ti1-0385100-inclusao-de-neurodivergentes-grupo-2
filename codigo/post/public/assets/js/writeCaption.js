@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     let idUser = await getUsers();
     const ID = idUser[0].id;
-    //console.log("url selected: ",selectImage.getUrlPhoto());
+    
     const url = selectImage.getUrlPhoto();
     const sectionPhoto = document.querySelector('.photo');
     const tagImg = document.createElement("img");
@@ -40,12 +40,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     idPost++;
     
     inputElement.addEventListener('input', async (event)=>{
-       // console.log('O valor do input mudou para:', event.target.value);
         try {
-           
-            //console.log('Usuário:', userById);
             
-           // console.log("Objeto:", obj);
             contentPost = event.target.value;
             console.log("contentPost", contentPost);
             if(contentPost === undefined) contentPost="";
