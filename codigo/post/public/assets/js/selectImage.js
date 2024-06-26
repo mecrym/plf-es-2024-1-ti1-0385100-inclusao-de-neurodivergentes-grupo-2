@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     var aux;
     var buttonLink = document.querySelector(".button-next>a");
     const positions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    const mainPhoto = document.querySelector('.main-photo');
+    const tagPhoto = document.createElement('img');
+    var photo = await selectImages(0);
+    tagPhoto.setAttribute("src", photo);
+    mainPhoto.appendChild(tagPhoto);
+
     positions.map(async pos => {
         const div = document.createElement("div");
         div.setAttribute("class", "wrapper-item");
@@ -24,48 +30,49 @@ document.addEventListener('DOMContentLoaded', async function () {
         sectionPhotos.append(div);
 
 
-
+        var photoUrl = await selectImages(pos);
+        if (pos == 0) {
+            var firstImg = document.querySelector(`[id="${pos}"]>img`);
+            firstImg.setAttribute("class", "selected ");
+            /*
+            const check = document.createElement('div');
+            check.setAttribute("class", "check position-absolute top-0 end-0");
+            const imgCheck = document.createElement('img');
+            imgCheck.setAttribute("src", "../../assets/images/check.svg");
+            check.appendChild(imgCheck);
+            div.appendChild(check);*/
+        }
         div.addEventListener('click', async () => {
 
-            boxesIsPress = true;
             var sectionPhotos = document.querySelector('.main-photo');
             var photo = document.querySelector(".main-photo>img");
             var photoSelected = document.querySelector(`[id="${pos}"]>img`);
+            photoUrl = await selectImages(pos);
+            photo.setAttribute("src", photoUrl);
+            const photoBefore = document.querySelector(`.selected`);
+            photoSelected.setAttribute("class", "selected position-relative");
 
-            if (photo) {
-                const photoUrl = await selectImages(pos);
-                photo.setAttribute("src", photoUrl);
-                const photoBefore = document.querySelector(`[id="${aux}"]>img`);
-                photoSelected.setAttribute("class", "selected");
-                sectionPhotos.appendChild(photo);
-                photoBefore.removeAttribute("class")
-                aux = pos;
-            } else {
-                var photo = document.createElement("img");
-                aux = pos;
-                const photoUrl = await selectImages(pos);
-                photo.setAttribute("src", photoUrl);
-                photoSelected.setAttribute("class", "selected");
-                sectionPhotos.appendChild(photo);
+
+            sectionPhotos.appendChild(photo);
+            if (photoBefore) {
+                photoBefore.removeAttribute("class");
             }
-            buttonLink.setAttribute("href", "./caption.html");
+
         });
-    });
 
 
-    const buttonNext = document.querySelector(".next");
-    buttonNext.addEventListener('click', async () => {
-        if (!boxesIsPress) {
-            var sectionP = document.querySelector('.main-photo');
-            if (!sectionP.querySelector('.alert-photo')) {
-                const alertPhoto = document.createElement("img");
-                alertPhoto.setAttribute("src", "../assets/images/caution.svg");
-                alertPhoto.setAttribute("class", "alert-photo"); // Adicione uma classe para identificar a imagem
-                sectionP.appendChild(alertPhoto);
-                passToButton = true;
-            }
+        const buttonNext = document.querySelector(".next");
+        buttonNext.addEventListener('click', async () => {
+            var infoJSON = {
+                id: ID,
+                name: userAccount.name,
+                profilePhotoUrl: tagPhoto.getAttribute("src"),
+                email: userAccount.email,
+                password: userAccount.password
+            };
 
-        }
+            user.updateUser(ID, infoJSON);
+        });
     });
 
 

@@ -32,6 +32,13 @@ header{
     font-weight: 400;
     font-style: normal;
 }
+.exclude img .cls-1{fill:#FFFFFF;}
+header .exclude{
+  
+    img{
+        height: 3vh;   
+    }
+}
 .edit-picture{
     a{
         text-decoration: none;

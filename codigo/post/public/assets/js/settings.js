@@ -4,7 +4,7 @@ import { UserService } from "../../services/user-service.js";
 document.addEventListener('DOMContentLoaded', async function () {
     const user = new UserService();
 
-    async function getUser(id){
+    async function getUser(id) {
         return user.getUser(id);
     }
     async function getUsers() {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     console.log(userAccount);
     const img = document.querySelector('.profile-picture>img');
-    img.setAttribute("src",userAccount.profilePhotoUrl);
+    img.setAttribute("src", userAccount.profilePhotoUrl);
     const inputName = document.querySelector('.name');
     inputName.setAttribute("value", userAccount.name);
     const inputEmail = document.querySelector('.email');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const saveBtn = document.querySelector('.button-save');
 
-    imgView.addEventListener('click', ()=>{
+    imgView.addEventListener('click', () => {
         var passwordFieldType = inputPassword.getAttribute('type');
         if (passwordFieldType === 'password') {
             inputPassword.setAttribute('type', 'text');
@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', async function () {
             imgView.setAttribute("src", "../../assets/images/view.svg");
         }
     });
-    saveBtn.addEventListener('click', ()=>{
+    saveBtn.addEventListener('click', () => {
         var urlImg = userAccount.profilePhotoUrl;
-        var userJSON ={
+        var userJSON = {
             id: ID,
-            profilePhotoUrl : urlImg,
+            profilePhotoUrl: urlImg,
             name: inputName.value,
             email: inputEmail.value,
             password: inputPassword.value
