@@ -64,8 +64,8 @@ header .exclude{
 }
 .main-photo{
     height: 40vh;
-    max-width: 40vh;
-    min-width: 40vh;
+     max-width: 40vh;
+        min-width: 40vh;
 
     img{
        
@@ -124,7 +124,7 @@ header .exclude{
      min-height: max-content;
      min-height: 10vh;
      max-width: 10vh;
-     max-width: 640px;
+     max-width: 2000px;
      min-width: 40vh;
  
     

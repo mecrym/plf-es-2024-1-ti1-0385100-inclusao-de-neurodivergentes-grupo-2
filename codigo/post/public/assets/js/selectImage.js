@@ -1,12 +1,25 @@
 import { SelectImageService } from "../../services/selectImage-service.js";
+import { UserService } from "../../services/user-service.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
     const selectImage = new SelectImageService();
+    const user = new UserService();
 
+
+    async function getUser(id) {
+        return user.getUser(id);
+    }
+    async function getUsers() {
+        const users = await user.getUsers();
+        return users;
+    }
     async function selectImages(pos) {
         return await selectImage.getPhoto(pos);
     }
 
+    let idUser = await getUsers();
+    const ID = idUser[0].id;
+    const userAccount = await getUser(ID);
     var boxesIsPress = false;
     var sectionPhotos = document.querySelector('.wrapper');
     var aux;
