@@ -33,6 +33,11 @@ header{
     font-weight: 400;
     font-style: normal;
 }
+.edit-picture{
+    a{
+        text-decoration: none;
+    }
+}
 .profile-picture{
     img{
         border-radius: 100%;
@@ -46,7 +51,6 @@ div.container {
    
     font-style: inherit;
     font-size: 1.3rem; 
-
 }
 :root {
 	--omrs-color-ink-lowest-contrast: rgba(47, 60, 85, 0.18);
@@ -158,6 +162,13 @@ div.omrs-input-group {
 
 .omrs-input-underlined > input:disabled ~ svg {
 	fill: var(--omrs-color-ink-low-contrast);
+}
+.view{
+    width: 5vh;
+    img{
+        min-width: 5vh;
+        max-width: 5vh;
+    }
 }
 .button{
     min-width: 40vh;

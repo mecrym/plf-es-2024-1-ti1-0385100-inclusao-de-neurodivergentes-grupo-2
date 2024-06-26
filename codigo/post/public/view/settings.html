@@ -29,8 +29,10 @@
             <div class=" profile-picture d-flex flex-column justify-content-center align-items-center">
                 <img src="" alt="">
             </div>
-            <div class="d-flex align-items-center justify-content-center mt-2">
-                <h3 style="color:#F1C40F;">Edit picture</h3>
+            <div class="edit-picture d-flex align-items-center justify-content-center mt-2">
+                <a href="./editPicture.html">
+                    <h3 style="color:#F1C40F;">Edit picture</h3>
+                </a>
             </div>
         </section>
         <section class="inputs d-flex flex-column justify-content-center">
@@ -39,7 +41,7 @@
                     <form>
                         <div class="omrs-input-group">
                             <label class="omrs-input-underlined w-100">
-                              <input required maxlength="35" class="">
+                              <input required maxlength="35" class="name">
                               <span class="omrs-input-label">Name</span>
                         </div>
                     </form>
@@ -59,10 +61,13 @@
             <div class="container">
                 <div>
                     <form>
-                        <div class="omrs-input-group">
+                        <div class="omrs-input-group position-relative">
                             <label class="omrs-input-underlined w-100">
-                              <input required maxlength="35" class="password">
+                              <input required maxlength="35" class="password" type="password">
                               <span class="omrs-input-label">Password</span>
+                              <div class="view view position-absolute end-0 top-0 mt-n2">
+                                <img src="../assets/images/view.svg" alt="view password" >
+                              </div>
                         </div>
                     </form>
                 </div>
