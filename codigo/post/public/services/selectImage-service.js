@@ -38,10 +38,7 @@ export class SelectImageService {
             console.error("Error to fetch pexels:", error);
         }
     }
-    getUrlPhoto(){
-        this.url = StorageService.loadData(1);
-       return this.url;
-    }
+
     setQuery(newQuery) {
         if (typeof newQuery === 'string' && newQuery.trim() !== '') {
             this.query = newQuery;
