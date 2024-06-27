@@ -36,11 +36,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const name = obj[pos].name;
         return name;
     }
-    async function getProfilePic(obj, id) {
-        const pos = getIndexById(obj, id);
-        const profilePic = obj[pos].profilePhotoUrl;
-        return profilePic;
-    }
+
     async function getContent(array) {
         const content = array.content;
         return content;
@@ -83,6 +79,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         divProfile.setAttribute("class", "div-profile-pic");
         const usersObj = await getUsers();
         const userId = await getUserId(currentValue);
+        console.log(userId);
+        console.log(usersObj[userId].profilePhotoUrl);
         const urlProfilePic = await getProfilePic(usersObj, userId);
         const section = document.createElement("section");
         section.setAttribute("class", "picture-like-comment");
