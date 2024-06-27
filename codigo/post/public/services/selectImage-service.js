@@ -1,4 +1,3 @@
-import { StorageService } from "../services/localStorage-service.js";
 export class SelectImageService {
     
     constructor() {
@@ -31,7 +30,6 @@ export class SelectImageService {
             if (data.photos && data.photos.length > 0) {
                this.url = data.photos[pos].src.original;
             //   console.log("url: ",this.url);
-                StorageService.saveData(1,this.url);
                 return this.url;
             } else {
                 console.log("This photo doesn't have a url");
@@ -40,10 +38,7 @@ export class SelectImageService {
             console.error("Error to fetch pexels:", error);
         }
     }
-    getUrlPhoto(){
-        this.url = StorageService.loadData(1);
-       return this.url;
-    }
+
     setQuery(newQuery) {
         if (typeof newQuery === 'string' && newQuery.trim() !== '') {
             this.query = newQuery;

@@ -23,39 +23,34 @@ document.addEventListener('DOMContentLoaded', async function () {
         const getId = obj[len-1].id;
         return getId;
     }
+    async function getPosts() {
+        return await post.getPosts();    
+    }
+
+
+    const posts = await getPosts();
+    var lenPosts = posts.length;
+    var idLastPost = parseInt(posts[lenPosts-1].id);
+
     let idUser = await getUsers();
     const ID = idUser[0].id;
-    //console.log("url selected: ",selectImage.getUrlPhoto());
-    const url = selectImage.getUrlPhoto();
+    
+    const url = posts[lenPosts-1].photoUrl;
     const sectionPhoto = document.querySelector('.photo');
     const tagImg = document.createElement("img");
     tagImg.setAttribute("class", "photo-img");
     tagImg.setAttribute("src",url);
     sectionPhoto.appendChild(tagImg);
     const inputElement = document.querySelector('.inputText');
-    var  idPost, newPost;
     var contentPost = "";
-    const obj = await getPosts();
-    idPost = await getIdPost(obj);
-    idPost++;
-    
+  
     inputElement.addEventListener('input', async (event)=>{
-       // console.log('O valor do input mudou para:', event.target.value);
         try {
-           
-            //console.log('Usuário:', userById);
             
-           // console.log("Objeto:", obj);
             contentPost = event.target.value;
-            console.log("contentPost", contentPost);
+
             if(contentPost === undefined) contentPost="";
-            console.log("ID do último post:", idPost);
-            newPost = {
-                id: idPost,
-                userId: ID,
-                content: contentPost,
-                photoUrl: url,
-            };
+          
             
         } catch (error) {
             console.error('Erro ao obter dados:', error);
@@ -65,14 +60,15 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const button = document.querySelector('.share');
     button.addEventListener('click', async()=>{
+        console.log("input value", inputElement.value);
         var newPost = {
-            id: idPost,
+            id: idLastPost,
             userId: ID,
-            content: contentPost,
+            content: inputElement.value,
             photoUrl: url,
         };
-        console.log("newPost", newPost);
-        await post.createPost(newPost);
+     
+        await post.updatePost(idLastPost,newPost);
     });
 
 });
