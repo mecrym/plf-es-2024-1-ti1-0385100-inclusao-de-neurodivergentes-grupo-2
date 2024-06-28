@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    position: relative; /* Para posicionar o ícone dentro do input */
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 10px 20px;
+    padding-left: 40px; /* Espaço para o ícone */
+    border-radius: 20px;
+    border: 1px solid #83E5F8;
+    font-size: 1.2rem;
+    background-color: #0D1C2E;
+    color: #fff;
+}
+
+.search-container .fas.fa-search {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #83E5F8;
+}
+
+#contactsList {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    color: azure;
+    padding: 10px;
+    background-color: #0D1C2E;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-item img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact-item span {
+    flex-grow: 1;
+}
+
+.contact-item button {
+    background-color: #0D1C2E;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-item button:disabled {
+    background-color: #ccc;
+}
+
+#message {
+    color: #fff;
+}
+
+.footer-gradient {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-top: auto;
+    min-height: max-content;
+    min-height: 8vh;
+    max-height: 8vh;
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E);
+}
