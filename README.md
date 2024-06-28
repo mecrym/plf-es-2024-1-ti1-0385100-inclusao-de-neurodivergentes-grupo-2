@@ -1,6 +1,8 @@
-# HabitR - Inclusão de neurodivergentes (TDAH)
+# HabitHub - Inclusão de neurodivergentes (TDAH)
 
-O objetivo deste projeto é oferecer uma interface simples e minimalista que permite adicionar, gerenciar e acompanhar gráficos de desempenho do usuário na realização de tarefas pendentes e hábitos saudáveis.
+HabiHub é um aplicativo web mobile de tarefas voltado ao público com TDAH. Suas principais diferenças abrange uma interface minimalista, gráficos de desempenho de tarefas, estímulos para  o usuário estar sempre utilizando o aplicativo com um sistema de rankeamento e rede social.
+
+**Simplifique suas tarefas, conquiste seu dia.**
 
 ## Alunos integrantes da equipe
 
