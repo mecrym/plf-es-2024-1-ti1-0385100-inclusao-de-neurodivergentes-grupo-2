@@ -1,6 +1,6 @@
-# HabitHub - Inclusão de neurodivergentes (TDAH)
+# HabitEase - Inclusão de neurodivergentes (TDAH)
 
-HabiHub é um aplicativo web mobile de tarefas voltado ao público com TDAH. Suas principais diferenças abrange uma interface minimalista, gráficos de desempenho de tarefas, estímulos para  o usuário estar sempre utilizando o aplicativo com um sistema de rankeamento e rede social.
+HabiEase é um aplicativo web mobile de tarefas voltado ao público com TDAH. Suas principais diferenças abrange uma interface minimalista, gráficos de desempenho de tarefas, estímulos para  o usuário estar sempre utilizando o aplicativo com um sistema de rankeamento e rede social.
 
 **Simplifique suas tarefas, conquiste seu dia.**
 
