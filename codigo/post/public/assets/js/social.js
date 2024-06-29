@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     async function userAlreadyLikedPost(postId, userId) {
         const likes = await getLikes();
-        return likes.some(like => like.postId === postId && like.userId === userId);
+        return likes.some(like => parseInt(like.postId) ===parseInt(postId)  && parseInt(like.userId) === parseInt(userId));
     }
     async function getFriends() {
         return await friend.getFriends();
@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     try {
         friends = getFriendsByUserId(friendsObj, ID);
-        console.log("array friends: ", friends);
     } catch (error) {
         console.error(error.message);
     }
@@ -210,8 +209,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const lastIdLike = await getLastIdLike(objLikes);
                 var newLike = {
                     id: lastIdLike + 1,
-                    postId: postId,
-                    userId: ID,
+                    postId: parseInt(postId),
+                    userId: parseInt(ID),
                 };
                 await likeServ.createLike(newLike);
 
@@ -221,9 +220,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
 
             aElement.addEventListener('click', async () => {
-                const postId = currentValue.id;
-
-                StorageService.saveData(keyComment, postId);
+              
+            
 
             });
         }
