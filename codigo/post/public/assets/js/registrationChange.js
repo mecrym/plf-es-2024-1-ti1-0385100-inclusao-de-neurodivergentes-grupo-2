@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     dataHandle(data);
     console.log(data);
     titleHandle(data);
-   // console.log(`pego do locla storage ${JSON.stringify(LocalStorage.dataLoad("data"))}`);
+   // console.log(`pego do locla storage ${JSON.stringgit aify(LocalStorage.dataLoad("data"))}`);
     /* var db = []
         readContato(dados => {
             db = dados;
