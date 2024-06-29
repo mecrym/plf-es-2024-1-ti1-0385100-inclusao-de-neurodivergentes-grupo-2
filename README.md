@@ -21,3 +21,6 @@ HabiHub é um aplicativo web mobile de tarefas voltado ao público com TDAH. Sua
 ## Instruções de utilização
 
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+
+![HabitEase](/public/assets/images/HabitEase.png)
+
