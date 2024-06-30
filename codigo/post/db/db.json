@@ -633,22 +633,54 @@
       "endDate": "2024-06-02"
     }
   ],
-  "categorys": [
+  "categories": [
     {
       "id": "1",
-      "name": "Saúde Pessoal"
+      "name": "Sports"
     },
     {
       "id": "2",
-      "name": "Higiene da casa"
+      "name": "Health"
     },
     {
       "id": "3",
-      "name": "Esportes"
+      "name": "Nutrition"
     },
     {
       "id": "4",
-      "name": "Estudos"
+      "name": "Study"
+    },
+    {
+      "id": "5",
+      "name": "Entertainment"
+    },
+    {
+      "id": "6",
+      "name": "Finance"
+    },
+    {
+      "id": "7",
+      "name": "Art"
+    },
+    {
+      "id": "8",
+      "name": "Work"
+    },
+    {
+      "id": "9",
+      "name": "Home"
+    },
+    {
+      "id": "10",
+      "name": "BadHabit"
+    },
+    {
+      "id": "11",
+      "name": "Read"
+    },
+    {
+      "id": "12",
+      "name": "Other"
     }
   ],
   "ranking": [

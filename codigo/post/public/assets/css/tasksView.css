@@ -1,27 +1,29 @@
-:root{
-    --bs-font-sans-serif:"Istok Web", sans-serif !important;
+:root {
+    --bs-font-sans-serif: "Istok Web", sans-serif !important;
 }
-*{
+
+* {
     padding: 0;
     margin: 0;
     border: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: #0D1C2E;
     font-weight: 400;
     font-style: normal;
     color: #FFFFFF;
-    font-size: 1.3rem; 
-    margin: 0 ;
+    font-size: 1.3rem;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
 }
 
-header{
+header {
     height: 10vh;
     max-width: 640px;
     min-width: 40vh;
@@ -49,4 +51,41 @@ main .add-button button {
     margin-top: 50px;
     margin-bottom: 30px;
 
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.card{
+    background-color: transparent;
+    border: 2px solid #83E5F8;
+    border-radius: 20px;
+    height: 7vh;
+    .container{
+        height: 100%;
+    }
+}
+.divImg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 4vh;
+    max-height: 4vh;
+    min-width: 18vh;
+    max-width: 18vh;
+    p{
+        color: #FFFFFF;
+        margin-left: 30px;
+    }
+
+    img {
+        height: 100%;
+        min-width: 4vh;
+        max-width: 4vh;
+        border-radius: 10%;
+        margin-left: 10px;
+    }
 }
