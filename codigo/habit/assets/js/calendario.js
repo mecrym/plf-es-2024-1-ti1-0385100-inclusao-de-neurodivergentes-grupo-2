@@ -50,7 +50,7 @@ async function renderCarousel(selectedDate, startIndex) {
 }
 
 // Função para destacar os dias com alta importância com um círculo vermelho
-/*function highlightDaysWithHighImportance(data) {
+function highlightDaysWithHighImportance(data) {
     const daysWithHighImportance = data.filter(item => item.importancia === 'alta');
     const days = document.querySelectorAll('.day');
     days.forEach(day => {
@@ -63,7 +63,7 @@ async function renderCarousel(selectedDate, startIndex) {
             day.appendChild(circle); // Adicione o círculo como filho do elemento do dia
         }
     });
-}*/
+}
 
 // Função para renderizar as informações da tarefa para o dia selecionado
 async function renderTaskInfo(day) {
