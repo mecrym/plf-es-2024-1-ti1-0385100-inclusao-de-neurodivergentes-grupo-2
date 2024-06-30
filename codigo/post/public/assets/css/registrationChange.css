@@ -11,7 +11,7 @@ body {
     font-weight: 400;
     font-style: normal;
     color: #FFFFFF;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@ body {
     padding: 24px;
     min-width: 40vh;
     max-width: 640px;
-    height: 100px;
+    height: 10vh;
     flex: 1;
 
 }
@@ -50,7 +50,9 @@ body {
     .container-p {
         margin-top: 10px;
         margin-bottom: 10px;
-        width: 5vh;
+        width: 18vh;
+        height: 3vh;
+        
     }
 }
 
@@ -78,7 +80,7 @@ body {
     background-color: #FFC700;
     position: relative;
     width: 40px;
-    height: 40px;
+   /* height: 40px;*/
     padding: 20px;
     margin: 0;
     vertical-align: middle;
@@ -87,15 +89,13 @@ body {
 
 }
 
-.container-text .container-button {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 .container-title-btn {
     display: flex;
     flex: auto;
     justify-content: space-between;
+    align-items: center;
+    height: 100%;
 
 }
 
@@ -105,6 +105,12 @@ body {
     resize: none;
     font-family: "Istok Web", sans-serif;
     font-size: 1.5rem;
+    
+}
+.container-text{
+    .text{
+        margin-top: 20px;
+    }
 }
 
 .container-select {
@@ -123,13 +129,6 @@ body {
     justify-content: space-between;
 }
 
-.swicth3 {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
 .switch2 {
     align-items: center;
@@ -221,7 +220,7 @@ label:active:after {
 }
 
 main .add-button button {
-    background-color: #ED3AFC;
+    background-color: #F1C40F;
     text-align: center;
     height: 4vh;
     width: 100%;
@@ -235,18 +234,15 @@ main .add-button button {
 }
 
 .container-date {
-    height: 100px;
+    height: 14vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    .time-picker{
+        margin-top: 20px;
+    }
 
-}
-
-.container-date p {
-
-    margin-top: 30px;
-    width: 30%;
 }
 
 .container-date #time {

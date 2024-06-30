@@ -1,9 +1,23 @@
 import * as TimePicker from './timerPicker.js';
 import * as CreateElements from './createElements.js';
-//import * as Server from './serverHandle.js';
+import { TaskService } from '../../services/tasks-service.js';
+import { StorageService } from '../../services/localStorage-service.js';
+import { UserService } from "../../services/user-service.js";
 
-document.addEventListener('DOMContentLoaded', function () {
-    
+
+document.addEventListener('DOMContentLoaded', async function () {
+    const task = new TaskService;
+    const user = new UserService();
+
+    async function getTask(id) {
+        return await task.getTask(id);
+    }
+    async function getUsers() {
+        const users = await user.getUsers();
+        return users;
+    }
+    let idUser = await getUsers();
+    const ID = idUser[0].id;
     const buttonDone = document.querySelector('#addBtn');
     const addBtn2 = document.querySelector('#addText');
     const containerTextDiv = document.querySelector('.container-text');
@@ -11,102 +25,42 @@ document.addEventListener('DOMContentLoaded', function () {
     var textP = divP.childNodes;
     var onClick = true;
     var selectCompletionCreated = false;
-    var data ;//= LocalStorage.dataLoad("data");
-    dataHandle(data);
-    console.log(data);
-    titleHandle(data);
-   // console.log(`pego do locla storage ${JSON.stringgit aify(LocalStorage.dataLoad("data"))}`);
-    /* var db = []
-        readContato(dados => {
-            db = dados;
-            ListaTask()
-        });*/
-    function dataHandle(data){
-        
-      
-        if(data==null){
-            data = {
-                category: "Sports",
-                completion: false,
-                startTime: {
-                    hour: 0,
-                    minute: 0,
-                    meridiem: "am"
-                },
-                endTime: {
-                    hour: 0,
-                    minute: 0,
-                    meridiem: "pm"
-                },
-                message:"Add your text",
-                title:"Add your title"
-            }
-          //  LocalStorage.dataSave("data",data);
-        }
-        else{
-            const checkboxDone = document.querySelector('#switchBtn2');
-            const checkbox = document.querySelector('#switch');
-            const sectionDone = document.querySelector('.completed-task');
-            if(data.message==""){
-                data.message = "Add your text";
-              //  LocalStorage.dataSave("data",data);
-            }
-            if(data.title==""){
-                data.title = "Add your title";
-             //   LocalStorage.dataSave("data",data);
-            }
-            if(checkbox){
-                if(data.completion == true){
-                    checkboxDone.checked = true; 
-                    checkboxDone.classList.add('greenFlag');
-                    checkbox.classList.remove('greenFlag'); 
-                    removeTimePickerSections();
-                    sectionDone.style.visibility = "visible";
-                    checkbox.setAttribute("disabled", true);
-        
-                }else{
-                    checkbox.checked = true; 
-                    checkboxDone.classList.remove('greenFlag');
-                    checkbox.classList.add('greenFlag'); 
-                    createOrUpdateTimePickerSections();
-                    sectionDone.style.visibility = "hidden";
-                }
-            }
-           
-        }
-        
-        
+    const taskId = StorageService.loadData("taskId");
+    console.log(taskId);
+    var data = await getTask(taskId);
+    console.log("data", data);
+    var obj = {};
 
-    }
-    function titleHandle(data){
+    titleHandle(data);
+
+
+    function titleHandle(data) {
         const titleArea = document.querySelector('#textTitle');
         titleArea.textContent = data.title;
 
     }
-    function attachEventListeners() {
+    async function attachEventListeners() {
+
         const checkboxDone = document.querySelector('#switchBtn2');
         const checkbox = document.querySelector('#switch');
         const titleArea = document.querySelector('#textTitle');
         const textArea = document.querySelector('.text');
-        data = LocalStorage.dataLoad("data");
-        dataHandle(data);
 
-        if(textArea){
-            textArea.addEventListener('input', function() {
-                data.message =  textArea.value;
-                LocalStorage.dataSave("data", data);
+        if (textArea) {
+            textArea.addEventListener('input', function () {
+                data.message = textArea.value;
+
 
             });
         }
-        if(titleArea){
-            titleArea.addEventListener('input', function() {
-                data.title =  titleArea.value;
-            //    console.log(`O valor de data eh ${JSON.stringify(data)}`);
-                LocalStorage.dataSave("data", data);
-    
+        if (titleArea) {
+            titleArea.addEventListener('input', function () {
+                data.title = titleArea.value;
+
+
             });
         }
-        
+
         if (checkboxDone) {
             checkboxDone.addEventListener('change', () => {
                 let check;
@@ -115,15 +69,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     checkbox.setAttribute("disabled", true);
                     check = true;
                     data.completion = check;
-                    LocalStorage.dataSave("data",data);
                     console.log(`the value of checked is ${data.completion}`);
-                   
+                    data.completion = true;
+                    StorageService.saveData('startTime-hour', 'null');
+                    StorageService.saveData('startTime-minute', 'null');
+                    StorageService.saveData('endTime-hour', 'null');
+                    StorageService.saveData('endTime-minute', 'null');
+
+
                 } else {
                     checkbox.removeAttribute('disabled');
                     check = false;
                     data.completion = check;
                     console.log(`the value of checked is ${data.completion}`);
-                    LocalStorage.dataSave("data",data);
+                    data.completion = false;
                 }
             });
         }
@@ -138,37 +97,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     removeTimePickerSections();
                     sectionDone.style.visibility = "visible";
-                    console.log("Not checked");    
+                    console.log("Not checked");
                 }
             });
         }
     }
 
     addBtn2.addEventListener('click', (event) => {
-
+        const imgBtn = document.querySelector('#imgBtn');
         if (onClick) {
             onClick = false;
             console.log("on click");
             containerTextDiv.style.height = '100%';
-            addBtn2.src = "../assets/images/minus.svg";
+            imgBtn.setAttribute("src", "../../assets/images/minus.svg");
+
             textP[1].textContent = data.title;
             textP[1].style.color = '#FFC700';
             removeExistingSections();
             var textArea = document.createElement("textarea");
             var elementChild = document.querySelector('body > main > section.add-button');
             textArea.setAttribute("rows", "10");
-            textArea.setAttribute("cols", "25");
+            textArea.setAttribute("cols", "40");
+            textArea.setAttribute("maxlength", "320");
             textArea.setAttribute("class", "text");
-             
+
             textArea.textContent = data.message;
             containerTextDiv.appendChild(textArea);
             var elementParent = elementChild.parentNode;
             elementParent.insertBefore(containerTextDiv, elementChild);
-            attachEventListeners();     
+            attachEventListeners();
         } else {
             onClick = true;
             console.log("is not clicked");
-            addBtn2.src = "/assets/images/plus_icon.svg";
+            imgBtn.setAttribute("src", "./../assets/images/plus_icon.svg");
             containerTextDiv.style.height = '150px';
             textP[1].style.color = '#FFFF';
             var textArea = containerTextDiv.querySelector(".text");
@@ -177,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             if (!selectCompletionCreated) {
-                /* Create title select the completion */
                 var section = CreateElements.createSection("container-select-completion");
                 var title = CreateElements.createTitle("Select the completion");
                 section.appendChild(title);
@@ -186,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 elementParent.insertBefore(section, elementChild);
                 selectCompletionCreated = true;
 
-                /* Create section "the task has a defined time" */
                 var div = CreateElements.createDiv("container-p");
                 var paragraph = CreateElements.createParagraph("The task has a defined time?");
                 div.appendChild(paragraph);
@@ -202,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 elementChild = document.querySelector('body > main > section.add-button');
                 elementParent.insertBefore(section, elementChild);
 
-                /* Create section "Was the task completed?" */
                 var div = CreateElements.createDiv("container-paragraph");
                 var paragraph = CreateElements.createParagraph("Was the task completed?");
                 div.appendChild(paragraph);
@@ -218,14 +176,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 elementChild = document.querySelector('body > main > section.add-button');
                 elementParent.insertBefore(section, elementChild);
 
-                attachEventListeners(); 
+                attachEventListeners();
             }
-             
+
         }
     }, false);
-
-    buttonDone.addEventListener('click', () => {
-        alert("Done");
+    function pad(value) {
+        if (parseInt(value) === 0) {
+            return value.toString().padStart(2, '0');
+        }
+        return value;
+    }
+    buttonDone.addEventListener('click', async () => {
+        const hourStart = StorageService.loadData('startTime-hour');
+        const minuteStart = StorageService.loadData('startTime-minute');
+        const hourEnd = StorageService.loadData('endTime-hour');
+        const minuteEnd = StorageService.loadData('endTime-minute');
+        if (hourStart === 'null') {
+            data.startTime = 'null';
+            data.endTime = 'null';
+        } else {
+            data.startTime = `${pad(hourStart)}:${pad(minuteStart)}`;
+            data.endTime = `${pad(hourEnd)}:${pad(minuteEnd)}`;
+        }
+        var objTask = {
+            id: data.id,
+            userId: data.userId,
+            categoryId: data.categoryId,
+            completion: data.completion,
+            startTime: data.startTime,
+            endTime: data.endTime,
+            message: data.message,
+            title: data.title,
+            startDate: data.startDate,
+            endDate: data.endDate
+        }
+        task.updateTask(data.id, objTask);
     }, false);
 
     function removeExistingSections() {
@@ -242,10 +228,18 @@ document.addEventListener('DOMContentLoaded', function () {
         section.setAttribute("class", "container-date");
         var text = document.createElement('p');
         text.textContent = "End Time:";
-        text.style.marginTop = '-100px';
         section.appendChild(text);
         let elementChild = document.querySelector('body > main > section.add-button');
-        var divTimePicker = TimePicker.buildTimePicker(data.endTime);
+        var endTimeData = data.endTime;
+        var timeParts = endTimeData.split(":");
+        var hours = timeParts[0];
+        var minutes = timeParts[1];
+        var objTime = {
+            hour: parseInt(hours),
+            minute: parseInt(minutes)
+        };
+
+        var divTimePicker = TimePicker.buildTimePicker(objTime);
         section.appendChild(divTimePicker);
 
         var elementParent = elementChild.parentNode;
@@ -255,11 +249,18 @@ document.addEventListener('DOMContentLoaded', function () {
         sectionStart.setAttribute("class", "container-date");
         var textStart = document.createElement("p");
         textStart.textContent = "Start Time:";
-        textStart.style.marginTop = '-200px';
         sectionStart.appendChild(textStart);
         elementChild = document.querySelector('body > main > section.container-date');
-        divTimePicker = TimePicker.buildTimePicker(data.startTime);
-        divTimePicker.style.marginTop = '-100px';
+        const startTimeData = data.startTime;
+        timeParts = startTimeData.split(":");
+        hours = timeParts[0];
+        minutes = timeParts[1];
+        var objTime = {
+            hour: parseInt(hours),
+            minute: parseInt(minutes)
+        };
+
+        divTimePicker = TimePicker.buildTimePicker(objTime);
         sectionStart.appendChild(divTimePicker);
         elementParent = elementChild.parentNode;
         elementParent.insertBefore(sectionStart, elementChild);
@@ -268,12 +269,17 @@ document.addEventListener('DOMContentLoaded', function () {
         var timePickerStart = timePickers[0];
         var timePickerEnd = timePickers[1];
 
+        var dataTimer = {
+            hour: 0,
+            minute: 0
+        };
         try {
-            TimePicker.selectHandle(timePickerStart, "startTime",data);
-            TimePicker.selectHandle(timePickerEnd, "endTime",data);
+            obj = TimePicker.selectHandle(timePickerStart, "startTime", dataTimer);
+            TimePicker.selectHandle(timePickerEnd, "endTime", dataTimer);
         } catch (error) {
             console.error(error.message);
         }
+
     }
 
     function removeTimePickerSections() {
@@ -283,6 +289,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    attachEventListeners(); 
+    attachEventListeners();
 
 });
