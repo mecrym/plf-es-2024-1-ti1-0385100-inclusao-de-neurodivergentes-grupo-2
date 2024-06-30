@@ -36,28 +36,37 @@ document.addEventListener('DOMContentLoaded', async function () {
         return arr.findIndex(item => item.id === id);
     }
     async function getUserName(obj,id) {
-        const pos = getIndexById(obj, id);
-        const name = obj[pos].name;
-        return name;
+        const size = Object.keys(obj).length;
+        for (let i = 0; i < size; i++) {
+            if (parseInt(obj[i].id) === parseInt(id)) {
+                return obj[i].name;
+            }
+        }
+        return '';
     }
     async function getProfilePic(obj, id) {
-        const pos = getIndexById(obj, id);
-        const profilePic = obj[pos].profilePhotoUrl;
-        return profilePic;
+        const size = Object.keys(obj).length;
+        for (let i = 0; i < size; i++) {
+            if (parseInt(obj[i].id) === parseInt(id)) {
+                return obj[i].profilePhotoUrl;
+            }
+        }
+        return 'https://i.pinimg.com/280x280_RS/e1/5b/cc/e15bcc352225b884d6e7142b3f12a4d1.jpg';
     }
     async function filterCommentsByPostId(postId) {
         const objComments = await getComments();
-        let objFiltered = objComments.filter(comment => comment.postId === postId);
+        let objFiltered = objComments.filter(comment => parseInt(comment.postId ) === parseInt(postId));
         return objFiltered;
     }
     
     var postId = StorageService.loadData(keyComment);
     const objComments = await getComments();
     let objFiltered = await filterCommentsByPostId(postId);
+    console.log("objFilt", objFiltered );
     objFiltered.reverse().map(async(currentValue, index)=>{
 
         const userId = await getUserId(currentValue);
-         postId = await getPostId(currentValue); /* leadData from local storage and use this postId */
+        postId = await getPostId(currentValue); /* leadData from local storage and use this postId */
         const sectionMain = document.querySelector('.comments-container');
         const borderComment = document.createElement('section');
         borderComment.setAttribute("class","section-comment");
