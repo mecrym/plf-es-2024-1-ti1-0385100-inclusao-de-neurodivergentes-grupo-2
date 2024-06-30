@@ -649,6 +649,22 @@
     {
       "id": "4",
       "name": "Estudos"
+    },
+    {
+      "id": "5",
+      "name": "Nutrição"
+    },
+    {
+      "id": "6",
+      "name": "Finanças"
+    },
+    {
+      "id": "7",
+      "name": "Trabalho"
+    },
+    {
+      "id": "8",
+      "name": "Outro"
     }
   ],
   "ranking": [
@@ -671,6 +687,26 @@
       "id": "4",
       "categoryId": 4,
       "points": 360
+    },
+    {
+      "id": "5",
+      "categoryId": 5,
+      "points": 370
+    },
+    {
+      "id": "6",
+      "categoryId": 6,
+      "points": 340
+    },
+    {
+      "id": "7",
+      "categoryId": 7,
+      "points": 390
+    },
+    {
+      "id": "8",
+      "categoryId": 8,
+      "points": 260
     }
   ]
 }
