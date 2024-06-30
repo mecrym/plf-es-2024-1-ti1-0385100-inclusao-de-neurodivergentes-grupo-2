@@ -220,7 +220,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
 
             aElement.addEventListener('click', async () => {
-              
+                const postId = currentValue.id;
+                StorageService.saveData(keyComment,postId);
             
 
             });
