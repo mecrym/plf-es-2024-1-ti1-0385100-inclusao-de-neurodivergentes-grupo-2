@@ -26,9 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     var onClick = true;
     var selectCompletionCreated = false;
     const taskId = StorageService.loadData("taskId");
-    console.log(taskId);
     var data = await getTask(taskId);
-    console.log("data", data);
     var obj = {};
 
     titleHandle(data);
@@ -45,6 +43,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const checkbox = document.querySelector('#switch');
         const titleArea = document.querySelector('#textTitle');
         const textArea = document.querySelector('.text');
+   
 
         if (textArea) {
             textArea.addEventListener('input', function () {
@@ -209,7 +208,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             message: data.message,
             title: data.title,
             startDate: data.startDate,
-            endDate: data.endDate
+            endDate: data.endDate,
+            priority: data.priority
         }
         task.updateTask(data.id, objTask);
     }, false);
