@@ -17,16 +17,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 header{
     min-width: 40vh;
     max-width: 640px;
+    height: 10vh;
 }
 .arrow-back {
     min-width: 5vh;
     max-width: 5vh;
-    margin-bottom: 120px;
+    margin-bottom: 50px;
+    margin-top: 60px;
 
     img {
         justify-self: right;
@@ -202,7 +204,10 @@ label:after {
 
 }
 
+.container-date{
+    overflow-y: auto;
 
+}
 
 input:checked+label {
 
@@ -229,7 +234,7 @@ label:active:after {
 }
 
 .add-button {
-    margin-top: 100px;
+    margin-top: 40px;
     min-width: 40vh;
     max-width: 640px;
     min-height: 10vh;
@@ -311,7 +316,7 @@ main .add-button button {
     bottom: 0;
     margin-top: auto;
     min-height: max-content;
-    height: 15vh;
+    height: 10vh;
 
     background-image: linear-gradient(to top, #013B5B, #0D1C2E);
     /*gradient de baixo pra cima*/
