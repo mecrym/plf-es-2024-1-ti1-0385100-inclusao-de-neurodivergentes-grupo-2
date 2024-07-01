@@ -49,22 +49,6 @@ async function renderCarousel(selectedDate, startIndex) {
     highlightDaysWithHighImportance(data);
 }
 
-// Função para destacar os dias com alta importância com um círculo vermelho
-/*function highlightDaysWithHighImportance(data) {
-    const daysWithHighImportance = data.filter(item => item.importancia === 'alta');
-    const days = document.querySelectorAll('.day');
-    days.forEach(day => {
-        const dayElement = day.querySelector('div:nth-child(2)');
-        const dayNumber = dayElement.textContent; // Obtém o número do dia dentro do div.day
-        const hasHighImportance = daysWithHighImportance.some(item => item.day === parseInt(dayNumber));
-        if (hasHighImportance) {
-            const circle = document.createElement('div'); // Crie um novo elemento para o círculo
-            circle.classList.add('circle');
-            day.appendChild(circle); // Adicione o círculo como filho do elemento do dia
-        }
-    });
-}*/
-
 // Função para renderizar as informações da tarefa para o dia selecionado
 async function renderTaskInfo(day) {
     const taskInfo = document.getElementById('taskInfo');
@@ -85,9 +69,9 @@ async function renderTaskInfo(day) {
 
 
     // Renderiza as informações de tarefas em cada período do dia
-    renderTaskPeriodInfo('Morning', morningTasks.length, 'morning');
-    renderTaskPeriodInfo('Fulltime', fullTimeTaskCount, 'fulltime');
-    renderTaskPeriodInfo('Night', nightTasks.length, 'night'); // Corrigido para 'night'
+    //renderTaskPeriodInfo('Morning', morningTasks.length, 'morning');
+    renderTaskPeriodInfo('Tasks', fullTimeTaskCount, 'fulltime');
+    //renderTaskPeriodInfo('Night', nightTasks.length, 'night'); // Corrigido para 'night'
 }
 
 function renderTaskPeriodInfo(period, taskCount, periodClass) {
