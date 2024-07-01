@@ -1,38 +1,41 @@
-// Função para carregar os dados do arquivo JSON local
-async function loadData(url) {
+// Função para carregar eventos do Calendarific API
+async function loadCalendarEvents() {
+    const apiKey = '15TbUaPXPbeJxOR2APCwbOU5OisHXll0'; // Substitua por sua chave de API
+    const country = 'BR';
+    const year = new Date().getFullYear();
+    const apiUrl = `https://calendarific.com/api/v2/holidays?api_key=${apiKey}&country=${country}&year=${year}`;
+
     try {
-        const response = await fetch(url); // Carrega o arquivo localmente
+        const response = await fetch(apiUrl);
         const data = await response.json();
-        return data;
+        return data.response.holidays; // Retorna a lista de eventos
     } catch (error) {
-        console.error('Erro ao carregar os dados:', error);
+        console.error('Erro ao carregar eventos:', error);
         return [];
     }
 }
 
-// Função para renderizar os dias no carrossel
+// Função para renderizar os dias no carrossel usando dados da API
 async function renderCarousel(selectedDate, startIndex) {
     const carousel = document.getElementById('carousel');
     carousel.innerHTML = ''; // Limpa o conteúdo existente
 
-    const data = await loadData('calendar_data.json'); // Carrega os dados do arquivo JSON local
+    const events = await loadCalendarEvents(); // Carrega os dados da API Calendarific
 
     // Array com os nomes dos dias da semana em inglês (abreviados)
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-    // Calcula o intervalo de datas para exibir no carrossel
-    const endIndex = Math.min(data.length - 1, startIndex + 6); // Fim do intervalo (no máximo o último índice)
-
-    // Loop através dos dados para criar os elementos do carrossel
-    for (let i = startIndex; i <= endIndex; i++) {
-        const item = data[i];
+    // Loop através dos eventos para criar os elementos do carrossel
+    events.forEach(event => {
+        const eventDate = new Date(event.date.iso);
+        const dayOfWeek = weekdays[eventDate.getDay()];
         const dayElement = document.createElement('div');
         dayElement.classList.add('day');
-        const dayOfWeek = weekdays[new Date(item.year, item.month - 1, item.day).getDay()]; // Obtém o nome do dia da semana
-        dayElement.innerHTML = `<div>${dayOfWeek}</div><div>${item.day}</div>`;
-        dayElement.dataset.day = item.day; // Armazena o dia como um atributo de dados
+        dayElement.innerHTML = `<div>${dayOfWeek}</div><div>${eventDate.getDate()}</div>`;
+        dayElement.dataset.day = eventDate.getDate(); // Armazena o dia como um atributo de dados
         carousel.appendChild(dayElement);
-    }
+    });
+
     // Adiciona um evento de clique para destacar o dia selecionado e mostrar as tarefas
     carousel.addEventListener('click', event => {
         const selectedDay = event.target.closest('.day');
@@ -46,17 +49,17 @@ async function renderCarousel(selectedDate, startIndex) {
     });
 
     // Destaque os dias com alta importância após o carrossel ser renderizado
-    highlightDaysWithHighImportance(data);
+    highlightDaysWithHighImportance(events);
 }
 
 // Função para destacar os dias com alta importância com um círculo vermelho
-function highlightDaysWithHighImportance(data) {
-    const daysWithHighImportance = data.filter(item => item.importancia === 'alta');
+function highlightDaysWithHighImportance(events) {
+    const daysWithHighImportance = events.filter(event => event.type.includes('National holiday'));
     const days = document.querySelectorAll('.day');
     days.forEach(day => {
         const dayElement = day.querySelector('div:nth-child(2)');
         const dayNumber = dayElement.textContent; // Obtém o número do dia dentro do div.day
-        const hasHighImportance = daysWithHighImportance.some(item => item.day === parseInt(dayNumber));
+        const hasHighImportance = daysWithHighImportance.some(event => new Date(event.date.iso).getDate() === parseInt(dayNumber));
         if (hasHighImportance) {
             const circle = document.createElement('div'); // Crie um novo elemento para o círculo
             circle.classList.add('circle');
@@ -70,24 +73,15 @@ async function renderTaskInfo(day) {
     const taskInfo = document.getElementById('taskInfo');
     taskInfo.innerHTML = ''; // Limpa o conteúdo existente
 
-    const data = await loadData('tasks_data.json'); // Carrega os dados das tarefas do arquivo JSON local
+    const data = await loadData('.../db/db.json'); // Carrega os dados das tarefas do arquivo JSON local
 
-    const tasks = data[day] || []; // Obtém as tarefas para o dia selecionado
-
-    // Divide as tarefas em períodos do dia: manhã, dia todo e tarde
-    const morningTasks = tasks.filter(task => task.period === 'morning');
-
-    const nightTasks = tasks.filter(task => task.period === 'night'); // Corrigido para 'night'
+    const filteredTasks = data.tasks.filter(task => task.completion && new Date(task.endDate).getDate() === parseInt(day));
 
     // Calcula a contagem total de tarefas para o período "fulltime"
-    const fullTimeTaskCount = morningTasks.length + nightTasks.length;
-    
+    const fullTimeTaskCount = filteredTasks.length;
 
-
-    // Renderiza as informações de tarefas em cada período do dia
-    //renderTaskPeriodInfo('Morning', morningTasks.length, 'morning');
+    // Renderiza as informações de tarefas
     renderTaskPeriodInfo('Tasks', fullTimeTaskCount, 'fulltime');
-    //renderTaskPeriodInfo('Night', nightTasks.length, 'night'); // Corrigido para 'night'
 }
 
 function renderTaskPeriodInfo(period, taskCount, periodClass) {
@@ -98,7 +92,7 @@ function renderTaskPeriodInfo(period, taskCount, periodClass) {
         periodElement.classList.add('task-period', periodClass);
         imageCarousel.appendChild(periodElement); // Corrigido para adicionar 'periodElement' ao 'imageCarousel'
     }
-    periodElement.textContent = `${period}  ${taskCount}`;
+    periodElement.textContent = `${period} ${taskCount}`;
 }
 
 // Chamada inicial para renderizar o carrossel com a data atual e índice inicial
