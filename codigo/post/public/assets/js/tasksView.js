@@ -70,6 +70,40 @@ document.addEventListener('DOMContentLoaded', async function () {
                 return '../../assets/images/other.png';
         }
     }
+    async function getColorCategory(id) {
+        const objCategory = await getCategory(id);
+        const name = getCategoryNameById(objCategory, id);
+        console.log('name', name);
+        console.log("objCategory", objCategory);
+        console.log("id", id);
+        switch (name) {
+            case "Sports":
+                return '#FF5C00';
+            case "Health":
+                return '#4AA633';
+            case "Nutrition":
+                return '#FF9A51';
+            case "Study":
+                return '#594CEE';
+            case "Entertainment":
+                return '#9E00FF';
+            case "Finance":
+                return '#FFC700';
+            case "Art":
+                return '#FF017B';
+            case "Work":
+                return '#34FF9D';
+            case "Home":
+                return '#818260';
+            case "BadHabit":
+                return '#FD6161';
+            case "Read":
+                return '#2AFFD9';
+            case "Other":
+                return '#EF31C6';
+        }
+    }
+
 
     const idTask = StorageService.loadData(keyTask);
     const userId = StorageService.loadData(keyUser);
@@ -84,14 +118,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     var contNigth = false;
     var contFulltime = false;
     objTasks.map(async (currentValue, index) => {
-        /*
+    
         const section = document.querySelector('.cards');
-
-        const divTask = document.creatElement('div');*/
-        const section = document.querySelector('.cards');
-        // const divTitle = document.createElement('div');
-        //divTitle.setAttribute("class", "");
         const periodDay = await getPeriodDay(currentValue);
+
         if (periodDay === 'Fulltime') {
             if (!contFulltime) {
                 contFulltime = true;
@@ -122,20 +152,51 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.log("curentValue", currentValue);
             console.log("categoryId", categoryId);
             const urlImg = await getImageCategory(categoryId);
+
+            const divImgCard = document.createElement('div');
+            divImgCard.setAttribute("class", "border-img");
+            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
             const img = document.createElement('img');
             img.setAttribute("src", urlImg);
-
+           
             const nameTag = document.createElement('p');
             var title = currentValue.title;
             if (title.toLowerCase() === 'add your title') {
                 const objCategory = await getCategory(categoryId);
                 title = getCategoryNameById(objCategory, categoryId);
-                 
+
             }
             nameTag.innerHTML = title;
-            divCat.appendChild(img);
-            divCat.appendChild(nameTag)
+
+            if(currentValue.priority){
+                divCard.style.position = 'relative';
+                const importanceDiv = document.createElement('div');
+                importanceDiv.setAttribute('class', 'importance');
+                importanceDiv.style.position = 'absolute';
+                divCard.appendChild(importanceDiv);
+
+            }
+
+            divImgCard.appendChild(img);
+            divCat.appendChild(divImgCard);
+            divCat.appendChild(nameTag);
             divInt.appendChild(divCat);
+
+            const divBtn = document.createElement('div');
+            divBtn.setAttribute("class", "container-button");
+
+            const btn = document.createElement("button");
+            btn.setAttribute("class", "add");
+            btn.setAttribute("id", "addText");
+            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
+
+            const imgBtn = document.createElement("img");
+            imgBtn.setAttribute("id", "imgBtn");
+            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
+
+            btn.appendChild(imgBtn);
+            divBtn.appendChild(btn);
+            divInt.appendChild(divBtn);
             divCard.appendChild(divInt);
             section.appendChild(divCard);
         }
@@ -154,6 +215,65 @@ document.addEventListener('DOMContentLoaded', async function () {
                 section.appendChild(divTitle);
 
             }
+            const divCard = document.createElement('div');
+            divCard.setAttribute('class', 'card');
+            const divInt = document.createElement('div');
+            divInt.setAttribute("class", "container");
+
+            const divCat = document.createElement('div');
+            divCat.setAttribute("class", "divImg");
+
+            const categoryId = currentValue.categoryId;
+            console.log("curentValue", currentValue);
+            console.log("categoryId", categoryId);
+            const urlImg = await getImageCategory(categoryId);
+
+            const divImgCard = document.createElement('div');
+            divImgCard.setAttribute("class", "border-img");
+            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
+            const img = document.createElement('img');
+            img.setAttribute("src", urlImg);
+           
+            const nameTag = document.createElement('p');
+            var title = currentValue.title;
+            if (title.toLowerCase() === 'add your title') {
+                const objCategory = await getCategory(categoryId);
+                title = getCategoryNameById(objCategory, categoryId);
+
+            }
+            nameTag.innerHTML = title;
+
+            if(currentValue.priority){
+                divCard.style.position = 'relative';
+                const importanceDiv = document.createElement('div');
+                importanceDiv.setAttribute('class', 'importance');
+                importanceDiv.style.position = 'absolute';
+                divCard.appendChild(importanceDiv);
+
+            }
+
+            divImgCard.appendChild(img);
+            divCat.appendChild(divImgCard);
+            divCat.appendChild(nameTag);
+            divInt.appendChild(divCat);
+
+            const divBtn = document.createElement('div');
+            divBtn.setAttribute("class", "container-button");
+
+            const btn = document.createElement("button");
+            btn.setAttribute("class", "add");
+            btn.setAttribute("id", "addText");
+            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
+
+            const imgBtn = document.createElement("img");
+            imgBtn.setAttribute("id", "imgBtn");
+            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
+
+            btn.appendChild(imgBtn);
+            divBtn.appendChild(btn);
+            divInt.appendChild(divBtn);
+            divCard.appendChild(divInt);
+            section.appendChild(divCard);
         }
         else if (periodDay === 'Afternoon') {
             if (!contAfternoon) {
@@ -170,6 +290,65 @@ document.addEventListener('DOMContentLoaded', async function () {
                 section.appendChild(divTitle);
 
             }
+            const divCard = document.createElement('div');
+            divCard.setAttribute('class', 'card');
+            const divInt = document.createElement('div');
+            divInt.setAttribute("class", "container");
+
+            const divCat = document.createElement('div');
+            divCat.setAttribute("class", "divImg");
+
+            const categoryId = currentValue.categoryId;
+            console.log("curentValue", currentValue);
+            console.log("categoryId", categoryId);
+            const urlImg = await getImageCategory(categoryId);
+
+            const divImgCard = document.createElement('div');
+            divImgCard.setAttribute("class", "border-img");
+            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
+            const img = document.createElement('img');
+            img.setAttribute("src", urlImg);
+           
+            const nameTag = document.createElement('p');
+            var title = currentValue.title;
+            if (title.toLowerCase() === 'add your title') {
+                const objCategory = await getCategory(categoryId);
+                title = getCategoryNameById(objCategory, categoryId);
+
+            }
+            nameTag.innerHTML = title;
+
+            if(currentValue.priority){
+                divCard.style.position = 'relative';
+                const importanceDiv = document.createElement('div');
+                importanceDiv.setAttribute('class', 'importance');
+                importanceDiv.style.position = 'absolute';
+                divCard.appendChild(importanceDiv);
+
+            }
+
+            divImgCard.appendChild(img);
+            divCat.appendChild(divImgCard);
+            divCat.appendChild(nameTag);
+            divInt.appendChild(divCat);
+
+            const divBtn = document.createElement('div');
+            divBtn.setAttribute("class", "container-button");
+
+            const btn = document.createElement("button");
+            btn.setAttribute("class", "add");
+            btn.setAttribute("id", "addText");
+            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
+
+            const imgBtn = document.createElement("img");
+            imgBtn.setAttribute("id", "imgBtn");
+            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
+
+            btn.appendChild(imgBtn);
+            divBtn.appendChild(btn);
+            divInt.appendChild(divBtn);
+            divCard.appendChild(divInt);
+            section.appendChild(divCard);
 
         }
         else if (periodDay === 'Evening') {
@@ -187,6 +366,65 @@ document.addEventListener('DOMContentLoaded', async function () {
                 section.appendChild(divTitle);
 
             }
+            const divCard = document.createElement('div');
+            divCard.setAttribute('class', 'card');
+            const divInt = document.createElement('div');
+            divInt.setAttribute("class", "container");
+
+            const divCat = document.createElement('div');
+            divCat.setAttribute("class", "divImg");
+
+            const categoryId = currentValue.categoryId;
+            console.log("curentValue", currentValue);
+            console.log("categoryId", categoryId);
+            const urlImg = await getImageCategory(categoryId);
+
+            const divImgCard = document.createElement('div');
+            divImgCard.setAttribute("class", "border-img");
+            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
+            const img = document.createElement('img');
+            img.setAttribute("src", urlImg);
+           
+            const nameTag = document.createElement('p');
+            var title = currentValue.title;
+            if (title.toLowerCase() === 'add your title') {
+                const objCategory = await getCategory(categoryId);
+                title = getCategoryNameById(objCategory, categoryId);
+
+            }
+            nameTag.innerHTML = title;
+
+            if(currentValue.priority){
+                divCard.style.position = 'relative';
+                const importanceDiv = document.createElement('div');
+                importanceDiv.setAttribute('class', 'importance');
+                importanceDiv.style.position = 'absolute';
+                divCard.appendChild(importanceDiv);
+
+            }
+
+            divImgCard.appendChild(img);
+            divCat.appendChild(divImgCard);
+            divCat.appendChild(nameTag);
+            divInt.appendChild(divCat);
+
+            const divBtn = document.createElement('div');
+            divBtn.setAttribute("class", "container-button");
+
+            const btn = document.createElement("button");
+            btn.setAttribute("class", "add");
+            btn.setAttribute("id", "addText");
+            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
+
+            const imgBtn = document.createElement("img");
+            imgBtn.setAttribute("id", "imgBtn");
+            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
+
+            btn.appendChild(imgBtn);
+            divBtn.appendChild(btn);
+            divInt.appendChild(divBtn);
+            divCard.appendChild(divInt);
+            section.appendChild(divCard);
         }
         else {
             if (!contNigth) {
@@ -203,6 +441,65 @@ document.addEventListener('DOMContentLoaded', async function () {
                 section.appendChild(divTitle);
 
             }
+            const divCard = document.createElement('div');
+            divCard.setAttribute('class', 'card');
+            const divInt = document.createElement('div');
+            divInt.setAttribute("class", "container");
+
+            const divCat = document.createElement('div');
+            divCat.setAttribute("class", "divImg");
+
+            const categoryId = currentValue.categoryId;
+            console.log("curentValue", currentValue);
+            console.log("categoryId", categoryId);
+            const urlImg = await getImageCategory(categoryId);
+
+            const divImgCard = document.createElement('div');
+            divImgCard.setAttribute("class", "border-img");
+            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
+            const img = document.createElement('img');
+            img.setAttribute("src", urlImg);
+           
+            const nameTag = document.createElement('p');
+            var title = currentValue.title;
+            if (title.toLowerCase() === 'add your title') {
+                const objCategory = await getCategory(categoryId);
+                title = getCategoryNameById(objCategory, categoryId);
+
+            }
+            nameTag.innerHTML = title;
+
+            if(currentValue.priority){
+                divCard.style.position = 'relative';
+                const importanceDiv = document.createElement('div');
+                importanceDiv.setAttribute('class', 'importance');
+                importanceDiv.style.position = 'absolute';
+                divCard.appendChild(importanceDiv);
+
+            }
+
+            divImgCard.appendChild(img);
+            divCat.appendChild(divImgCard);
+            divCat.appendChild(nameTag);
+            divInt.appendChild(divCat);
+
+            const divBtn = document.createElement('div');
+            divBtn.setAttribute("class", "container-button");
+
+            const btn = document.createElement("button");
+            btn.setAttribute("class", "add");
+            btn.setAttribute("id", "addText");
+            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
+
+            const imgBtn = document.createElement("img");
+            imgBtn.setAttribute("id", "imgBtn");
+            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
+
+            btn.appendChild(imgBtn);
+            divBtn.appendChild(btn);
+            divInt.appendChild(divBtn);
+            divCard.appendChild(divInt);
+            section.appendChild(divCard);
 
         }
 

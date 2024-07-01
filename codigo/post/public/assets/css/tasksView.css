@@ -60,12 +60,31 @@ main .add-button button {
     align-items: center;
 }
 .card{
+    overflow-y: auto;
     background-color: transparent;
-    border: 2px solid #83E5F8;
+    border: 2px solid #F1C40F;
     border-radius: 20px;
     height: 7vh;
+    min-width: 40vh;
+    max-width: 640px;
     .container{
         height: 100%;
+    }
+    p{
+        margin-top:10px ;
+    }
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.border-img{
+    border-radius: 10%;
+    img{
+        width: 100%;
     }
 }
 .divImg {
@@ -85,7 +104,44 @@ main .add-button button {
         height: 100%;
         min-width: 4vh;
         max-width: 4vh;
-        border-radius: 10%;
-        margin-left: 10px;
+        padding: 5px;
     }
+}
+.container-button .add {
+    background-color: #FFC700;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 20px;
+    margin: 0;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 100%;
+
+}
+.importance{
+    border-radius: 100%;
+    background-color: #E00000;
+    width: 2vh;
+    height: 2vh;
+    margin-left: 92%;
+    margin-top: 5px;
+}
+
+.container-button button img {
+    width: 98%;
+    position: absolute;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    width: 8vh;
+
+
 }
