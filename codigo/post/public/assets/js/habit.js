@@ -8,7 +8,7 @@ function gerarCalendarioSemanalSegSexHTML(dataInicial) {
 
     let calendarioHtml = `
         <h2 class="text-center">${data.toLocaleDateString('en-ES', { month: 'long', year: 'numeric' })}</h2>
-        <table class="table table-bordered">
+        <table class="table table-bordered style="background-color: #0D1C2E; color: #ffffff;">
             <thead>
                 <tr>
                     ${diasSemana.map(dia => `<th>${dia}</th>`).join('')}

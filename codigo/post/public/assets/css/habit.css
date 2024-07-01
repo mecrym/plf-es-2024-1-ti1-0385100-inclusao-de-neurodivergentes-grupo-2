@@ -21,6 +21,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    
 
 }
 
@@ -30,4 +31,22 @@ header {
     min-width: 40vh;
     font-weight: 400;
     font-style: normal;
+}
+.carousel-item {
+    background-color: transparent; 
+    color: #333; 
+    padding: 20px;
+}
+
+.carousel-item h2 {
+    color: #FFFFFF; 
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #333; 
+}
+.table {
+    color: #FFFFFF;
+    background-color: #333;
 }
