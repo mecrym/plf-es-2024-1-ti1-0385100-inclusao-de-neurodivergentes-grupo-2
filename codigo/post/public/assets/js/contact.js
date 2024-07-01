@@ -1,3 +1,5 @@
+import { StorageService } from "../../services/localStorage-service.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const contactsList = document.getElementById('contactsList');
@@ -22,9 +24,63 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>${user.name}</span>
                     <button data-contact-id="${user.id}"><i class="fas fa-user-plus"></i></button>
                 `;
-                contactItem.querySelector('button').addEventListener('click', () => {
-                    contactIdInput.value = user.id;
-                    messageDiv.textContent = `${user.name} selecionado como contato.`;
+                const addButton = contactItem.querySelector('button');
+                const addIcon = addButton.querySelector('i');
+
+                addButton.addEventListener('click', async () => {
+                    const contactId = parseInt(addButton.getAttribute('data-contact-id'), 10); // Convertendo para número
+                    contactIdInput.value = contactId;
+
+                    try {
+                        const keyUser = "UI";
+                        const userId = StorageService.loadData(keyUser);
+
+                        if (!userId) {
+                            messageDiv.textContent = 'ID do usuário não encontrado no armazenamento.';
+                            return;
+                        }
+
+                        const contact = await fetchUserById(contactId);
+
+                        if (!contact || !contact.id) {
+                            messageDiv.textContent = 'Contato não encontrado.';
+                            return;
+                        }
+
+                        const friendEntry = await fetchFriendEntryByUserId(userId);
+
+                        if (!friendEntry) {
+                            messageDiv.textContent = 'Entrada de amigo não encontrada.';
+                            return;
+                        }
+
+                        if (!Array.isArray(friendEntry.friends)) {
+                            friendEntry.friends = [];
+                        }
+
+                        if (!friendEntry.friends.includes(contactId)) {
+                            friendEntry.friends.push(contactId);
+
+                            await fetch(`http://localhost:3000/friends/${friendEntry.id}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(friendEntry)
+                            });
+
+                            messageDiv.textContent = `Contato ${contact.name} adicionado com sucesso.`;
+
+                            // Altera o ícone para indicar que o contato foi adicionado
+                            addIcon.className = 'fas fa-user-check';
+                        } else {
+                            messageDiv.textContent = `Contato ${contact.name} já está na sua lista de amigos.`;
+                            addIcon.className = 'fas fa-user-check';
+                        }
+                    } catch (error) {
+                        console.error('Erro ao adicionar contato:', error);
+                        messageDiv.textContent = 'Erro ao adicionar contato. Por favor, tente novamente.';
+                    }
                 });
                 contactsList.appendChild(contactItem);
             });
@@ -32,64 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Erro ao buscar contatos:', error);
         }
     });
-});
-
-document.getElementById('addContact').addEventListener('click', async () => {
-    const contactId = parseInt(document.getElementById('contactId').value, 10);
-    const messageDiv = document.getElementById('message');
-    
-    if (isNaN(contactId)) {
-        messageDiv.textContent = 'Por favor, insira um ID de contato válido.';
-        return;
-    }
-
-    try {
-        const users = await getUsers();
-        const firstUser = users[0];
-        const userId = firstUser.id;
-
-        if (!firstUser || !firstUser.id) {
-            messageDiv.textContent = 'Primeiro usuário não encontrado.';
-            return;
-        }
-
-        const contact = await fetchUserById(contactId);
-
-        if (!contact || !contact.id) {
-            messageDiv.textContent = 'Contato não encontrado.';
-            return;
-        }
-
-        const friendEntry = await fetchFriendEntryByUserId(userId);
-
-        if (!friendEntry) {
-            messageDiv.textContent = 'Entrada de amigo não encontrada.';
-            return;
-        }
-
-        if (!Array.isArray(friendEntry.friends)) {
-            friendEntry.friends = [];
-        }
-
-        if (!friendEntry.friends.includes(contactId)) {
-            friendEntry.friends.push(contactId);
-
-            await fetch(`http://localhost:3000/friends/${friendEntry.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(friendEntry)
-            });
-
-            messageDiv.textContent = `Contato ${contact.name} adicionado com sucesso.`;
-        } else {
-            messageDiv.textContent = `Contato ${contact.name} já está na sua lista de amigos.`;
-        }
-    } catch (error) {
-        console.error('Erro ao adicionar contato:', error);
-        messageDiv.textContent = 'Erro ao adicionar contato. Por favor, tente novamente.';
-    }
 });
 
 async function getUsers() {

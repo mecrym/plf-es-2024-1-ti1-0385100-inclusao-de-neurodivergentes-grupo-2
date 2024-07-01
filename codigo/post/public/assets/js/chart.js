@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para buscar os dados das categorias do JSON Server
     async function fetchCategoriesData() {
         try {
-            const response = await fetch('http://localhost:3000/categorys');
+            const response = await fetch('http://localhost:3000/categories');
             if (!response.ok) {
                 throw new Error('Erro ao buscar os dados das categorias');
             }
