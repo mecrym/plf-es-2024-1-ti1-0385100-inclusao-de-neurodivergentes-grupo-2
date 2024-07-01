@@ -18,10 +18,22 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+header{
+    min-width: 40vh;
+    max-width: 640px;
+}
+.arrow-back {
+    min-width: 5vh;
+    max-width: 5vh;
+    margin-bottom: 120px;
 
-
-
-
+    img {
+        justify-self: right;
+        min-width: 3vh;
+        max-width: 3vh;
+        opacity: 40%;
+    }
 }
 
 .container-text {
@@ -52,7 +64,7 @@ body {
         margin-bottom: 10px;
         width: 18vh;
         height: 3vh;
-        
+
     }
 }
 
@@ -68,12 +80,12 @@ body {
 
 .container-type-text {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .container-select-completion {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 90px;
     margin-bottom: 50px;
 }
 
@@ -81,7 +93,7 @@ body {
     background-color: #FFC700;
     position: relative;
     width: 40px;
-   /* height: 40px;*/
+    /* height: 40px;*/
     padding: 20px;
     margin: 0;
     vertical-align: middle;
@@ -106,10 +118,11 @@ body {
     resize: none;
     font-family: "Istok Web", sans-serif;
     font-size: 1.5rem;
-    
+
 }
-.container-text{
-    .text{
+
+.container-text {
+    .text {
         margin-top: 20px;
     }
 }
@@ -189,6 +202,8 @@ label:after {
 
 }
 
+
+
 input:checked+label {
 
     background: #09A321;
@@ -219,6 +234,10 @@ label:active:after {
     max-width: 640px;
     min-height: 10vh;
     max-height: 10vh;
+    a{
+        text-decoration: none;
+    }
+    
 }
 
 main .add-button button {
@@ -241,7 +260,8 @@ main .add-button button {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    .time-picker{
+
+    .time-picker {
         margin-top: 20px;
     }
 

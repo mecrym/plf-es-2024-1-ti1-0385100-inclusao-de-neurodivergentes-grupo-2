@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const category = new CategoriesService();
     const keyTask = "taskId";
     const keyUser = "UI";
+    const keyDate = "date";
 
     async function getCategory(id) {
         return await category.getCategories(id);
@@ -103,6 +104,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     const userId = StorageService.loadData(keyUser);
     let objTasks = await getTasks();
     objTasks = await getTasksById(objTasks, userId);
+
+    const date = StorageService.loadData(keyDate);
+    objTasks = objTasks.filter(tasks=> tasks.startDate === date );
 
     const periods = ['Fulltime', 'Morning', 'Afternoon', 'Evening', 'Night'];
     const section = document.querySelector('.cards');

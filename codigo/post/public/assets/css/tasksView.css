@@ -103,8 +103,8 @@ main .add-button button {
     align-items: center;
     min-height: 4vh;
     max-height: 4vh;
-    min-width: 18vh;
-    max-width: 18vh;
+    min-width: 25vh;
+    max-width: 25vh;
 
     p {
         color: #FFFFFF;
