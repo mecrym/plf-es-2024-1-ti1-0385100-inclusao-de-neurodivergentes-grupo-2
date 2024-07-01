@@ -58,8 +58,10 @@ main .add-button button {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
 }
-.card{
+
+.card {
     overflow-y: auto;
     background-color: transparent;
     border: 2px solid #F1C40F;
@@ -67,26 +69,34 @@ main .add-button button {
     height: 7vh;
     min-width: 40vh;
     max-width: 640px;
-    .container{
+    margin: 10px 0 10px;
+
+    .container {
         height: 100%;
     }
-    p{
-        margin-top:10px ;
+
+    p {
+        margin-top: 10px;
     }
 }
-.title{
+
+.title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 
 }
-.border-img{
+
+.border-img {
     border-radius: 10%;
-    img{
+
+    img {
         width: 100%;
     }
 }
+
 .divImg {
     display: flex;
     flex-direction: row;
@@ -95,7 +105,8 @@ main .add-button button {
     max-height: 4vh;
     min-width: 18vh;
     max-width: 18vh;
-    p{
+
+    p {
         color: #FFFFFF;
         margin-left: 30px;
     }
@@ -107,6 +118,7 @@ main .add-button button {
         padding: 5px;
     }
 }
+
 .container-button .add {
     background-color: #FFC700;
     position: relative;
@@ -119,7 +131,8 @@ main .add-button button {
     border-radius: 100%;
 
 }
-.importance{
+
+.importance {
     border-radius: 100%;
     background-color: #E00000;
     width: 2vh;
@@ -144,4 +157,19 @@ main .add-button button {
     width: 8vh;
 
 
+}
+
+.footer-gradient {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-top: auto;
+    min-height: max-content;
+    min-height: 8vh;
+    max-height: 8vh;
+
+
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E);
+    /*gradient de baixo pra cima*/
 }

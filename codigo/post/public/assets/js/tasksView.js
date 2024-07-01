@@ -5,44 +5,42 @@ import { StorageService } from "../../services/localStorage-service.js"
 document.addEventListener('DOMContentLoaded', async function () {
     const task = new TaskService();
     const category = new CategoriesService();
-    var keyTask = "taskId";
-    var keyUser = "UI";
+    const keyTask = "taskId";
+    const keyUser = "UI";
 
     async function getCategory(id) {
         return await category.getCategories(id);
     }
-    async function getTask(id) {
-        return await task.getTask(id);
-    }
+
     async function getTasks() {
         return await task.getTasks();
     }
+
     async function getTasksById(obj, id) {
         return obj.filter(entry => parseInt(entry.userId) === parseInt(id));
     }
-    async function getPeriodDay(obj) {
-        var timeString = obj.startTime;
+
+    function getPeriodDay(obj) {
+        const timeString = obj.startTime;
         if (!timeString || timeString === 'null') return 'Fulltime';
 
-        var [hour] = timeString.split(":");
-        hour = parseInt(hour, 10);
+        const [hour] = timeString.split(":");
+        const hourInt = parseInt(hour, 10);
 
-        if (hour >= 6 && hour < 12) return 'Morning';
-        else if (hour >= 12 && hour < 18) return 'Afternoon';
-        else if (hour >= 18 && hour < 21) return 'Evening';
+        if (hourInt >= 6 && hourInt < 12) return 'Morning';
+        else if (hourInt >= 12 && hourInt < 18) return 'Afternoon';
+        else if (hourInt >= 18 && hourInt < 21) return 'Evening';
         else return 'Night';
-
     }
+
     function getCategoryNameById(obj, id) {
         const category = obj.find(category => parseInt(category.id) === parseInt(id));
         return category ? category.name : null;
     }
+
     async function getImageCategory(id) {
         const objCategory = await getCategory(id);
         const name = getCategoryNameById(objCategory, id);
-        console.log('name', name);
-        console.log("objCategory", objCategory);
-        console.log("id", id);
         switch (name) {
             case "Sports":
                 return '../../assets/images/dumbbell.png';
@@ -70,12 +68,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                 return '../../assets/images/other.png';
         }
     }
+
     async function getColorCategory(id) {
         const objCategory = await getCategory(id);
         const name = getCategoryNameById(objCategory, id);
-        console.log('name', name);
-        console.log("objCategory", objCategory);
-        console.log("id", id);
         switch (name) {
             case "Sports":
                 return '#FF5C00';
@@ -104,407 +100,92 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
 
-
-    const idTask = StorageService.loadData(keyTask);
     const userId = StorageService.loadData(keyUser);
-    var objTasks = await getTasks();
+    let objTasks = await getTasks();
     objTasks = await getTasksById(objTasks, userId);
-    console.log("obj", objTasks);
 
+    const periods = ['Fulltime', 'Morning', 'Afternoon', 'Evening', 'Night'];
+    const section = document.querySelector('.cards');
 
-    var contMorning = false;
-    var contAfternoon = false;
-    var contEvening = false;
-    var contNigth = false;
-    var contFulltime = false;
-    objTasks.map(async (currentValue, index) => {
-    
-        const section = document.querySelector('.cards');
-        const periodDay = await getPeriodDay(currentValue);
+    for (const period of periods) {
+        let periodTasks = objTasks.filter(task => getPeriodDay(task) === period);
 
-        if (periodDay === 'Fulltime') {
-            if (!contFulltime) {
-                contFulltime = true;
-                const divTitle = document.createElement('div');
-                divTitle.setAttribute('class', 'title');
-                const mainTitle = document.createElement('h1');
+        if (periodTasks.length > 0) {
+            const divTitle = document.createElement('div');
+            divTitle.setAttribute('class', 'title');
+            const mainTitle = document.createElement('h1');
+            mainTitle.innerHTML = period;
+            const dateTask = document.createElement('p');
+            dateTask.innerHTML = periodTasks[0].startDate;
+            divTitle.appendChild(mainTitle);
+            divTitle.appendChild(dateTask);
+            section.appendChild(divTitle);
 
-                mainTitle.innerHTML = periodDay;
-                const dateTask = document.createElement('p');
-                dateTask.innerHTML = currentValue.startDate;
-                divTitle.appendChild(mainTitle);
-                divTitle.appendChild(dateTask);
-                section.appendChild(divTitle);
+            for (const currentValue of periodTasks) {
+                const divCard = document.createElement('div');
+                divCard.setAttribute('class', 'card');
+                const divInt = document.createElement('div');
+                divInt.setAttribute("class", "container");
 
+                const divCat = document.createElement('div');
+                divCat.setAttribute("class", "divImg");
 
+                const categoryId = currentValue.categoryId;
+                const urlImg = await getImageCategory(categoryId);
 
+                const divImgCard = document.createElement('div');
+                divImgCard.setAttribute("class", "border-img");
+                divImgCard.style.backgroundColor = await getColorCategory(categoryId);
+                const img = document.createElement('img');
+                img.setAttribute("src", urlImg);
+
+                const nameTag = document.createElement('p');
+                let title = currentValue.title;
+                if (title.toLowerCase() === 'add your title') {
+                    const objCategory = await getCategory(categoryId);
+                    title = getCategoryNameById(objCategory, categoryId);
+                }
+                nameTag.innerHTML = title;
+
+                if (currentValue.priority) {
+                    divCard.style.position = 'relative';
+                    const importanceDiv = document.createElement('div');
+                    importanceDiv.setAttribute('class', 'importance');
+                    importanceDiv.style.position = 'absolute';
+                    divCard.appendChild(importanceDiv);
+                }
+
+                divImgCard.appendChild(img);
+                divCat.appendChild(divImgCard);
+                divCat.appendChild(nameTag);
+                divInt.appendChild(divCat);
+
+                const divBtn = document.createElement('div');
+                divBtn.setAttribute("class", "container-button");
+
+                const btn = document.createElement("button");
+                btn.setAttribute("class", "add");
+                btn.setAttribute("data-task-id", currentValue.id);
+
+                const imgBtn = document.createElement("img");
+                imgBtn.setAttribute("id", "imgBtn");
+                imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
+
+                btn.appendChild(imgBtn);
+                divBtn.appendChild(btn);
+                divInt.appendChild(divBtn);
+                divCard.appendChild(divInt);
+                section.appendChild(divCard);
             }
-
-            const divCard = document.createElement('div');
-            divCard.setAttribute('class', 'card');
-            const divInt = document.createElement('div');
-            divInt.setAttribute("class", "container");
-
-            const divCat = document.createElement('div');
-            divCat.setAttribute("class", "divImg");
-
-            const categoryId = currentValue.categoryId;
-            console.log("curentValue", currentValue);
-            console.log("categoryId", categoryId);
-            const urlImg = await getImageCategory(categoryId);
-
-            const divImgCard = document.createElement('div');
-            divImgCard.setAttribute("class", "border-img");
-            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
-            const img = document.createElement('img');
-            img.setAttribute("src", urlImg);
-           
-            const nameTag = document.createElement('p');
-            var title = currentValue.title;
-            if (title.toLowerCase() === 'add your title') {
-                const objCategory = await getCategory(categoryId);
-                title = getCategoryNameById(objCategory, categoryId);
-
-            }
-            nameTag.innerHTML = title;
-
-            if(currentValue.priority){
-                divCard.style.position = 'relative';
-                const importanceDiv = document.createElement('div');
-                importanceDiv.setAttribute('class', 'importance');
-                importanceDiv.style.position = 'absolute';
-                divCard.appendChild(importanceDiv);
-
-            }
-
-            divImgCard.appendChild(img);
-            divCat.appendChild(divImgCard);
-            divCat.appendChild(nameTag);
-            divInt.appendChild(divCat);
-
-            const divBtn = document.createElement('div');
-            divBtn.setAttribute("class", "container-button");
-
-            const btn = document.createElement("button");
-            btn.setAttribute("class", "add");
-            btn.setAttribute("id", "addText");
-            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
-
-            const imgBtn = document.createElement("img");
-            imgBtn.setAttribute("id", "imgBtn");
-            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
-
-            btn.appendChild(imgBtn);
-            divBtn.appendChild(btn);
-            divInt.appendChild(divBtn);
-            divCard.appendChild(divInt);
-            section.appendChild(divCard);
         }
-        else if (periodDay === 'Morning') {
-            if (!contMorning) {
-                contMorning = true;
-                const divTitle = document.createElement('div');
-                divTitle.setAttribute('class', 'title');
-                const mainTitle = document.createElement('h1');
+    }
+    const buttons = document.querySelectorAll('.add');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            var value = button.getAttribute('data-task-id');
+            StorageService.saveData(keyTask,value);
+            window.location.href = '../../view/registrationChange.html';
 
-                mainTitle.innerHTML = periodDay;
-                const dateTask = document.createElement('p');
-                dateTask.innerHTML = currentValue.startDate;
-                divTitle.appendChild(mainTitle);
-                divTitle.appendChild(dateTask);
-                section.appendChild(divTitle);
-
-            }
-            const divCard = document.createElement('div');
-            divCard.setAttribute('class', 'card');
-            const divInt = document.createElement('div');
-            divInt.setAttribute("class", "container");
-
-            const divCat = document.createElement('div');
-            divCat.setAttribute("class", "divImg");
-
-            const categoryId = currentValue.categoryId;
-            console.log("curentValue", currentValue);
-            console.log("categoryId", categoryId);
-            const urlImg = await getImageCategory(categoryId);
-
-            const divImgCard = document.createElement('div');
-            divImgCard.setAttribute("class", "border-img");
-            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
-            const img = document.createElement('img');
-            img.setAttribute("src", urlImg);
-           
-            const nameTag = document.createElement('p');
-            var title = currentValue.title;
-            if (title.toLowerCase() === 'add your title') {
-                const objCategory = await getCategory(categoryId);
-                title = getCategoryNameById(objCategory, categoryId);
-
-            }
-            nameTag.innerHTML = title;
-
-            if(currentValue.priority){
-                divCard.style.position = 'relative';
-                const importanceDiv = document.createElement('div');
-                importanceDiv.setAttribute('class', 'importance');
-                importanceDiv.style.position = 'absolute';
-                divCard.appendChild(importanceDiv);
-
-            }
-
-            divImgCard.appendChild(img);
-            divCat.appendChild(divImgCard);
-            divCat.appendChild(nameTag);
-            divInt.appendChild(divCat);
-
-            const divBtn = document.createElement('div');
-            divBtn.setAttribute("class", "container-button");
-
-            const btn = document.createElement("button");
-            btn.setAttribute("class", "add");
-            btn.setAttribute("id", "addText");
-            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
-
-            const imgBtn = document.createElement("img");
-            imgBtn.setAttribute("id", "imgBtn");
-            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
-
-            btn.appendChild(imgBtn);
-            divBtn.appendChild(btn);
-            divInt.appendChild(divBtn);
-            divCard.appendChild(divInt);
-            section.appendChild(divCard);
-        }
-        else if (periodDay === 'Afternoon') {
-            if (!contAfternoon) {
-                contAfternoon = true;
-                const divTitle = document.createElement('div');
-                divTitle.setAttribute('class', 'title');
-                const mainTitle = document.createElement('h1');
-
-                mainTitle.innerHTML = periodDay;
-                const dateTask = document.createElement('p');
-                dateTask.innerHTML = currentValue.startDate;
-                divTitle.appendChild(mainTitle);
-                divTitle.appendChild(dateTask);
-                section.appendChild(divTitle);
-
-            }
-            const divCard = document.createElement('div');
-            divCard.setAttribute('class', 'card');
-            const divInt = document.createElement('div');
-            divInt.setAttribute("class", "container");
-
-            const divCat = document.createElement('div');
-            divCat.setAttribute("class", "divImg");
-
-            const categoryId = currentValue.categoryId;
-            console.log("curentValue", currentValue);
-            console.log("categoryId", categoryId);
-            const urlImg = await getImageCategory(categoryId);
-
-            const divImgCard = document.createElement('div');
-            divImgCard.setAttribute("class", "border-img");
-            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
-            const img = document.createElement('img');
-            img.setAttribute("src", urlImg);
-           
-            const nameTag = document.createElement('p');
-            var title = currentValue.title;
-            if (title.toLowerCase() === 'add your title') {
-                const objCategory = await getCategory(categoryId);
-                title = getCategoryNameById(objCategory, categoryId);
-
-            }
-            nameTag.innerHTML = title;
-
-            if(currentValue.priority){
-                divCard.style.position = 'relative';
-                const importanceDiv = document.createElement('div');
-                importanceDiv.setAttribute('class', 'importance');
-                importanceDiv.style.position = 'absolute';
-                divCard.appendChild(importanceDiv);
-
-            }
-
-            divImgCard.appendChild(img);
-            divCat.appendChild(divImgCard);
-            divCat.appendChild(nameTag);
-            divInt.appendChild(divCat);
-
-            const divBtn = document.createElement('div');
-            divBtn.setAttribute("class", "container-button");
-
-            const btn = document.createElement("button");
-            btn.setAttribute("class", "add");
-            btn.setAttribute("id", "addText");
-            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
-
-            const imgBtn = document.createElement("img");
-            imgBtn.setAttribute("id", "imgBtn");
-            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
-
-            btn.appendChild(imgBtn);
-            divBtn.appendChild(btn);
-            divInt.appendChild(divBtn);
-            divCard.appendChild(divInt);
-            section.appendChild(divCard);
-
-        }
-        else if (periodDay === 'Evening') {
-            if (!contEvening) {
-                contEvening = true;
-                const divTitle = document.createElement('div');
-                divTitle.setAttribute('class', 'title');
-                const mainTitle = document.createElement('h1');
-
-                mainTitle.innerHTML = periodDay;
-                const dateTask = document.createElement('p');
-                dateTask.innerHTML = currentValue.startDate;
-                divTitle.appendChild(mainTitle);
-                divTitle.appendChild(dateTask);
-                section.appendChild(divTitle);
-
-            }
-            const divCard = document.createElement('div');
-            divCard.setAttribute('class', 'card');
-            const divInt = document.createElement('div');
-            divInt.setAttribute("class", "container");
-
-            const divCat = document.createElement('div');
-            divCat.setAttribute("class", "divImg");
-
-            const categoryId = currentValue.categoryId;
-            console.log("curentValue", currentValue);
-            console.log("categoryId", categoryId);
-            const urlImg = await getImageCategory(categoryId);
-
-            const divImgCard = document.createElement('div');
-            divImgCard.setAttribute("class", "border-img");
-            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
-            const img = document.createElement('img');
-            img.setAttribute("src", urlImg);
-           
-            const nameTag = document.createElement('p');
-            var title = currentValue.title;
-            if (title.toLowerCase() === 'add your title') {
-                const objCategory = await getCategory(categoryId);
-                title = getCategoryNameById(objCategory, categoryId);
-
-            }
-            nameTag.innerHTML = title;
-
-            if(currentValue.priority){
-                divCard.style.position = 'relative';
-                const importanceDiv = document.createElement('div');
-                importanceDiv.setAttribute('class', 'importance');
-                importanceDiv.style.position = 'absolute';
-                divCard.appendChild(importanceDiv);
-
-            }
-
-            divImgCard.appendChild(img);
-            divCat.appendChild(divImgCard);
-            divCat.appendChild(nameTag);
-            divInt.appendChild(divCat);
-
-            const divBtn = document.createElement('div');
-            divBtn.setAttribute("class", "container-button");
-
-            const btn = document.createElement("button");
-            btn.setAttribute("class", "add");
-            btn.setAttribute("id", "addText");
-            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
-
-            const imgBtn = document.createElement("img");
-            imgBtn.setAttribute("id", "imgBtn");
-            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
-
-            btn.appendChild(imgBtn);
-            divBtn.appendChild(btn);
-            divInt.appendChild(divBtn);
-            divCard.appendChild(divInt);
-            section.appendChild(divCard);
-        }
-        else {
-            if (!contNigth) {
-                contNigth = true;
-                const divTitle = document.createElement('div');
-                divTitle.setAttribute('class', 'title');
-                const mainTitle = document.createElement('h1');
-
-                mainTitle.innerHTML = periodDay;
-                const dateTask = document.createElement('p');
-                dateTask.innerHTML = currentValue.startDate;
-                divTitle.appendChild(mainTitle);
-                divTitle.appendChild(dateTask);
-                section.appendChild(divTitle);
-
-            }
-            const divCard = document.createElement('div');
-            divCard.setAttribute('class', 'card');
-            const divInt = document.createElement('div');
-            divInt.setAttribute("class", "container");
-
-            const divCat = document.createElement('div');
-            divCat.setAttribute("class", "divImg");
-
-            const categoryId = currentValue.categoryId;
-            console.log("curentValue", currentValue);
-            console.log("categoryId", categoryId);
-            const urlImg = await getImageCategory(categoryId);
-
-            const divImgCard = document.createElement('div');
-            divImgCard.setAttribute("class", "border-img");
-            divImgCard.style.backgroundColor = await getColorCategory(categoryId);
-            const img = document.createElement('img');
-            img.setAttribute("src", urlImg);
-           
-            const nameTag = document.createElement('p');
-            var title = currentValue.title;
-            if (title.toLowerCase() === 'add your title') {
-                const objCategory = await getCategory(categoryId);
-                title = getCategoryNameById(objCategory, categoryId);
-
-            }
-            nameTag.innerHTML = title;
-
-            if(currentValue.priority){
-                divCard.style.position = 'relative';
-                const importanceDiv = document.createElement('div');
-                importanceDiv.setAttribute('class', 'importance');
-                importanceDiv.style.position = 'absolute';
-                divCard.appendChild(importanceDiv);
-
-            }
-
-            divImgCard.appendChild(img);
-            divCat.appendChild(divImgCard);
-            divCat.appendChild(nameTag);
-            divInt.appendChild(divCat);
-
-            const divBtn = document.createElement('div');
-            divBtn.setAttribute("class", "container-button");
-
-            const btn = document.createElement("button");
-            btn.setAttribute("class", "add");
-            btn.setAttribute("id", "addText");
-            btn.setAttribute("onclick", "window.location.href='../../view/registrationChange.html'");
-
-            const imgBtn = document.createElement("img");
-            imgBtn.setAttribute("id", "imgBtn");
-            imgBtn.setAttribute("src", "../../assets/images/plus_icon.svg");
-
-            btn.appendChild(imgBtn);
-            divBtn.appendChild(btn);
-            divInt.appendChild(divBtn);
-            divCard.appendChild(divInt);
-            section.appendChild(divCard);
-
-        }
-
-
-
-
+        });
     });
 });
