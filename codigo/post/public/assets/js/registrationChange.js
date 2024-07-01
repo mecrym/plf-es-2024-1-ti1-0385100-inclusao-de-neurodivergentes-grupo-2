@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const users = await user.getUsers();
         return users;
     }
-    let idUser = await getUsers();
-    const ID = idUser[0].id;
+    
     const buttonDone = document.querySelector('#addBtn');
     const addBtn2 = document.querySelector('#addText');
     const containerTextDiv = document.querySelector('.container-text');

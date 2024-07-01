@@ -1,8 +1,10 @@
 import { UserService } from "../../services/user-service.js";
+import { StorageService } from '../../services/localStorage-service.js';
 
 
 document.addEventListener('DOMContentLoaded', async function () {
     const user = new UserService();
+    const keyUser = "UI"
 
     async function getUser(id) {
         return user.getUser(id);
@@ -11,11 +13,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         const users = await user.getUsers();
         return users;
     }
-    let idUser = await getUsers();
-    const ID = idUser[0].id;
+    const ID = StorageService.loadData(keyUser);
+
     const userAccount = await getUser(ID);
 
-    console.log(userAccount);
     const img = document.querySelector('.profile-picture>img');
     img.setAttribute("src", userAccount.profilePhotoUrl);
     const inputName = document.querySelector('.name');
