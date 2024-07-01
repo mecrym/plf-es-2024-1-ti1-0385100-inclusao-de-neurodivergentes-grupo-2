@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+    <link rel="stylesheet" href="assets\css\calendario.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Jersey+20&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">   
+            <input type="checkbox" class="menu-btn" id="menu-btn"/>
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <ul class="menu">
+                <li><a href="#habit"><img src="assets/imgnavbar/chart 1 (2).png" alt="icone habit"> Habit</a></li>
+                <li><a href="#ranking"><img src="assets/imgnavbar/rank 1.png" alt="icone rank"> Ranking</a></li>
+                <li><a href="#burndown"><img src="assets/imgnavbar/Vector.png" alt="icone tasks"> Burndown</a></li>
+                <li><a href="#performace"><img src="assets/imgnavbar/task 1.png" alt="icone Performace"> Performace</a></li>
+            </ul>            
+        </nav>
+    </header>
+
+    <br><br>
+
+    <h1 id="title">Today</h1>
+
+    <br>
+
+
+    <div class="calendar-container">
+        <div id="carousel-container">
+            <div class="arrow arrow-left">&lt;</div>
+            <div class="carousel" id="carousel"></div>
+            <div class="arrow arrow-right">&gt;</div>
+        </div>
+        <div class="task-info" id="taskInfo"></div>
+    </div>
+
+    <div id="carousel-tarefas">
+        <!-- Este é o novo elemento para as informações de tarefas divididas em períodos do dia -->
+        <div id="taskPeriodInfo">
+            
+            <div id="f">
+                <!--imagens serão clicáveis-->
+                <a href="#"><img src="assets\img\173561911685033473 1.png" alt="fulltime"></a>
+                <div id="texto-f" class="task-period fulltime"></div> <!-- Círculo para dia todo -->
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+    <footer class="footer-gradient"></footer>
+    <script src="assets\js\calendario.js"></script>
+</html>
