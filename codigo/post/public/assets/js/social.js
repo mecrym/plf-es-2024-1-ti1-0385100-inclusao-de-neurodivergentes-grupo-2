@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const friend = new FriendsService();
     const key = "like";
     const keyComment = "comment";
+    const keyUser = "UI";
 
     async function selectPost() {
         const obj = await post.getPosts();
@@ -94,13 +95,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         return array.some(e => parseInt(obj.userId) === parseInt(e));
     }
     const object = await selectPost();
-    let idUser = await getUsers();
-    const ID = idUser[0].id;
+    const ID = StorageService.loadData(keyUser);
     let friendsObj = await getFriends();
     var friends;
 
     try {
         friends = getFriendsByUserId(friendsObj, ID);
+        friends.push(ID);
     } catch (error) {
         console.error(error.message);
     }
@@ -108,7 +109,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     object.reverse().map(async (currentValue, index) => {
         var checkFriend = await getPostsFriends(currentValue, friends);
-      
+        
         if (checkFriend) {
             const sectionElement = document.querySelector('.content-post');
             const divElement = document.createElement('div');

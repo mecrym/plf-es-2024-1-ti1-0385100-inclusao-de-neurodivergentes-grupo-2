@@ -1,11 +1,13 @@
 import { SelectImageService } from "../../services/selectImage-service.js";
 import {PostService} from "../../services/post-service.js";
 import {UserService} from "../../services/user-service.js";
+import { StorageService } from '../../services/localStorage-service.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
     const selectImage = new SelectImageService();
     const post = new PostService();
     const user = new UserService();
+    const keyUser = "UI";
 
     async function getUsers() {
         const users = await user.getUsers();
@@ -32,8 +34,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     var lenPosts = posts.length;
     var idLastPost = parseInt(posts[lenPosts-1].id);
 
-    let idUser = await getUsers();
-    const ID = idUser[0].id;
+    const ID = StorageService.loadData(keyUser);
     
     const url = posts[lenPosts-1].photoUrl;
     const sectionPhoto = document.querySelector('.photo');
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             content: inputElement.value,
             photoUrl: url,
         };
-     
+        console.log("var", newPost);
         await post.updatePost(idLastPost,newPost);
     });
 
