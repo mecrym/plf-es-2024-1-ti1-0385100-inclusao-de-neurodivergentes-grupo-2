@@ -1,0 +1,161 @@
+/* CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #e4e0e0;
+    font-size: 1.3rem;
+}
+
+.title {
+    text-align: center;
+    margin-top: 120px;
+}
+
+h1 {
+    font-size: 2.0rem;
+    text-align: center;
+}
+
+
+
+header {
+    color: #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: calc(100% - 60px);
+    /* Reduz a largura para acomodar as setas de rolagem */
+    height: 80px;
+    margin: 20px auto;
+    /* Centraliza horizontalmente */
+    border: 1px solid rgba(253, 253, 253, 0.01);
+    /* Adicionado para destacar a área do carrossel */
+    border-radius: 5px;
+    /* Adicionado para suavizar as bordas */
+}
+
+.carousel {
+    display: flex;
+    width: 100%;
+}
+
+.day {
+    flex: 0 0 calc(100% / 7);
+    height: 80px;
+    /* Aumentei a altura para acomodar o texto abaixo */
+    border: 1px solid rgba(253, 253, 253, 0.01);
+    margin: 0 0px;
+    display: flex;
+    flex-direction: column;
+    /* Alterado para exibir o texto abaixo do dia */
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    /* Reduzi o tamanho da fonte para caber melhor */
+    cursor: pointer;
+    /*passar para o media query do notebook depois*/
+    text-transform: uppercase;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 500;
+}
+
+/*descobrir como fazer para clicar de novo e des-selecionar (essa palavra existe??)*/
+.selected {
+    background-color: #ffcc00;
+    color: #0D1C2E;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    /* Aumentei o tamanho da fonte para destacar o dia selecionado */
+    border-radius: 5%;
+    max-height: 75px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(70%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1;
+    color: rgba(177, 177, 177, 0.2);
+}
+
+.arrow-left {
+    left: 0;
+}
+
+.arrow-right {
+    right: 0;
+}
+
+.task-info {
+    font-family: "Istok Web", sans-serif;
+    margin-top: 10px;
+    font-size: 9px;
+    /* Reduzi o tamanho da fonte para caber melhor */
+    text-align: center;
+    /* Centraliza o texto */
+}
+
+.task-period {
+    font-family: "Istok Web", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+    /* Alterado para cursor de ponteiro */
+}
+
+#carousel-tarefas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 95px;
+}
+
+
+#taskPeriodInfo{
+    width: 400px;
+    height: 100px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 15px;
+
+}
+
+#texto-m{
+    font-size: 5px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 400;
+}
+
+.footer-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to top, #013B5B, #0D1C2E);
+    z-index: -1;
+}
