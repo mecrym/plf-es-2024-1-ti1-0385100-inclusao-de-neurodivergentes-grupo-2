@@ -20,7 +20,9 @@ const cors = require('cors');
 
 // Para permitir que os dados sejam alterados, altere a linha abaixo
 // colocando o atributo readOnly como false.
-const middlewares = jsonServer.defaults()
+const middlewares = jsonServer.defaults({
+  static: path.join(__dirname, 'public')
+});
 
 server.use(cors())
 server.use(middlewares)
