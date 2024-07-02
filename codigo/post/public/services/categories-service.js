@@ -1,6 +1,6 @@
 export class CategoriesService{
     constructor() {
-        this.urlBase = 'http://localhost:3000/categories';
+        this.urlBase = '/categories';
       }
     async getCategories(){
         try{

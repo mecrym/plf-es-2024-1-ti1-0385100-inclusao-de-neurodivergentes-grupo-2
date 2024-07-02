@@ -1,6 +1,6 @@
 export class LikeService{
     constructor() {
-        this.urlBase = 'http://localhost:3000/likes';
+        this.urlBase = '/likes';
       }
     async getLikes(){
         try{

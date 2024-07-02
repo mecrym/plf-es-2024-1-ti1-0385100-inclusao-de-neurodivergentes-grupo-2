@@ -1,6 +1,6 @@
 export class PostService{
     constructor() {
-        this.urlBase = 'http://localhost:3000/post';
+        this.urlBase = '/post';
       }
     async getPosts(){
         try{

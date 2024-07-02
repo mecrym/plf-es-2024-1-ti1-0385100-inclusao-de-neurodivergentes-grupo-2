@@ -1,6 +1,6 @@
 export class UserService{
     constructor() {
-        this.urlBase = 'http://localhost:3000/users';
+        this.urlBase = '/users';
       }
     async getUsers(){
         try{
