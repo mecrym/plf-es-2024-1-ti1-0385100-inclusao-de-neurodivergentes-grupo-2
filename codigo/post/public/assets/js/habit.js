@@ -1,77 +1,248 @@
-function gerarCalendarioSemanalSegSexHTML(dataInicial) {
-    const diasSemana = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-    let data = new Date(dataInicial);
-    data.setHours(0, 0, 0, 0);
-    while (data.getDay() !== 0) {
-        data.setDate(data.getDate() - 1);
-    }
+import { StorageService } from '../../services/localStorage-service.js';
+(function( $ ) {
+	var calenderTpl = `
+		<div id="calTitle" >
+			<button type="button" class="month-mover prev" style="margin-right: 10px;">
+				<svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+					<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+				</svg>
+			</button>
+			<div id="monthYear"></div>
+			<button type="button" class="month-mover next">
+				<svg fill="#FFFFFF" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+				</svg>
+			</button>
+		</div>
+		<div>
+			<div id="calThead"></div>
+			<div id="calTbody"></div>
+		</div>
+		<div id="calTFooter">
+			<h3 id="eventTitle">No events today.</h3>
+			<a href="../../view/tasksView.html" id="calLink">ALL EVENTS</a>
+		</div>
+	`;
+	var weekDaysFromSunday = '<div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>';
+	var weekDaysFromMonday = '<div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>';
+	var shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    let calendarioHtml = `
-        <h2 class="text-center">${data.toLocaleDateString('en-ES', { month: 'long', year: 'numeric' })}</h2>
-        <table class="table table-bordered style="background-color: #0D1C2E; color: #ffffff;">
-            <thead>
-                <tr>
-                    ${diasSemana.map(dia => `<th>${dia}</th>`).join('')}
-                </tr>
-            </thead>
-            <tbody>
-    `;
+    $.fn.miniEventCalendar = $.fn.MEC = function(options) {
+    	var settings = $.extend({
+			calendar_link : "../../view/tasksView.html",
+    		events: [],
+			from_monday: false,
+			onMonthChanged: null
+        }, options );
 
-    calendarioHtml += '<tr>';
-    for (let j = 0; j < 7; j++) { 
-        calendarioHtml += `<td>${data.getDate()}</td>`;
-        data.setDate(data.getDate() + 1);
-    }
-    calendarioHtml += '</tr>';
+		var miniCalendar = this;
 
-    calendarioHtml += `
-            </tbody>
-        </table>
-    `;
+        miniCalendar.addClass('mini-cal').html(calenderTpl);
 
-    return calendarioHtml;
-}
+		var thead = miniCalendar.find("#calThead");
+		var tbody = miniCalendar.find("#calTbody");
+		var calTitle = miniCalendar.find("#monthYear");
+		var calFooter = miniCalendar.find("#calTFooter");
+        var eventTitle = miniCalendar.find("#eventTitle");
+		var eventsLink = miniCalendar.find("#calLink");
 
-function inicializarCarrossel() {
-    const carrossel = document.getElementById('carouselExample');
-    const inner = carrossel.querySelector('.carousel-inner');
+		var today = new Date();
+		var curMonth = today.getMonth();
+		var curYear = today.getFullYear();
 
-    const dataAtual = new Date();
-    dataAtual.setDate(1); 
+        eventTitle.text("No events today.");
+		eventsLink.text("ALL EVENTS");
+		eventsLink.attr("href", settings.calendar_link);
 
-    const mesesAntes = 12;
-    for (let i = mesesAntes; i > 0; i--) {
-        const dataInicial = new Date(dataAtual.getFullYear(), dataAtual.getMonth() - i, 1);
-        const calendarioHtml = gerarCalendarioSemanalSegSexHTML(dataInicial);
+		if(settings.from_monday)
+			thead.html(weekDaysFromMonday);
+		else
+			thead.html(weekDaysFromSunday);
 
-        const item = document.createElement('div');
-        item.classList.add('carousel-item');
-        item.innerHTML = calendarioHtml;
+		if(!settings.calendar_link.length && !settings.events.length)
+			calFooter.css("display", "none");
 
-        inner.appendChild(item);
-    }
+		miniCalendar.find(".month-mover").each(function(){
+			var mover = $(this);
+			mover.bind("click", function(e){
+				e.preventDefault();
+				if(mover.hasClass("next"))
+					viewNextMonth();
+				else
+					viewPrevMonth();
+			});
+		});
 
-    const calendarioAtualHtml = gerarCalendarioSemanalSegSexHTML(dataAtual);
-    const itemAtual = document.createElement('div');
-    itemAtual.classList.add('carousel-item', 'active'); 
-    itemAtual.innerHTML = calendarioAtualHtml;
-    inner.appendChild(itemAtual);
+		miniCalendar.on("click touchstart", ".a-date", function(e){
+			e.preventDefault(); 
+			$(".a-date").removeClass('focused');
+		    if(!$(this).hasClass('blurred')){
+				showEvent($(this).data('event'));
+				$(this).focus();
+				$(this).addClass('focused');
+			}
+		});
 
-    const mesesDepois = 12;
-    for (let i = 1; i <= mesesDepois; i++) {
-        const dataInicial = new Date(dataAtual.getFullYear(), dataAtual.getMonth() + i, 1);
-        const calendarioHtml = gerarCalendarioSemanalSegSexHTML(dataInicial);
+		function populateCalendar(month, year, onInit) {
+			tbody.html("");
+			calTitle.text(shortMonths[month] + " " + year);
+			eventTitle.text("Click day to see event");
 
-        const item = document.createElement('div');
-        item.classList.add('carousel-item');
-        item.innerHTML = calendarioHtml;
+			var eventsForMonth = settings.events.filter(function(event) {
+				var eventDate = new Date(event.date);
+				return eventDate.getMonth() === month && eventDate.getFullYear() === year;
+			});
 
-        inner.appendChild(item);
-    }
+			if (eventsForMonth.length > 0) {
+				eventsLink.text("ALL EVENTS");
+				eventsLink.attr("href", settings.calendar_link);
+			} else {
+				eventsLink.text("No events available");
+				eventsLink.removeAttr("href");
+				eventsLink.css("cursor", "not-allowed");
+				eventsLink.on("click", function(e) {
+					e.preventDefault();
+				});
+			}
 
-    new bootstrap.Carousel(carrossel, {
-        interval: false 
-    });
-}
+			curMonth = month;
+			curYear = year;
 
-document.addEventListener('DOMContentLoaded', inicializarCarrossel);
+			var ldate = new Date(year, month);
+			var dt = new Date(ldate);
+			var weekDay = dt.getDay();
+
+			if(settings.from_monday)
+				weekDay = dt.getDay() > 0 ? dt.getDay() - 1 : 6;
+
+			if(ldate.getDate() === 1)
+				tbody.append(lastDaysOfPrevMonth(weekDay));
+
+			while (ldate.getMonth() === month) {
+     			dt = new Date(ldate);
+
+     			var isToday = areSameDate(ldate, new Date());
+     			var event = null;
+     			var eventIndex = settings.events.findIndex(function(ev) {
+		     		return areSameDate(dt, new Date(ev.date));
+		     	});
+
+		        if(eventIndex != -1){
+		        	event = settings.events[eventIndex];
+
+		        	if(onInit && isToday)
+		        		showEvent(event);
+		        }
+
+     			tbody.append(dateTpl(false, ldate.getDate(), isToday, event, onInit && isToday));
+
+     			ldate.setDate(ldate.getDate() + 1);
+
+     			var bufferDays = 43 - miniCalendar.find(".a-date").length;
+
+		        if(ldate.getMonth() != month){
+		        	for(var i = 1; i < bufferDays; i++){
+						tbody.append(dateTpl(true, i));
+					}
+				}
+			}
+			 
+			if(settings.onMonthChanged){
+				settings.onMonthChanged(month, year);
+			}
+ 		}
+
+ 		function lastDaysOfPrevMonth(day){
+ 			if(curMonth > 0){
+				var monthIdx = curMonth - 1;
+				var yearIdx = curYear;
+			}
+			else{
+     			if(curMonth < 11){
+     				var monthIdx = 0;
+     				var yearIdx = curYear + 1;
+     			}else{
+     				var monthIdx = 11;
+     				var yearIdx = curYear - 1;
+     			}
+     		}
+     		
+     		var prevMonth = getMonthDays(monthIdx, yearIdx);
+     		var lastDays = "";
+        	for (var i = day; i > 0; i--)
+     			lastDays += dateTpl(true, prevMonth[prevMonth.length - i]);
+
+        	return lastDays;
+ 		}
+
+		function dateTpl(blurred, date, isToday, event, isSelected){
+			var tpl = "<div class='a-date blurred'><span>"+date+"</span></div>";
+
+            if (!blurred) {
+                var hasEvent = event && event !== null;
+                var cls = isToday ? "current " : "";
+                cls += hasEvent && isSelected ? "focused " : "";
+        
+                tpl = "<button type='button' class='a-date " + cls + "' data-event='" + JSON.stringify(event) + "'>";
+                tpl += "<span>" + date + "</span>";
+                
+                if (hasEvent && event.priority) {
+                    tpl += "<span class='event-priority'></span>";
+                }
+                
+                tpl += "</button>";
+            }
+
+			return tpl;
+		}
+
+		function showEvent(event){
+            const keyDate = "date";
+			if(event && event !== null && event !== undefined){
+				eventTitle.text(event.title);
+				eventsLink.text("VIEW TASK");
+                StorageService.saveData(keyDate, event.startDate);
+				eventsLink.attr("href", settings.calendar_link);
+			}else{
+				eventTitle.text("No events on this day.");
+				eventsLink.text("");
+				eventsLink.attr("href", "#");
+			}
+		}
+
+		function viewNextMonth(){
+			var nextMonth = curMonth < 11 ? curMonth + 1 : 0;
+			var nextYear = curMonth < 11 ? curYear : curYear + 1;
+
+			populateCalendar(nextMonth, nextYear);
+		}
+
+		function viewPrevMonth(){
+			var prevMonth = curMonth > 0 ? curMonth - 1 : 11;
+			var prevYear = curMonth > 0 ? curYear : curYear - 1;
+			
+			populateCalendar(prevMonth, prevYear);
+		}
+
+		function areSameDate(d1, d2) {
+			return d1.getFullYear() == d2.getFullYear()
+		        && d1.getMonth() == d2.getMonth()
+		        && d1.getDate() == d2.getDate();
+		}
+
+		function getMonthDays(month, year) {
+			var date = new Date(year, month, 1);
+			var days = [];
+			while (date.getMonth() === month) {
+				days.push(date.getDate());
+				date.setDate(date.getDate() + 1);
+			}
+			return days;
+		}
+
+		populateCalendar(curMonth, curYear, true);
+
+        return miniCalendar;
+    };
+ 
+}( jQuery ));
