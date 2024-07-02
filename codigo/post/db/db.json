@@ -654,7 +654,6 @@
       "priority": true
     },
     {
-<<<<<<< HEAD
       "id": "106538",
       "userId": 5632,
       "categoryId": 2,
@@ -679,7 +678,8 @@
       "startDate": "2024-07-04",
       "endDate": "2024-07-03",
       "priority": true
-=======
+    },
+    {
       "id": "106539",
       "userId": 5632,
       "categoryId": 4,
@@ -730,7 +730,6 @@
       "startDate": "2024-06-08",
       "endDate": "2024-06-08",
       "priority": false
->>>>>>> 7a36807d18ce0961425dde8c2b1192e3ebb3a75e
     }
   ],
   "categories": [
