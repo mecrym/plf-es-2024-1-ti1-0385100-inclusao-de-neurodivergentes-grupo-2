@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const selectedDateString = date.toISOString().split('T')[0]; // Formato: YYYY-MM-DD
                 const tasksForSelectedDate = tasks.filter(task => task.endDate === selectedDateString);
                 const uniqueTaskCount = new Set(tasksForSelectedDate.map(task => task.id)).size;
-                document.getElementById('texto-f').textContent = `tasks: ${uniqueTaskCount}`;
+                document.getElementById('texto-f').textContent = `Tasks: ${uniqueTaskCount}`;
             })
             .catch(error => {
                 console.error('Erro ao buscar tarefas:', error);
