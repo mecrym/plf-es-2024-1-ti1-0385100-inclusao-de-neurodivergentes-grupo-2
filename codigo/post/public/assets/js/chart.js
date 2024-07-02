@@ -1,10 +1,10 @@
 import { StorageService } from "../../services/localStorage-service.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Função para buscar os dados das tarefas do JSON Server
-    async function fetchTasksData(userId) {
+    // Função para buscar os dados das tarefas do JSON Server com filtragem por data
+    async function fetchTasksData(userId, date) {
         try {
-            const response = await fetch(`http://localhost:3000/tasks?userId=${userId}&completion=true`);
+            const response = await fetch(`http://localhost:3000/tasks?userId=${userId}&completion=true&startDate=${date}&endDate=${date}`);
             if (!response.ok) {
                 throw new Error('Erro ao buscar os dados das tarefas');
             }
@@ -33,41 +33,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Função para inicializar o gráfico e as durações das tarefas
     async function init(userId) {
-        const tasksData = await fetchTasksData(userId);
+        const keyDate = "date"; // Chave usada para armazenar a data no Local Storage
+        const date = StorageService.loadData(keyDate); // Carregar a data do Local Storage
+        if (!date) {
+            console.error('Data não encontrada no armazenamento.');
+            return;
+        }
+
+        const tasksData = await fetchTasksData(userId, date);
         const categoriesData = await fetchCategoriesData();
 
         console.log('Dados das tarefas:', tasksData);
         console.log('Dados das categorias:', categoriesData);
 
         if (tasksData.length === 0) {
-            console.log('Nenhuma tarefa encontrada.');
+            console.log(`Nenhuma tarefa encontrada para a data ${date}.`);
             return;
         }
 
-        // Encontrar a data com mais tarefas completas
-        const dates = tasksData.map(task => task.startDate).filter((value, index, self) => self.indexOf(value) === index); // Obter datas únicas
-        let maxCompletedTasks = 0;
-        let busiestDate = '';
-
-        dates.forEach(date => {
-            const completedTasks = tasksData.filter(task => task.startDate === date && task.endDate === date && task.startTime && task.endTime);
-            if (completedTasks.length > maxCompletedTasks) {
-                maxCompletedTasks = completedTasks.length;
-                busiestDate = date;
-            }
-        });
-
-        console.log('Data com mais tarefas completas:', busiestDate);
-
-        // Filtrar as tarefas completas da data mais movimentada
-        const filteredTasks = tasksData.filter(task => task.startDate === busiestDate && task.endDate === busiestDate && task.startTime && task.endTime);
+        // Filtrar as tarefas completas do dia específico
+        const filteredTasks = tasksData.filter(task => task.startDate === date && task.endDate === date && task.completion === true);
 
         if (filteredTasks.length === 0) {
-            console.log(`Nenhuma tarefa concluída encontrada para a data ${busiestDate}.`);
+            console.log(`Nenhuma tarefa concluída encontrada para a data ${date}.`);
             return;
         }
 
-        // Ordenar as tarefas por horário de término
+        // Ordenar as tarefas filtradas por horário de término
         filteredTasks.sort((a, b) => a.endTime.localeCompare(b.endTime));
 
         // Extrair os horários de início e término das tarefas

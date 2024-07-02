@@ -95,14 +95,14 @@
           <!-- Introdução ============================ -->
           <section id="ti_intro">
             <h2>Introdução</h2>
-            <p class="lead">Nosso projeto se chama HabitR, somos uma equipe formada por 4 pessoas, todos somos Devs e estudantes de Engenharia de Software na Puc Minas - Praça da Liberdade. O projeto tem foco em solucionar problemas de inclusão de neuro divergentes.</p>
+            <p class="lead">Nosso projeto se chama HabitEase, somos uma equipe formada por 3 pessoas, todos somos Devs e estudantes de Engenharia de Software na Puc Minas - Praça da Liberdade. O projeto tem foco em solucionar problemas de inclusão de neuro divergentes.</p>
 
             <section id="ti_intro_info">
               <h4>Informações Gerais</h4>
               <div class="row">
                 <div class="col-12">
                   <ul class="list-unstyled">
-                    <li><strong>Projeto:</strong> HabitR</li>
+                    <li><strong>Projeto:</strong> HabitEase</li>
                     <li><strong>Repositório GitHub:</strong> <a href="https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti1-0385100-inclusao-de-neurodivergentes-grupo-2">Template Trabalho Interdisciplinar</a>
                     </li>
                     <li><strong>Membros da equipe:</strong>
@@ -110,7 +110,6 @@
                         <li><a href="https://github.com/Brunamark">Bruna Markowisk</a></li>
                         <li><a href="https://github.com/cauahomero">Cauã Homero</a></li>
                         <li><a href="https://github.com/mecrym">Maria Eduarda Moreira</a></li>
-                        <li><a href="https://github.com/penelopecris">Penélope Cristine Loures Antunes</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -467,7 +466,7 @@
               <p>Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas.
               </p>
               </div>
-              <p>O grupo é formado de 4 membros onde todos são desenvolvedores, a equipe é auto organizada, então as tarefas foram divididas com base em experiência e interesse nas próprias. Assim foi divido que a Bruna desenvolveria o wireframe, a Penélope o User Flow e eu(Cauã) e a Maria ficaríamos com a documentação. Mesmo definindo essas tarefas, todos solicitamos ajuda para os membros, em ideias de design, correções ortográficas e teste de compreensão por exemplo.</p>
+              <p>O grupo é formado de 4 membros onde todos são desenvolvedores, a equipe é auto organizada, então as tarefas foram divididas com base em experiência e interesse nas próprias. Assim foi divido que a Bruna desenvolveria o wireframe, a Penélope(membro que saiu do grupo) o User Flow e eu(Cauã) e a Maria ficaríamos com a documentação. Mesmo definindo essas tarefas, todos solicitamos ajuda para os membros, em ideias de design, correções ortográficas e teste de compreensão por exemplo.</p>
               <img class="img-fluid" src="assets/images/projectsDone.jpg" alt="">
             </section>
 
@@ -516,20 +515,144 @@
               </div>
 
               <section>
-                <h5>Funcionalidade 1 - Cadastro de Contatos<span class="exemplo">EXEMPLO</span></h5>
-                <p>Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema</p>
+                
+                <h5>Funcionalidade 1 - Home-Page<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra um calendario com as tarefas a fazer e um botão para abrir as tarefas</p>
                 <ul class="list-unstyled">
-                  <li><strong>Estrutura de dados: </strong><a href="#ti_ed_contatos">Contatos</a></li>
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
                   <li><strong>Instruções de acesso: </strong><ul>
                     <li>Abra o site e efetue o login</li>
-                    <li>Acesse o menu principal e escolha a opção Cadastros </li>
-                    <li>Em seguida, escolha a opção Contatos</li>
+                    <li>Role o carrosel</li>
+                    <li>Clique no botão de tarefas</li>
                   </ul></li>
                 </ul>
                 <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+ 
+                <h5>Funcionalidade 2 - Ver tarefas<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra as tarefas e da a opção de edita-las ou adicionar outras</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique no botão de tarefas</li>
+                    <li>Clique em alguma tarefa ou no botão add</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 3 - Seleção de categoria<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra todas as categorias disponíveis para o usuário adicionar a tarefa</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#categoryjson">Categorias</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique add na "ver tarefas"</li>
+                    <li>Selecione qualquer uma das categorias</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 4 - Quando fazer<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra botões para o usuário inserir data de inicio e de fim e definir prioridade </p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#categoryjson">Categorias</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique em alguma categoria na tela "seleção de categoria"</li>
+                    <li>Selecione a data de inicio</li>
+                    <li>Selecione a data de fim</li>
+                    <li>Ligue ou desligue a prioridade</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+                
+                <h5>Funcionalidade 5 - <span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra um calendario com as tarefas a fazer e um botão para abrir as tarefas</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Role o carrosel</li>
+                    <li>Clique no botão de tarefas</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 6 - Burndown<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra um gráfico de Burndown das tarefas concluidas no dia</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique na icone com 3 riscos</li>
+                    <li>Clique no Burndown</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+                
+                <h5>Funcionalidade 7 - Performace<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra vários gráficos mostrando seu desempenho em diferentes periodo de tempo</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique no icone com 3 riscos</li>
+                    <li>Selecione o periodo que deseja ver (semana, mês e ano)</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 8 - Social<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra a parte social do site, com postagens e ranking</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#postagemjson">Post</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique no icone com 3 riscos</li>
+                    <li>Clique em rank</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 9 - Ranking<span class="exemplo">EXEMPLO</span></h5>
+                <p>Mostra um ranking dos usuários amigos com base em tarefas feitas</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#rankjson">rank</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Na tela rank</li>
+                    <li>Role o carrosel para ver a pontuação dos seus amigos assim como o pódio</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>                
               </section>
             </section>
 
+            <h5>Funcionalidade 10 - Postagem<span class="exemplo">EXEMPLO</span></h5>
+            <p>Possibilita ao usuário a fazer uma postagem no feed</p>
+            <ul class="list-unstyled">
+              <li><strong>Estrutura de dados: </strong><a href="#postagemjson">Post</a></li>
+              <li><strong>Instruções de acesso: </strong><ul>
+                <li>Abra o site e efetue o login</li>
+                <li>Na tela rank</li>
+                <li>Clique no + no fim da tela e siga as instruções</li>
+              </ul></li>
+            </ul>
+            <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+           
+            <h5>Funcionalidade 11 - Adicionar amigos<span class="exemplo">EXEMPLO</span></h5>
+            <p>Possibilita ao usuário a adicionar amigos</p>
+            <ul class="list-unstyled">
+              <li><strong>Estrutura de dados: </strong><a href="#friendsjson">Amigos</a></li>
+              <li><strong>Instruções de acesso: </strong><ul>
+                <li>Abra o site e efetue o login</li>
+                <li>Na tela rank</li>
+                <li>Clique no botão em formato de lupa</li>
+                <li>Digite o nome do amigo desejado e clique no icone para adicionar</li>
+              </ul></li>
+            </ul>
+            <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+           
             <!-- Estruturas de dados =============== -->
             <section id="ruturas_dados">
               <h4>Estruturas de Dados</h4>
@@ -542,7 +665,7 @@
               </div>
 
               <section>
-                <h5>Estrutura de Dados - Usuários</h5>
+                <h5 id="usuariojson">Estrutura de Dados - Usuários</h5>
                 <p>Informações dos usuários do aplicativo para login e identificação</p>
                 <pre>
                   {
@@ -556,7 +679,7 @@
               </section>
 
               <section>
-                <h5>Estrutura de Dados - Tarefas</h5>
+                <h5 id="tasksjson">Estrutura de Dados - Tarefas</h5>
                 <p>Registro das tarefas dos usuários</p>
                 <pre>
                   {
@@ -576,7 +699,7 @@
               </section>
             </section>
             <section>
-              <h5>Estrutura de dados - Likes</h5>
+              <h5 id="likesjson">Estrutura de dados - Likes</h5>
               <p>Informações do sistema de curtidas</p>
               <pre>
                 {
@@ -588,7 +711,7 @@
             </section>
 
             <section>
-              <h5>Estrutura de dados - Comentários</h5>
+              <h5 id="comentjson">Estrutura de dados - Comentários</h5>
               <p>Registro dos comentarios das postagens</p>
               <pre>
                 {
@@ -601,7 +724,7 @@
             </section>
 
             <section>
-              <h5>Estrutura de dados - Postagens</h5>
+              <h5 id="postagemjson">Estrutura de dados - Postagens</h5>
               <p>Registro das inrformações das postagens</p>
               <pre>
                 {
@@ -614,7 +737,7 @@
             </section>
 
             <section>
-              <h5>Estrutura de dados - Categorias</h5>
+              <h5 id="categoryjson">Estrutura de dados - Categorias</h5>
               <p>Informações das categorias das tarefas</p>
               <pre>
                 {
@@ -625,7 +748,28 @@
             </section>
 
             <section>
-              <h5>Estrutura de dados - Pontuação</h5>
+              <h5 id="friendsjson">Estrutura de dados - Amigos</h5>
+              <p>Registro dos amigos</p>
+              <pre>
+                {
+                  "id": "102300",
+                  "userId": 5632,
+                  "friends": [
+                    5633,
+                    5634,
+                    5635,
+                    5636,
+                    5637,
+                    5638,
+                    5639,
+                    5640
+                  ]
+                }
+              </pre>
+            </section>
+
+            <section>
+              <h5 id="pontjson">Estrutura de dados - Pontuação</h5>
               <p>Informações sobre a lógica de pontuação das tarefas</p>
               <pre>
                 {
@@ -668,7 +812,7 @@
                   <li>Bootstrap 5 - <a target="_blank" href="https://getbootstrap.com/docs/5.3">https://getbootstrap.com/docs/5.3/</a></li>
                   <li>Bootstrap 4 - <a target="_blank" href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
                   <li>ChartJs - <a target="_blank" href="https://www.chartjs.org">https://www.chartjs.org</a></li>
-                  <li></li>
+                  <li>JQuerry - <a target="_blank" href="https://api.jquery.com">https://api.jquery.com</a></li>
                 </ul>
               </section>
             </section>
