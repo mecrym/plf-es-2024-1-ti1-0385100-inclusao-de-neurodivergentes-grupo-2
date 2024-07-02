@@ -1,11 +1,13 @@
 import { SelectImageService } from "../../services/selectImage-service.js";
 import { PostService } from "../../services/post-service.js";
 import { UserService } from "../../services/user-service.js";
+import { StorageService } from "../../services/localStorage-service.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
     const selectImage = new SelectImageService();
     const post = new PostService();
     const user = new UserService();
+    const keyUser = "UI";
 
     async function getUser(id) {
         return user.getUser(id);
@@ -24,8 +26,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     async function selectImages(pos) {
         return await selectImage.getPhoto(pos);
     }
-    let idUser = await getUsers();
-    const ID = idUser[0].id;
+    
+    const ID = StorageService.loadData(keyUser);
     const userAccount = await getUser(ID);
 
     let idLastPost = await getPosts();

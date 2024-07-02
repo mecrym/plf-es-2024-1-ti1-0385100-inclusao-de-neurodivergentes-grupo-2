@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const users = await user.getUsers();
         return users;
     }
-    let idUser = await getUsers();
-    const ID = idUser[0].id;
+    
     const buttonDone = document.querySelector('#addBtn');
     const addBtn2 = document.querySelector('#addText');
     const containerTextDiv = document.querySelector('.container-text');
@@ -39,11 +38,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     async function attachEventListeners() {
 
-        const checkboxDone = document.querySelector('#switchBtn2');
         const checkbox = document.querySelector('#switch');
         const titleArea = document.querySelector('#textTitle');
         const textArea = document.querySelector('.text');
-   
+
 
         if (textArea) {
             textArea.addEventListener('input', function () {
@@ -60,42 +58,16 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
         }
 
-        if (checkboxDone) {
-            checkboxDone.addEventListener('change', () => {
-                let check;
-                if (checkboxDone.checked) {
-                    console.log("checked 2° btn");
-                    checkbox.setAttribute("disabled", true);
-                    check = true;
-                    data.completion = check;
-                    console.log(`the value of checked is ${data.completion}`);
-                    data.completion = true;
-                    StorageService.saveData('startTime-hour', 'null');
-                    StorageService.saveData('startTime-minute', 'null');
-                    StorageService.saveData('endTime-hour', 'null');
-                    StorageService.saveData('endTime-minute', 'null');
-
-
-                } else {
-                    checkbox.removeAttribute('disabled');
-                    check = false;
-                    data.completion = check;
-                    console.log(`the value of checked is ${data.completion}`);
-                    data.completion = false;
-                }
-            });
-        }
 
         if (checkbox) {
             checkbox.addEventListener('change', () => {
-                const sectionDone = document.querySelector('.completed-task');
                 if (checkbox.checked) {
-                    sectionDone.style.visibility = "hidden";
                     console.log("Checked");
+                    data.completion = true;
                     createOrUpdateTimePickerSections();
                 } else {
                     removeTimePickerSections();
-                    sectionDone.style.visibility = "visible";
+                    data.completion = false;
                     console.log("Not checked");
                 }
             });
@@ -107,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (onClick) {
             onClick = false;
             console.log("on click");
-            containerTextDiv.style.height = '100%';
+            containerTextDiv.style.height = '70%';
             imgBtn.setAttribute("src", "../../assets/images/minus.svg");
 
             textP[1].textContent = data.title;
@@ -160,6 +132,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 elementChild = document.querySelector('body > main > section.add-button');
                 elementParent.insertBefore(section, elementChild);
 
+                /*
                 var div = CreateElements.createDiv("container-paragraph");
                 var paragraph = CreateElements.createParagraph("Was the task completed?");
                 div.appendChild(paragraph);
@@ -173,7 +146,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 section.appendChild(div);
                 section.appendChild(divBtn);
                 elementChild = document.querySelector('body > main > section.add-button');
-                elementParent.insertBefore(section, elementChild);
+                elementParent.insertBefore(section, elementChild);*/
 
                 attachEventListeners();
             }
@@ -187,17 +160,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         return value;
     }
     buttonDone.addEventListener('click', async () => {
-        const hourStart = StorageService.loadData('startTime-hour');
-        const minuteStart = StorageService.loadData('startTime-minute');
-        const hourEnd = StorageService.loadData('endTime-hour');
-        const minuteEnd = StorageService.loadData('endTime-minute');
-        if (hourStart === 'null') {
-            data.startTime = 'null';
-            data.endTime = 'null';
-        } else {
-            data.startTime = `${pad(hourStart)}:${pad(minuteStart)}`;
-            data.endTime = `${pad(hourEnd)}:${pad(minuteEnd)}`;
-        }
+        var hourStart = StorageService.loadData('startTime-hour');
+        var minuteStart = StorageService.loadData('startTime-minute');
+        var hourEnd = StorageService.loadData('endTime-hour');
+        var minuteEnd = StorageService.loadData('endTime-minute');
+        if (hourStart === 'null')hourStart = '0';  
+        if(minuteStart==='null')minuteStart = '0';
+        if(hourEnd==='null')hourEnd = '0';
+        if(minuteEnd==='null')minuteEnd = '0';
+        data.startTime = `${pad(hourStart)}:${pad(minuteStart)}`;
+        data.endTime = `${pad(hourEnd)}:${pad(minuteEnd)}`;
+
         var objTask = {
             id: data.id,
             userId: data.userId,
