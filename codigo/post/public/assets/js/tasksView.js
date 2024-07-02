@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     const date = StorageService.loadData(keyDate);
     objTasks = objTasks.filter(tasks=> tasks.startDate === date );
 
-    console.log('objTasks', objTasks);
 
     const periods = ['Fulltime', 'Morning', 'Afternoon', 'Evening', 'Night'];
     const section = document.querySelector('.cards');

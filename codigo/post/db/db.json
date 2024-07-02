@@ -2,8 +2,8 @@
   "users": [
     {
       "id": "5632",
-      "name": "Gabriel",
       "profilePhotoUrl": "https://i.pinimg.com/564x/60/0e/cd/600ecd4a3aed586febbb92918e39fce6.jpg",
+      "name": "Gabriel",
       "email": "gabriel@mail.com",
       "password": "gabriel123"
     },
@@ -670,9 +670,9 @@
       "id": "106539",
       "userId": 5632,
       "categoryId": 4,
-      "completion": false,
-      "startTime": "17:00",
-      "endTime": "19:50",
+      "completion": true,
+      "startTime": "10:30",
+      "endTime": "12:00",
       "message": "Add your text",
       "title": "TIAW Pitch",
       "startDate": "2024-07-04",

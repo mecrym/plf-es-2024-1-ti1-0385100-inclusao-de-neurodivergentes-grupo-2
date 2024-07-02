@@ -200,13 +200,14 @@ import { StorageService } from '../../services/localStorage-service.js';
             const keyDate = "date";
 			if(event && event !== null && event !== undefined){
 				eventTitle.text(event.title);
-				eventsLink.text("VIEW TASK");
+				eventsLink.text("VIEW TASKS");
                 StorageService.saveData(keyDate, event.startDate);
 				eventsLink.attr("href", settings.calendar_link);
 			}else{
 				eventTitle.text("No events on this day.");
-				eventsLink.text("");
-				eventsLink.attr("href", "#");
+				eventsLink.text("CREATE TASK");
+				eventsLink.attr("href", '../../view/categorySelection.html');
+                
 			}
 		}
 
