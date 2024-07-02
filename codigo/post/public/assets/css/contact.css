@@ -20,6 +20,20 @@ body {
     padding: 20px;
 }
 
+.arrow-back {
+    min-width: 5vh;
+    max-width: 5vh;
+    margin-bottom: 120px;
+    margin-top: 100px;
+
+    img {
+        top: 50%;
+        min-width: 3vh;
+        max-width: 3vh;
+        opacity: 40%;
+    }
+}
+
 .search-container {
     width: 100%;
     max-width: 600px;

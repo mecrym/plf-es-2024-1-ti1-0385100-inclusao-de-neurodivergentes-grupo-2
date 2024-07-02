@@ -619,7 +619,6 @@
       "userId": 5632,
       "categoryId": 4,
       "completion": false,
-      "startTime": "18:10",
       "startTime": "18:00",
       "endTime": "19:45",
       "message": "Finalizei o trabalho de CRUD do hotel descanso garantido.",
@@ -706,7 +705,6 @@
       "endDate": "2024-07-04",
       "priority": false
     }
-
   ],
   "categories": [
     {
