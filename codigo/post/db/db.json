@@ -703,12 +703,12 @@
     {
       "id": "1",
       "categoryId": 1,
-      "points": 450
+      "points": 380
     },
     {
       "id": "2",
       "categoryId": 2,
-      "points": 380
+      "points": 450
     },
     {
       "id": "3",
@@ -718,7 +718,47 @@
     {
       "id": "4",
       "categoryId": 4,
-      "points": 360
+      "points": 370
+    },
+    {
+      "id": "5",
+      "categoryId": 5,
+      "points": 300
+    },
+    {
+      "id": "6",
+      "categoryId": 6,
+      "points": 390
+    },
+    {
+      "id": "7",
+      "categoryId": 7,
+      "points": 330
+    },
+    {
+      "id": "8",
+      "categoryId": 8,
+      "points": 410
+    },
+    {
+      "id": "9",
+      "categoryId": 9,
+      "points": 310
+    },
+    {
+      "id": "10",
+      "categoryId": 10,
+      "points": 170
+    },
+    {
+      "id": "11",
+      "categoryId": 11,
+      "points": 340
+    },
+    {
+      "id": "12",
+      "categoryId": 12,
+      "points": 290
     }
   ]
 }

@@ -86,6 +86,12 @@ body {
 #message {
     color: #fff;
 }
+#procura {
+    position: absolute;
+    left: 380px;
+    top: 4%;
+    color: #83E5F8;
+}
 
 .footer-gradient {
     z-index: -1;
@@ -97,4 +103,12 @@ body {
     min-height: 8vh;
     max-height: 8vh;
     background-image: linear-gradient(to top, #013B5B, #0D1C2E);
+}
+@media (max-width: 768px) {
+    #procura {
+        position: absolute;
+        left: 32px;
+        top: 4%;
+        color: #83E5F8;
+    }
 }
