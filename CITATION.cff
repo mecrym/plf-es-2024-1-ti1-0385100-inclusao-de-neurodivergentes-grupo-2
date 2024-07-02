@@ -2,12 +2,12 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: 
 authors:
-  - family-names: 
-    given-names: 
+  - family-names: Markowisk
+    given-names: Bruna Costa
   - family-names: Gonçalves Rodrigues
     given-names: Cauã Homero
-  - family-names: 
-    given-names: 
+  - family-names: Rocha Moreira
+    given-names: Maria Eduarda Constância
   - name-suffix: Professor
     affiliation: PUC Minas
     family-names: Carneiro

@@ -7,10 +7,36 @@
     <link rel="stylesheet" href="../assets/css/when.css">
 </head>
 <body>
+    <section class="when-section">
+        <h2>When do you want to do it?</h2>
+        <div class="input-group">
+            <label for="start-date">Start date</label>
+            <input type="date" id="start-date">
+        </div>
+        <div class="input-group">
+            <label for="end-date">End date</label>
+            <input type="date" id="end-date">
+        </div>
+        <div class="input-group">
+            <label for="priority">Priority</label>
+            <section class="container-select">
+                <div class="container-p">
+                    <p>Was the task completed?</p>
+                </div>
+                <div class="switch" id="switchButton">    
+                    <input type="checkbox" id="switch">
+                    <label for="switch">Toggle</label>               
+                </div>
+            </section>
+        </div>
+    </section>
     
     <section class="next-button">
         <button class="add" id="addBtn">Next</button>
     </section>
+    
     <footer class="footer-gradient w-100"></footer>
+
+    <script src="../assets/js/when.js"></script>
 </body>
 </html>

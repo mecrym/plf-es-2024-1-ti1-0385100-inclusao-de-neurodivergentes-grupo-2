@@ -465,14 +465,9 @@
             <section id="ti_gestao_projeto">
               <h4>Gestão do Projeto</h4>
               <p>Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas.
-                <button type="button" class="btn btn-info btn-sm float-right" data-toggle="collapse" href="#collapsePapeis">Projects</button>
               </p>
-              <div class="alert alert-warning collapse" role="alert" id="collapsePapeis">
-                <p>Nosso controle de tarefas com o Projects do GitHub<br>
-                  <img class="img-fluid" src="assets/images/projectsDone.jpg" alt="">
-                </p>
               </div>
-              <p>O grupo é formado de 4 membros onde todos são desenvolvedores, a equipe é auto organizada, então as tarefas foram divididas com base em experiência e interesse nas próprias. Assim foi divido que a Bruna desenvolveria o wireframe, a Penélope o User Flow e eu(Cauã) e a Maria ficaríamos com a documentação. Mesmo definindo essas tarefas, todos solicitamos ajuda para os membros, em ideias de design, correções ortográficas e teste de compreensão por exemplo. <br>*"Projects" Mostra um exemplo do nosso controle de tarefas</p>
+              <p>O grupo é formado de 4 membros onde todos são desenvolvedores, a equipe é auto organizada, então as tarefas foram divididas com base em experiência e interesse nas próprias. Assim foi divido que a Bruna desenvolveria o wireframe, a Penélope o User Flow e eu(Cauã) e a Maria ficaríamos com a documentação. Mesmo definindo essas tarefas, todos solicitamos ajuda para os membros, em ideias de design, correções ortográficas e teste de compreensão por exemplo.</p>
               <img class="img-fluid" src="assets/images/projectsDone.jpg" alt="">
             </section>
 
@@ -480,14 +475,8 @@
             <section id="ti_controle_versao">
               <h4>Controle de Versão</h4>
               <p>Estrutura do fluxo de trabalho no ambiente do GitHub.
-              <button type="button" class="btn btn-info btn-sm float-right" data-toggle="collapse" href="#collapseVersao">GitHub</button>
               </p>
-              <div class="alert alert-warning collapse" role="alert" id="collapseVersao">
-                <p>Esse é um exemplo de como foi a gestão dentro do GitHub<br>
-                  <img class="img-fluid" src="assets/images/contextocommit.jpg" alt="">
-                </p>
-              </div>
-              <p>Como explicado na gestão de projetos,o dinamismo na forma como os membros da equipe trabalharam fez com que os horários os quais estávamos concluindo as atividades e tarefas necessárias fossem muito diferentes para cada um. Dessa forma, todas as mudanças ocorridas foram commitadas diretamente no branch Master. Decidimos seguir um caminho com pequenos passos de cada vez, por isso toda implementação foi dividida para que se pudesse saber exatamente o que mudou e quando mudou, o que ajudou bastante a evitar problemas no gerenciamento de issues pois existiam pouquíssimas dessas que já eram resolvidas após uma reunião da equipe (nos casos necessários). <br>*"GitHub" mostra um exemplo.</p>
+              <p>Como explicado na gestão de projetos,o dinamismo na forma como os membros da equipe trabalharam fez com que os horários os quais estávamos concluindo as atividades e tarefas necessárias fossem muito diferentes para cada um. Dessa forma, todas as mudanças ocorridas foram commitadas diretamente no branch Master. Decidimos seguir um caminho com pequenos passos de cada vez, por isso toda implementação foi dividida para que se pudesse saber exatamente o que mudou e quando mudou, o que ajudou bastante a evitar problemas no gerenciamento de issues pois existiam pouquíssimas dessas que já eram resolvidas após uma reunião da equipe (nos casos necessários).</p>
               <img class="img-fluid" src="assets/images/contextocommit.jpg" alt="">
             </section>
           </section>
@@ -553,7 +542,7 @@
               </div>
 
               <section>
-                <h5>Estrutura de Dados - Usuários<span class="exemplo">EXEMPLO</span></h5>
+                <h5>Estrutura de Dados - Usuários</h5>
                 <p>Informações dos usuários do aplicativo para login e identificação</p>
                 <pre>
                   {
@@ -561,25 +550,27 @@
                     "name": "Gabriel",
                     "profilePhotoUrl": "https://i.pinimg.com/564x/60/0e/cd/600ecd4a3aed586febbb92918e39fce6.jpg",
                     "email": "gabriel@mail.com",
-                    "password": "gabriel123",
-                    "contacts": [
-                      5633
-                    ]
+                    "password": "gabriel123"
                   }
                 </pre>
               </section>
 
               <section>
-                <h5>Estrutura de Dados - Usuários<span class="exemplo">EXEMPLO</span></h5>
-                <p>Registro dos usuários do sistema utilizados para login e para o perfil do sistema</p>
+                <h5>Estrutura de Dados - Tarefas</h5>
+                <p>Registro das tarefas dos usuários</p>
                 <pre>
                   {
-                    id: "eed55b91-45be-4f2c-81bc-7686135503f9"
-                    email: "admin@abc.com"
-                    id: "eed55b91-45be-4f2c-81bc-7686135503f9"
-                    login: "admin"
-                    nome: "Administrador do Sistema"
-                    senha: "123"
+                    "id": "106520",
+                    "userId": 5632,
+                    "categoryId": 3,
+                    "completion": true,
+                    "startTime": "10:00",
+                    "endTime": "12:40",
+                    "message": "Add your text",
+                    "title": "Bake an apple cake  ",
+                    "startDate": "2024-06-01",
+                    "endDate": "2024-07-02",
+                    "priority": true
                   }
                 </pre>
               </section>
@@ -702,39 +693,28 @@
                   <div class="card">
                     <div class="card-header" id="heading1">
                       <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse1"
-                          aria-expanded="false" aria-controls="collapse1">What does royalty free mean?</a> </h5>
+                          aria-expanded="false" aria-controls="collapse1">Eu consigo olhar uma outra data no gráfico de buirndown?</a> </h5>
                     </div>
                     <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
-                      <div class="card-body"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not
-                        only five centuries, but also the leap into electronic typesetting, remaining essentially
-                        unchanged. </div>
+                      <div class="card-body">Nesse primeiro momento não. Nós temos o plano de criar uma lógica para que o usuario possa escolher qualquer dia para ver seu gráfico mas no momento não implementamos isso, em breve vai ter!</div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="card-header" id="heading2">
                       <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse2"
-                          aria-expanded="false" aria-controls="collapse2">What is a single application?</a> </h5>
+                          aria-expanded="false" aria-controls="collapse2">O aplicativo está no seu estado final?</a> </h5>
                     </div>
                     <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#popularTopics">
-                      <div class="card-body"> Iisque Anim pariatur cliche reprehenderit, enim eiusmod high life
-                        accusamus terry richardson ad squid. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                        proident. Ad vegan excepteur butcher vice lomo. </div>
+                      <div class="card-body">É provável que nunca consideremos o HabitEase em um estado final, pois sempre há o que melhorar! Temos muitos planos para o futuro da nossa ferramenta, muitos deles envolvendo ajustes nas lógicas para proporcionar uma experiência melhor ao usuário. De toda forma, o céu é o limite. Usaremos o feedback de vocês, usuários, para saber para onde também poderíamos expandir nossas ideias. </div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="card-header" id="heading3">
                       <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse3"
-                          aria-expanded="false" aria-controls="collapse3">What are some examples of permitted end
-                          products?</a> </h5>
+                          aria-expanded="false" aria-controls="collapse3">Porque a interface é tão pequena no desktop?</a> </h5>
                     </div>
                     <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#popularTopics">
-                      <div class="card-body"> Iisque persius interesset his et, in quot quidam persequeris vim, ad mea
-                        essent possim iriure. Mutat tacimates id sit. Ridens mediocritatem ius an, eu nec magna
-                        imperdiet. </div>
+                      <div class="card-body">O HabitEase foi projetado com foco em dispositivos móveis, pois nos estágios iniciais de sua criação, os possíveis usuários mencionaram que preferiam uma solução mais acessível, e, nesse caso, o mais acessível seria o celular. Por isso, sua interface é menor do que a de outros sites quando acessada em um computador.</div>
                     </div>
                   </div>
                 </div>
@@ -752,7 +732,7 @@
             <div class="alert alert-warning collapse" role="alert" id="collapseReferencias">
               <p>Apresente as referências bibliográficas utilizadas no projeto. Inclua itens como: (1) livros, artigos, tutoriais, etc. utilizados no desenvolvimento da solução; (2) links para sites, blogs, etc. utilizados no desenvolvimento da solução.</p>
             </div>
-            <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+            <p>Teoria das cores - <a href="https://edisciplinas.usp.br/pluginfile.php/4583241/mod_resource/content/1/cores.pdf">Moodle USP</a></p>
           </section>
 
         </div>
