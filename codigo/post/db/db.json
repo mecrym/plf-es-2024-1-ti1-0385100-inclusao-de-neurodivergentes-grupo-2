@@ -2,10 +2,10 @@
   "users": [
     {
       "id": "5632",
-      "profilePhotoUrl": "https://i.pinimg.com/564x/60/0e/cd/600ecd4a3aed586febbb92918e39fce6.jpg",
+      "profilePhotoUrl": "https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg",
       "name": "Gabriel",
       "email": "gabriel@mail.com",
-      "password": "gabriel123"
+      "password": "gabriel1234"
     },
     {
       "id": "5633",
@@ -704,6 +704,19 @@
       "startDate": "2024-07-04",
       "endDate": "2024-07-04",
       "priority": false
+    },
+    {
+      "id": "41446",
+      "userId": "5632",
+      "categoryId": 7,
+      "completion": false,
+      "startTime": "00:00",
+      "endTime": "00:00",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-07-03",
+      "endDate": "2024-07-03",
+      "priority": true
     }
   ],
   "categories": [

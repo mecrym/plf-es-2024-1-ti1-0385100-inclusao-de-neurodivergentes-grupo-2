@@ -42,14 +42,7 @@ main{
     justify-content: center;
     align-items: center;
 }
-.event-priority {
-    background-color: #E00000; /* Cor desejada */
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    display: inline-block;
-    margin-left: 5px; /* Ajuste conforme necessário */
-}
+
 
 #calTitle{
     display: flex;

@@ -182,14 +182,14 @@ import { StorageService } from '../../services/localStorage-service.js';
 				var hasEvent = event && event !== null;
 				var cls = isToday ? "current " : "";
 				cls += hasEvent && isSelected ? "focused " : "";
-
+		
 				tpl = "<button type='button' class='a-date " + cls + "' data-event='" + JSON.stringify(event) + "'>";
 				tpl += "<span>" + date + "</span>";
-
-				if (hasEvent && event.priority) {
+		
+				if (hasEvent && event.priority === true) {
 					tpl += "<span class='event-priority'></span>";
 				}
-
+		
 				tpl += "</button>";
 			}
 			return tpl;
