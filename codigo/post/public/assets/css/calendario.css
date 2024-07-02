@@ -150,6 +150,17 @@ header {
     font-weight: 400;
 }
 
+#month{
+    color: #a8a4a4;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    font-family: "Istok Web", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    max-width: fit-content;
+    margin-left: 80%;
+}
 .footer-gradient {
     position: absolute;
     bottom: 0;

@@ -1,14 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
+import { StorageService } from "../../services/localStorage-service.js";
+
+document.addEventListener('DOMContentLoaded', async () => {
     // Função para buscar os dados das tarefas do JSON Server
     async function fetchTasksData(userId) {
         try {
-            const response = await fetch('http://localhost:3000/tasks');
+            const response = await fetch(`http://localhost:3000/tasks?userId=${userId}&completion=true`);
             if (!response.ok) {
                 throw new Error('Erro ao buscar os dados das tarefas');
             }
             const tasksData = await response.json();
-            // Filtrar as tarefas pelo userId
-            return tasksData.filter(task => task.userId === userId);
+            return tasksData;
         } catch (error) {
             console.error('Erro ao buscar os dados das tarefas:', error);
             return [];
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para buscar os dados das categorias do JSON Server
     async function fetchCategoriesData() {
         try {
-            const response = await fetch('http://localhost:3000/categorys');
+            const response = await fetch('http://localhost:3000/categories');
             if (!response.ok) {
                 throw new Error('Erro ao buscar os dados das categorias');
             }
@@ -32,7 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para inicializar o gráfico e as durações das tarefas
     async function init(userId) {
-        const [tasksData, categoriesData] = await Promise.all([fetchTasksData(userId), fetchCategoriesData()]);
+        const tasksData = await fetchTasksData(userId);
+        const categoriesData = await fetchCategoriesData();
+
         console.log('Dados das tarefas:', tasksData);
         console.log('Dados das categorias:', categoriesData);
 
@@ -41,32 +44,46 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Filtrar as tarefas concluídas no mesmo dia
-        const completedTasks = tasksData.filter(task => task.completion && task.startDate === task.endDate);
-        console.log('Tarefas concluídas no mesmo dia:', completedTasks);
+        // Encontrar a data com mais tarefas completas
+        const dates = tasksData.map(task => task.startDate).filter((value, index, self) => self.indexOf(value) === index); // Obter datas únicas
+        let maxCompletedTasks = 0;
+        let busiestDate = '';
 
-        if (completedTasks.length === 0) {
-            console.log('Nenhuma tarefa concluída no mesmo dia encontrada.');
+        dates.forEach(date => {
+            const completedTasks = tasksData.filter(task => task.startDate === date && task.endDate === date && task.startTime && task.endTime);
+            if (completedTasks.length > maxCompletedTasks) {
+                maxCompletedTasks = completedTasks.length;
+                busiestDate = date;
+            }
+        });
+
+        console.log('Data com mais tarefas completas:', busiestDate);
+
+        // Filtrar as tarefas completas da data mais movimentada
+        const filteredTasks = tasksData.filter(task => task.startDate === busiestDate && task.endDate === busiestDate && task.startTime && task.endTime);
+
+        if (filteredTasks.length === 0) {
+            console.log(`Nenhuma tarefa concluída encontrada para a data ${busiestDate}.`);
             return;
         }
 
         // Ordenar as tarefas por horário de término
-        completedTasks.sort((a, b) => a.endTime.localeCompare(b.endTime));
+        filteredTasks.sort((a, b) => a.endTime.localeCompare(b.endTime));
 
-        // Extrair os horários de início e término das tarefas concluídas no mesmo dia
-        const startTimes = completedTasks.map(task => task.startTime.slice(0, 5)); // Extrair horas e minutos
-        const finishTimes = completedTasks.map(task => task.endTime.slice(0, 5)); // Extrair horas e minutos
+        // Extrair os horários de início e término das tarefas
+        const startTimes = filteredTasks.map(task => task.startTime); // Extrair horas e minutos
+        const finishTimes = filteredTasks.map(task => task.endTime); // Extrair horas e minutos
         const times = [...new Set([...startTimes, ...finishTimes])].sort(); // Combinar e ordenar horários
 
         console.log('Horários das tarefas:', times);
 
-        let remainingTasks = completedTasks.length;
+        let remainingTasks = filteredTasks.length;
 
         // Criar um array para armazenar a contagem de tarefas restantes ao longo do tempo
         const taskCountsOverTime = [];
         times.forEach(time => {
-            completedTasks.forEach(task => {
-                if (task.endTime.slice(0, 5) === time) {
+            filteredTasks.forEach(task => {
+                if (task.endTime === time) {
                     remainingTasks--;
                 }
             });
@@ -126,26 +143,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function calculateDuration(startTime, endTime) {
-            const [startHour, startMinute, startSecond] = startTime.split(':').map(Number);
-            const [endHour, endMinute, endSecond] = endTime.split(':').map(Number);
+            const [startHour, startMinute] = startTime.split(':').map(Number);
+            const [endHour, endMinute] = endTime.split(':').map(Number);
 
-            const startTotalSeconds = startHour * 3600 + startMinute * 60 + (startSecond || 0);
-            const endTotalSeconds = endHour * 3600 + endMinute * 60 + (endSecond || 0);
+            const startTotalMinutes = startHour * 60 + startMinute;
+            const endTotalMinutes = endHour * 60 + endMinute;
 
-            const durationSeconds = endTotalSeconds - startTotalSeconds;
+            const durationMinutes = endTotalMinutes - startTotalMinutes;
 
-            const hours = Math.floor(durationSeconds / 3600);
-            const minutes = Math.floor((durationSeconds % 3600) / 60);
-            const seconds = durationSeconds % 60;
+            const hours = Math.floor(durationMinutes / 60);
+            const minutes = durationMinutes % 60;
 
-            return `${hours}h ${minutes}min ${seconds}s`;
+            return `${hours}h ${minutes}min`;
         }
 
         function displayTaskDurations() {
             const tasksContainer = document.getElementById('tasks');
             tasksContainer.innerHTML = ''; // Limpar qualquer conteúdo existente
 
-            completedTasks.forEach(task => {
+            filteredTasks.forEach(task => {
                 const category = categoriesData.find(category => category.id == task.categoryId);
                 const categoryName = category ? category.name : 'Categoria desconhecida';
                 const duration = calculateDuration(task.startTime, task.endTime);
@@ -167,7 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Chamar a função init para inicializar o gráfico e as durações das tarefas
-    // Passe o userId desejado para a função init
-    const userId = 5633; // Substitua pelo userId desejado
-    init(userId);
+    const keyUser = "UI";
+    const userId = StorageService.loadData(keyUser);
+    if (!userId) {
+        console.error('ID do usuário não encontrado no armazenamento.');
+    } else {
+        init(userId);
+    }
 });

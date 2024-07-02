@@ -1,32 +1,75 @@
 const BASE_URL = 'http://localhost:3000';
+import { StorageService } from "../../services/localStorage-service.js";
 
 async function fetchData(endpoint) {
-  const response = await fetch(`${BASE_URL}/${endpoint}`);
-  return response.json();
+  try {
+    const response = await fetch(`${BASE_URL}/${endpoint}`);
+    const data = await response.json();
+    console.log(`Dados recebidos de ${endpoint}:`, data); // Log dos dados recebidos
+    return data;
+  } catch (error) {
+    console.error(`Erro ao buscar dados do endpoint ${endpoint}:`, error);
+  }
 }
 
-async function calculateUserScores() {
+async function fetchFriends(userId) {
+  const friendsData = await fetchData('friends');
+  if (!friendsData) {
+    console.error('Erro ao buscar dados dos amigos.');
+    return [];
+  }
+  const friendEntry = friendsData.find(friend => friend.userId == userId);
+  console.log(`Amigos encontrados para o usuário ${userId}:`, friendEntry ? friendEntry.friends : []); // Log dos amigos encontrados
+  return friendEntry ? friendEntry.friends.map(id => parseInt(id, 10)) : [];
+}
+
+async function calculateUserScores(userId) {
   const users = await fetchData('users');
   const tasks = await fetchData('tasks');
   const rankings = await fetchData('ranking');
+  const friends = await fetchFriends(userId);
+
+  if (!users || !tasks || !rankings) {
+    console.error('Erro ao buscar dados necessários para calcular as pontuações.');
+    return [];
+  }
 
   const userScores = {};
 
-  // Inicializar pontuação dos usuários para não ter problema depois
+  // Inicializar pontuação dos amigos e do usuário logado
   users.forEach(user => {
-    userScores[user.id] = {
-      id: user.id,
-      name: user.name,
-      profilePhotoUrl: user.profilePhotoUrl,
-      score: 0
-    };
+    if (user.id === userId || friends.includes(parseInt(user.id, 10))) {
+      userScores[user.id] = {
+        id: user.id,
+        name: user.name,
+        profilePhotoUrl: user.profilePhotoUrl,
+        score: 0
+      };
+    }
   });
+
+  // Adiciona o usuário logado ao userScores se não estiver na lista de amigos
+  if (!userScores[userId]) {
+    const loggedUser = users.find(user => user.id == userId);
+    if (loggedUser) {
+      userScores[userId] = {
+        id: loggedUser.id,
+        name: loggedUser.name,
+        profilePhotoUrl: loggedUser.profilePhotoUrl,
+        score: 0
+      };
+    }
+  }
+
+  console.log('Usuários iniciais com pontuação:', userScores); // Log dos usuários iniciais com pontuação
 
   // Criar um mapa de pontos por categoryId
   const categoryPoints = {};
   rankings.forEach(rank => {
     categoryPoints[rank.categoryId] = rank.points;
   });
+
+  console.log('Mapa de pontos por categoria:', categoryPoints); // Log do mapa de pontos por categoria
 
   // Calcula pontuação com base nas tarefas concluídas
   tasks.forEach(task => {
@@ -35,6 +78,11 @@ async function calculateUserScores() {
       userScores[task.userId].score += points;
     }
   });
+
+  console.log('Pontuações dos usuários após cálculo:', userScores); // Log das pontuações após o cálculo
+
+  // Verificar pontuação do usuário logado
+  console.log(`Pontuação do usuário logado (ID: ${userId}):`, userScores[userId]);
 
   // Filtrar usuários que possuem pontuação maior que 0 e ordenar por pontuação
   return Object.values(userScores).filter(user => user.score > 0).sort((a, b) => b.score - a.score);
@@ -55,9 +103,13 @@ function createStarElement(rankClass) {
   return starElement;
 }
 
-async function renderCarousel() {
+async function renderCarousel(userScores) {
   const carouselInner = document.getElementById('carousel-inner');
-  const userScores = await calculateUserScores();
+
+  if (!userScores.length) {
+    console.error('Nenhuma pontuação de usuário encontrada.');
+    return;
+  }
 
   userScores.forEach((user, index) => {
     const carouselItem = document.createElement('div');
@@ -96,4 +148,23 @@ async function renderCarousel() {
   });
 }
 
-renderCarousel();
+async function renderUserScore(userId) {
+  const userScores = await calculateUserScores(userId);
+  console.log('Pontuações dos usuários:', userScores);
+
+  if (!userScores.length) {
+    console.error('Nenhuma pontuação de usuário encontrada.');
+    return;
+  }
+
+  renderCarousel(userScores);
+}
+
+const keyUser = "UI";
+const userId = StorageService.loadData(keyUser);
+
+if (!userId) {
+  console.error('ID do usuário não encontrado no armazenamento.');
+} else {
+  renderUserScore(userId);
+}

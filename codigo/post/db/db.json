@@ -475,7 +475,7 @@
       "id": "106522",
       "userId": 5633,
       "categoryId": 1,
-      "completion": false,
+      "completion": true,
       "startTime": "09:10",
       "endTime": "10:15",
       "message": "Add your text",
@@ -488,7 +488,7 @@
       "id": "106523",
       "userId": 5633,
       "categoryId": 4,
-      "completion": false,
+      "completion": true,
       "startTime": "06:30",
       "endTime": "08:15",
       "message": "Add your text",
@@ -501,7 +501,7 @@
       "id": "106524",
       "userId": 5633,
       "categoryId": 1,
-      "completion": false,
+      "completion": true,
       "startTime": "20:20",
       "endTime": "21:15",
       "message": "Add your text",
@@ -514,7 +514,7 @@
       "id": "106525",
       "userId": 5634,
       "categoryId": 3,
-      "completion": false,
+      "completion": true,
       "startTime": "07:20",
       "endTime": "09:15",
       "message": "Add your text",
@@ -527,7 +527,7 @@
       "id": "106526",
       "userId": 5634,
       "categoryId": 2,
-      "completion": false,
+      "completion": true,
       "startTime": "10:20",
       "endTime": "11:15",
       "message": "Add your text",
@@ -540,7 +540,7 @@
       "id": "106527",
       "userId": 5635,
       "categoryId": 1,
-      "completion": false,
+      "completion": true,
       "startTime": "10:40",
       "endTime": "11:00",
       "message": "Add your text",
@@ -553,7 +553,7 @@
       "id": "106528",
       "userId": 5635,
       "categoryId": 2,
-      "completion": false,
+      "completion": true,
       "startTime": "12:30",
       "endTime": "13:00",
       "message": "Add your text",
@@ -566,7 +566,7 @@
       "id": "106529",
       "userId": 5635,
       "categoryId": 2,
-      "completion": false,
+      "completion": true,
       "startTime": "16:40",
       "endTime": "17:00",
       "message": "Add your text",
@@ -579,7 +579,7 @@
       "id": "106530",
       "userId": 5636,
       "categoryId": 4,
-      "completion": false,
+      "completion": true,
       "startTime": "21:40",
       "endTime": "22:30",
       "message": "Add your text",
@@ -592,7 +592,7 @@
       "id": "106533",
       "userId": 5636,
       "categoryId": 2,
-      "completion": false,
+      "completion": true,
       "startTime": "16:40",
       "endTime": "17:00",
       "message": "Add your text",
@@ -605,7 +605,7 @@
       "id": "106534",
       "userId": 5637,
       "categoryId": 4,
-      "completion": false,
+      "completion": true,
       "startTime": "20:40",
       "endTime": "21:30",
       "message": "Add your text",
@@ -616,7 +616,7 @@
     },
     {
       "id": "106535",
-      "userId": "5632",
+      "userId": 5632,
       "categoryId": 4,
       "completion": false,
       "startTime": "18:00",
@@ -654,6 +654,7 @@
       "priority": true
     },
     {
+<<<<<<< HEAD
       "id": "106538",
       "userId": 5632,
       "categoryId": 2,
@@ -678,6 +679,58 @@
       "startDate": "2024-07-04",
       "endDate": "2024-07-03",
       "priority": true
+=======
+      "id": "106539",
+      "userId": 5632,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "06:40",
+      "endTime": "07:30",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-08",
+      "endDate": "2024-06-08",
+      "priority": false
+    },
+    {
+      "id": "106540",
+      "userId": 5632,
+      "categoryId": 6,
+      "completion": true,
+      "startTime": "8:40",
+      "endTime": "10:50",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-08",
+      "endDate": "2024-06-08",
+      "priority": false
+    },
+    {
+      "id": "106541",
+      "userId": 5632,
+      "categoryId": 5,
+      "completion": true,
+      "startTime": "11:40",
+      "endTime": "12:30",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-08",
+      "endDate": "2024-06-08",
+      "priority": false
+    },
+    {
+      "id": "106542",
+      "userId": 5632,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "20:20",
+      "endTime": "22:10",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-08",
+      "endDate": "2024-06-08",
+      "priority": false
+>>>>>>> 7a36807d18ce0961425dde8c2b1192e3ebb3a75e
     }
   ],
   "categories": [
@@ -734,12 +787,12 @@
     {
       "id": "1",
       "categoryId": 1,
-      "points": 450
+      "points": 380
     },
     {
       "id": "2",
       "categoryId": 2,
-      "points": 380
+      "points": 450
     },
     {
       "id": "3",
@@ -749,7 +802,47 @@
     {
       "id": "4",
       "categoryId": 4,
-      "points": 360
+      "points": 370
+    },
+    {
+      "id": "5",
+      "categoryId": 5,
+      "points": 300
+    },
+    {
+      "id": "6",
+      "categoryId": 6,
+      "points": 390
+    },
+    {
+      "id": "7",
+      "categoryId": 7,
+      "points": 330
+    },
+    {
+      "id": "8",
+      "categoryId": 8,
+      "points": 410
+    },
+    {
+      "id": "9",
+      "categoryId": 9,
+      "points": 310
+    },
+    {
+      "id": "10",
+      "categoryId": 10,
+      "points": 170
+    },
+    {
+      "id": "11",
+      "categoryId": 11,
+      "points": 340
+    },
+    {
+      "id": "12",
+      "categoryId": 12,
+      "points": 290
     }
   ]
 }
