@@ -1,6 +1,6 @@
 export class FriendsService{
     constructor() {
-        this.urlBase = 'http://localhost:3000/friends';
+        this.urlBase = '/friends';
       }
     async getFriends(){
         try{
