@@ -1,3 +1,4 @@
+// calendario.js
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('carousel');
     const arrowLeft = document.querySelector('.arrow-left');
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const dayName = day.toLocaleDateString('en-US', { weekday: 'short' });
             const dayNumber = day.getDate();
 
-            const dayElement = createDayElement(dayName, dayNumber);
+            const dayElement = createDayElement(dayName, dayNumber, day);
             carousel.appendChild(dayElement);
         }
 
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         monthElement.textContent = month;
     }
 
-    function createDayElement(dayName, dayNumber) {
+    function createDayElement(dayName, dayNumber, fullDate) {
         const dayElement = document.createElement('div');
         dayElement.classList.add('day');
 
@@ -54,6 +55,26 @@ document.addEventListener('DOMContentLoaded', function () {
         dayElement.appendChild(dayNameDiv);
         dayElement.appendChild(dayNumberDiv);
 
+        dayElement.addEventListener('click', function() {
+            fetchTasksForDate(fullDate);
+        });
+
         return dayElement;
+    }
+
+    function fetchTasksForDate(date) {
+        fetch('../../db/db.json')
+            .then(response => response.json())
+            .then(data => {
+                const tasks = data.tasks;
+                const selectedDateString = date.toISOString().split('T')[0]; // Formato: YYYY-MM-DD
+                const tasksForSelectedDate = tasks.filter(task => task.endDate === selectedDateString);
+                const uniqueTaskCount = new Set(tasksForSelectedDate.map(task => task.id)).size;
+                document.getElementById('texto-f').textContent = `tasks: ${uniqueTaskCount}`;
+            })
+            .catch(error => {
+                console.error('Erro ao buscar tarefas:', error);
+                document.getElementById('texto-f').textContent = 'tasks: 0';
+            });
     }
 });
