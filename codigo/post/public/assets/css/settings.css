@@ -197,7 +197,7 @@ div.omrs-input-group {
     max-height: 10vh;
     display: flex;
     align-items: center;
-
+    
     .link-button {
         width: 100%;
         min-height: 4vh;
@@ -214,9 +214,42 @@ div.omrs-input-group {
         background-color: #FFC700;
         color: #0D1C2E;
         border-radius: 30px;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
 
     }
+}
+.button-exit{
+    min-width: 40vh;
+    max-width: 640px;
+    min-height: 10vh;
+    max-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a{
+        text-decoration: none;
+    }
+    .link-button {
+        width: 100%;
+        min-height: 4vh;
+        max-height: 4vh;
+    
+    }
+
+    .button-exit {
+        margin-top: 20px;
+        min-width: 20vh;
+        max-width: 40vh;
+        min-height: 5vh;
+        max-height: 5vh;
+        border: 2px solid #E00000;
+        background-color: #E00000;
+        color: #0D1C2E;
+        border-radius: 30px;
+        font-size: 1.5rem;
+
+    }
+
 }
 
 .footer-gradient {

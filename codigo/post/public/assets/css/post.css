@@ -171,11 +171,15 @@ header {
 
 }
 .elements{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     margin-top: 20px;
-    width: 4vh;
-    height: 4vh;
+    width: 15vh;
+    height: 6vh;
     img{
-        width: 100%;
+        width: 40%;
         height: 100%;
     }
 }
