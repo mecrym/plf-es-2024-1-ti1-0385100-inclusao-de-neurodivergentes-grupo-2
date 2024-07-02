@@ -679,58 +679,6 @@
       "startDate": "2024-07-04",
       "endDate": "2024-07-03",
       "priority": true
-    },
-    {
-      "id": "106538",
-      "userId": 5632,
-      "categoryId": 2,
-      "completion": true,
-      "startTime": "06:40",
-      "endTime": "07:30",
-      "message": "Add your text",
-      "title": "Add your title",
-      "startDate": "2024-06-08",
-      "endDate": "2024-06-08",
-      "priority": false
-    },
-    {
-      "id": "106539",
-      "userId": 5632,
-      "categoryId": 4,
-      "completion": true,
-      "startTime": "8:40",
-      "endTime": "10:50",
-      "message": "Add your text",
-      "title": "Add your title",
-      "startDate": "2024-06-08",
-      "endDate": "2024-06-08",
-      "priority": false
-    },
-    {
-      "id": "106541",
-      "userId": 5632,
-      "categoryId": 5,
-      "completion": true,
-      "startTime": "11:40",
-      "endTime": "12:30",
-      "message": "Add your text",
-      "title": "Add your title",
-      "startDate": "2024-06-08",
-      "endDate": "2024-06-08",
-      "priority": false
-    },
-    {
-      "id": "106542",
-      "userId": 5632,
-      "categoryId": 2,
-      "completion": true,
-      "startTime": "20:20",
-      "endTime": "22:10",
-      "message": "Add your text",
-      "title": "Add your title",
-      "startDate": "2024-06-08",
-      "endDate": "2024-06-08",
-      "priority": false
     }
 
   ],
