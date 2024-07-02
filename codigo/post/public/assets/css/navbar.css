@@ -3,7 +3,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    margin-top: 70px;
     width: 100%;
     z-index: 10; /* Ensures navbar is above other content */
     transition: height 0.3s ease-out;
@@ -57,7 +56,6 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    margin-right: 100px;
     cursor: pointer;
     background-color: #0D1C2E;
     z-index: 11; /* Above the navbar */
