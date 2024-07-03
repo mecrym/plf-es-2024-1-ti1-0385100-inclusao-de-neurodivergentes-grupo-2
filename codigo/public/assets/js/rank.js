@@ -41,7 +41,7 @@ async function calculateUserScores(userId) {
     return await user.getUsers();
   }
   async function getTasks() {
-    return await task.Tasks();
+    return await task.getTasks();
   }
   async function getRankings() {
     return await rank.getRankings();
