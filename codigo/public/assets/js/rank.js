@@ -1,48 +1,38 @@
-
 import { StorageService } from "../../services/localStorage-service.js";
 import { FriendsService } from "../../services/friends-services.js";
 import { UserService } from "../../services/user-service.js";
 import { TaskService } from "../../services/tasks-service.js";
-import {RankingService} from "../../services/ranking-service.js"
-/*
-async function fetchData(endpoint) {
-  try {
-    const response = await fetch(`${endpoint}`);
-    const data = await response.json();
-    console.log(`Dados recebidos de ${endpoint}:`, data); // Log dos dados recebidos
-    return data;
-  } catch (error) {
-    console.error(`Erro ao buscar dados do endpoint ${endpoint}:`, error);
-  }
-}*/
+import { RankingService } from "../../services/ranking-service.js";
 
-async function fetchFriends(userId) {
-  const friendsData = await getFriends();
-  if (!friendsData) {
-    console.error('Erro ao buscar dados dos amigos.');
-    return [];
-  }
-  const friendEntry = friendsData.find(friend => friend.userId == userId);
-  console.log(`Amigos encontrados para o usuário ${userId}:`, friendEntry ? friendEntry.friends : []); // Log dos amigos encontrados
-  return friendEntry ? friendEntry.friends.map(id => parseInt(id, 10)) : [];
-}
+
 
 async function calculateUserScores(userId) {
   const user = new UserService();
   const friend = new FriendsService();
   const rank = new RankingService();
   const task = new TaskService();
-
-
+  async function fetchFriends(userId) {
+    const friendsData = await getFriends();
+    if (!friendsData) {
+      console.error('Erro ao buscar dados dos amigos.');
+      return [];
+    }
+    const friendEntry = friendsData.find(friend => friend.userId == userId);
+    console.log(`Amigos encontrados para o usuário ${userId}:`, friendEntry ? friendEntry.friends : []); // Log dos amigos encontrados
+    return friendEntry ? friendEntry.friends.map(id => parseInt(id, 10)) : [];
+  }
   async function getFriends() {
     return await friend.getFriends();
   }
+
   async function getUsers() {
     return await user.getUsers();
   }
+
   async function getTasks() {
     return await task.getTasks();
   }
+
   async function getRankings() {
     return await rank.getRankings();
   }
@@ -50,7 +40,7 @@ async function calculateUserScores(userId) {
   const users = await getUsers();
   const tasks = await getTasks();
   const rankings = await getRankings();
-  const friends = await getFriends();
+  const friends = await fetchFriends(userId);
 
   if (!users || !tasks || !rankings) {
     console.error('Erro ao buscar dados necessários para calcular as pontuações.');
@@ -61,7 +51,7 @@ async function calculateUserScores(userId) {
 
   // Inicializar pontuação dos amigos e do usuário logado
   users.forEach(user => {
-    if (user.id === userId || friends.includes(parseInt(user.id, 10))) {
+    if (parseInt(user.id) === parseInt(userId) || friends.includes(parseInt(user.id, 10))) {
       userScores[user.id] = {
         id: user.id,
         name: user.name,
