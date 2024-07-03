@@ -1,9 +1,9 @@
-const BASE_URL = 'http://localhost:3000';
+
 import { StorageService } from "../../services/localStorage-service.js";
 
 async function fetchData(endpoint) {
   try {
-    const response = await fetch(`${BASE_URL}/${endpoint}`);
+    const response = await fetch(`${endpoint}`);
     const data = await response.json();
     console.log(`Dados recebidos de ${endpoint}:`, data); // Log dos dados recebidos
     return data;
@@ -13,7 +13,7 @@ async function fetchData(endpoint) {
 }
 
 async function fetchFriends(userId) {
-  const friendsData = await fetchData('friends');
+  const friendsData = await fetchData('/friends');
   if (!friendsData) {
     console.error('Erro ao buscar dados dos amigos.');
     return [];
