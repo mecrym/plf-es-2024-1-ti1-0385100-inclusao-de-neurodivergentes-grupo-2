@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     object.reverse().map(async (currentValue, index) => {
         var checkFriend = await getPostsFriends(currentValue, friends);
         
+        
         if (checkFriend) {
             const sectionElement = document.querySelector('.content-post');
             const divElement = document.createElement('div');
