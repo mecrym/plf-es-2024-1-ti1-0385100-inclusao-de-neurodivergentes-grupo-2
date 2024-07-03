@@ -1,4 +1,7 @@
 import { StorageService } from "../../services/localStorage-service.js";
+import { UserService } from "../../services/user-service.js";
+import { FriendsService } from "../../services/friends-services.js";
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
@@ -13,6 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
         if (query.length < 2) return;
 
         try {
+            async function getUsers() {
+                return await user.getUsers();
+            }
+            
+            
+            async function fetchUserById(userId) {
+                return await user.getUser(userId);
+            }
+            
+            async function fetchFriendEntryByUserId(userId) {
+                const friends = await friend.getFriends();
+                return friends.find(friend => friend.userId == userId); // Comparação de igualdade solta para garantir a correspondência
+            }
+            
+            const user = new UserService();
+            const friend = new FriendsService();
+
             const users = await getUsers();
             const filteredUsers = users.filter(user => user.name.toLowerCase().includes(query));
 
@@ -90,20 +110,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-async function getUsers() {
-    const response = await fetch('http://localhost:3000/users');
-    const users = await response.json();
-    return users;
-}
-
-async function fetchUserById(userId) {
-    const response = await fetch(`http://localhost:3000/users/${userId}`);
-    const user = await response.json();
-    return user;
-}
-
-async function fetchFriendEntryByUserId(userId) {
-    const response = await fetch('http://localhost:3000/friends');
-    const friends = await response.json();
-    return friends.find(friend => friend.userId == userId); // Comparação de igualdade solta para garantir a correspondência
-}
