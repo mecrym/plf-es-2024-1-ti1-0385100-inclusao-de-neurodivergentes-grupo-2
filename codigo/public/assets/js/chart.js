@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Função para buscar os dados das tarefas do JSON Server com filtragem por data
     async function fetchTasksData(userId, date) {
         try {
-            const response = await fetch(`http://localhost:3000/tasks?userId=${userId}&completion=true&startDate=${date}&endDate=${date}`);
+            const response = await fetch(`/tasks?userId=${userId}&completion=true&startDate=${date}&endDate=${date}`);
             if (!response.ok) {
                 throw new Error('Erro ao buscar os dados das tarefas');
             }
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Função para buscar os dados das categorias do JSON Server
     async function fetchCategoriesData() {
         try {
-            const response = await fetch('http://localhost:3000/categories');
+            const response = await fetch('/categories');
             if (!response.ok) {
                 throw new Error('Erro ao buscar os dados das categorias');
             }
