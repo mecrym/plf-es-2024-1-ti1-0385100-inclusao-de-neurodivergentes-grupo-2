@@ -69,6 +69,13 @@
       "profilePhotoUrl": "https://i.pinimg.com/564x/35/2f/a4/352fa4bb5a99b540550d6336289cbd30.jpg",
       "email": "marcos@mail.com",
       "password": "marcos123"
+    },
+    {
+      "id": "5642",
+      "name": "Felipe",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/6e/e8/a1/6ee8a1b76c7f7dd9e7640350341edc53.jpg",
+      "email": "felipe@mail.com",
+      "password": "felipe123"
     }
   ],
   "friends": [
