@@ -77,17 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!Array.isArray(friendEntry.friends)) {
                             friendEntry.friends = [];
                         }
+                        async function putFriend(id, obj) {
+                            return await friend.updateFriend(id,obj);
+                        }
 
                         if (!friendEntry.friends.includes(contactId)) {
                             friendEntry.friends.push(contactId);
-
-                            await fetch(`http://localhost:3000/friends/${friendEntry.id}`, {
-                                method: 'PUT',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(friendEntry)
-                            });
+                            await putFriend(friendEntry.id,friendEntry);
+                          
 
                             messageDiv.textContent = `Contato ${contact.name} adicionado com sucesso.`;
 
