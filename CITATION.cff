@@ -1,13 +1,13 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: HabitEaser
+title: HabitEase
 authors:
-  - family-names: Markowisk
-    given-names: Bruna Costa
+  - family-names: Costa Markowisk
+    given-names: Bruna 
   - family-names: Gonçalves Rodrigues
     given-names: Cauã Homero
-  - family-names: Rocha Moreira
-    given-names: Maria Eduarda Constância
+  - family-names: Constância Rocha Moreira
+    given-names: Maria Eduarda 
   - name-suffix: Professor
     affiliation: PUC Minas
     family-names: Carneiro
