@@ -1,7 +1,7 @@
 # HabitEase (ADHD) <img src="codigo/public/assets/images/logo_HabitEase.svg" width="50">
 
 
-HabiEase is a mobile task web application aimed at people with ADHD. Its main differences include a minimalist interface, task performance graphs, incentives for the user to always use the application with a ranking system and social network.
+HabitEase is a mobile task web application aimed at people with ADHD. Its main differences include a minimalist interface, task performance graphs, incentives for the user to always use the application with a ranking system and social network.
 
 **Simplify your tasks, conquer your day.**
 
