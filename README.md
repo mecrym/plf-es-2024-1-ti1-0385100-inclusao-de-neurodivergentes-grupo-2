@@ -19,7 +19,10 @@ HabitEase is a mobile task web application aimed at people with ADHD. Its main d
 
 ## Instructions for use
 
-
+if you want to try with our database, try use this user:
+user: gabriel@mail.com
+password: gabriel123
+ 
 Click [here](https://plf-es-2024-1-ti1-0385100-inclusao-de.onrender.com/view/login.html).
 
 #### How to run application if the link above is not working:
