@@ -1,25 +1,33 @@
-# HabitEase - Inclusão de neurodivergentes (TDAH) <img src="./codigo/public/assets/images/HabitEase.png" width="50">
+# HabitEase (ADHD) <img src="./codigo/public/assets/images/HabitEase.png" width="50">
 
-HabiEase é um aplicativo web mobile de tarefas voltado ao público com TDAH. Suas principais diferenças abrange uma interface minimalista, gráficos de desempenho de tarefas, estímulos para  o usuário estar sempre utilizando o aplicativo com um sistema de rankeamento e rede social.
+HabiEase is a mobile task web application aimed at people with ADHD. Its main differences include a minimalist interface, task performance graphs, incentives for the user to always use the application with a ranking system and social network.
 
-**Simplifique suas tarefas, conquiste seu dia.**
+**Simplify your tasks, conquer your day.**
 
-## Alunos integrantes da equipe
-
+## Students
 
 * Bruna Costa Markowisk
 * Cauã Homero Gonçalves Rodrigues
 
   
 
-## Professores responsáveis
+## Professors
 
 * Rommel Vieira Carneiro
 * Simone Alves Nogueira
 
-## Instruções de utilização
+## Instructions for use
 
-Clique [aqui](https://plf-es-2024-1-ti1-0385100-inclusao-de.onrender.com/view/login.html).
+
+Click [here](https://plf-es-2024-1-ti1-0385100-inclusao-de.onrender.com/view/login.html).
+
+#### How to run application if the link above is not working:
+In Vs Code terminal:
+1. npm install
+2. download live server extension for Vs Code. Check this [page](https://github.com/ritwickdey/vscode-live-server-plus-plus)
+3. npm start or npm run dev to initialize JSON Server. Check package-lock.json for more details.
+4. run application post.html with live server.
+
 
 
 
