@@ -9,8 +9,7 @@ HabiEase é um aplicativo web mobile de tarefas voltado ao público com TDAH. Su
 
 * Bruna Costa Markowisk
 * Cauã Homero Gonçalves Rodrigues
-* Maria Eduarda Constância Rocha Moreira
-* Pénelope Cristine Loures Antunes
+
   
 
 ## Professores responsáveis
