@@ -32,6 +32,9 @@ In Vs Code terminal:
 3. npm start or npm run dev to initialize JSON Server. Check package-lock.json for more details.
 4. run application login.html with live server.
 
+## NOTE
+
+Under Construction!
 
 
 
