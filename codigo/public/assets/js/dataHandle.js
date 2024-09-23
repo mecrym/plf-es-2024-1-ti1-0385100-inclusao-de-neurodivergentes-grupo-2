@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         return await task.getTasks();
     }
     const tasks = await getTasks();
+    console.log("Tasks:", tasks);
+
 
     var sampleEvents = tasks.map(function(task) {
         var timestamp = new Date(task.startDate + 'T' + task.startTime).getTime();
