@@ -1,0 +1,859 @@
+{
+  "users": [
+    {
+      "id": "5632",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/60/0e/cd/600ecd4a3aed586febbb92918e39fce6.jpg",
+      "name": "Gabriel",
+      "email": "gabriel@mail.com",
+      "password": "gabriel123"
+    },
+    {
+      "id": "5633",
+      "name": "Lucas",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/6e/bc/e8/6ebce830643a31f0320d2efcf2b1835d.jpg",
+      "email": "lucas@mail.com",
+      "password": "lucas123"
+    },
+    {
+      "id": "5634",
+      "name": "Isabela",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/50/0e/a6/500ea6a72ef2a7232f6d4a4ad33edde7.jpg",
+      "email": "isabela@mail.com",
+      "password": "isabela123"
+    },
+    {
+      "id": "5635",
+      "name": "Jonas",
+      "profilePhotoUrl": "https://i.pinimg.com/736x/1f/b6/3e/1fb63efe00433758035a7cd1c4ac62b5.jpg",
+      "email": "jonas@mail.com",
+      "password": "jonas123"
+    },
+    {
+      "id": "5636",
+      "name": "Ana",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/d0/e7/75/d0e77518d5f481a4298af1d4d28813f9.jpg",
+      "email": "ana@mail.com",
+      "password": "ana123"
+    },
+    {
+      "id": "5637",
+      "name": "Rafael",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/a3/ef/84/a3ef8488540e9ca0b3e1ecae415cf34e.jpg",
+      "email": "rafael@mail.com",
+      "password": "rafael123"
+    },
+    {
+      "id": "5638",
+      "name": "Mariana",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/71/86/1f/71861fb47a1dfe1e42c42c262229dbd9.jpg",
+      "email": "mariana@mail.com",
+      "password": "mariana123"
+    },
+    {
+      "id": "5639",
+      "name": "Felipe",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/d0/a0/f2/d0a0f2ed89c50f375aeef5dd97503a53.jpg",
+      "email": "felipe@mail.com",
+      "password": "felipe123"
+    },
+    {
+      "id": "5640",
+      "name": "Juliana",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/6a/62/eb/6a62eb99cef0ffd27a3bb837c81ee9c4.jpg",
+      "email": "juliana@mail.com",
+      "password": "juliana123"
+    },
+    {
+      "id": "5641",
+      "name": "Marcos",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/35/2f/a4/352fa4bb5a99b540550d6336289cbd30.jpg",
+      "email": "marcos@mail.com",
+      "password": "marcos123"
+    },
+    {
+      "id": "5642",
+      "name": "Felipe",
+      "profilePhotoUrl": "https://i.pinimg.com/564x/6e/e8/a1/6ee8a1b76c7f7dd9e7640350341edc53.jpg",
+      "email": "felipe@mail.com",
+      "password": "felipe123"
+    }
+  ],
+  "friends": [
+    {
+      "id": "102300",
+      "userId": 5632,
+      "friends": [
+        5633,
+        5634,
+        5635,
+        5636,
+        5637,
+        5638,
+        5639,
+        5640
+      ]
+    },
+    {
+      "id": "102301",
+      "userId": 5633,
+      "friends": [
+        5632,
+        5634,
+        5635,
+        5636,
+        5637,
+        5638,
+        5339,
+        5640
+      ]
+    },
+    {
+      "id": "102302",
+      "userId": 5634,
+      "friends": [
+        5632,
+        5633,
+        5635,
+        5636,
+        5637
+      ]
+    },
+    {
+      "id": "102303",
+      "userId": 5635,
+      "friends": [
+        5632,
+        5633,
+        5634,
+        5636
+      ]
+    },
+    {
+      "id": "102304",
+      "userId": 5636,
+      "friends": [
+        5632,
+        5633,
+        5637,
+        5638,
+        5639,
+        5640
+      ]
+    },
+    {
+      "id": "102305",
+      "userId": 5637,
+      "friends": [
+        5632,
+        5633,
+        5634,
+        5636,
+        5638,
+        5639,
+        5640
+      ]
+    },
+    {
+      "id": "102306",
+      "userId": 5638,
+      "friends": [
+        5632,
+        5633,
+        5636,
+        5637,
+        5639
+      ]
+    },
+    {
+      "id": "102307",
+      "userId": 5639,
+      "friends": [
+        5632,
+        5633,
+        5636,
+        5637,
+        5638
+      ]
+    },
+    {
+      "id": "102308",
+      "userId": 5640,
+      "friends": [
+        5632,
+        5633,
+        5636,
+        5637
+      ]
+    },
+    {
+      "id": "102309",
+      "userId": 5641,
+      "friends": []
+    }
+  ],
+  "likes": [
+    {
+      "id": "78219",
+      "postId": 56715,
+      "userId": 5640
+    },
+    {
+      "id": "78220",
+      "postId": 56721,
+      "userId": 5636
+    },
+    {
+      "id": "78221",
+      "postId": 56720,
+      "userId": 5634
+    },
+    {
+      "id": "78222",
+      "postId": 56719,
+      "userId": 5633
+    },
+    {
+      "id": "78223",
+      "postId": 56717,
+      "userId": 5635
+    },
+    {
+      "id": "78224",
+      "postId": 56717,
+      "userId": 5636
+    },
+    {
+      "id": "78225",
+      "postId": 56717,
+      "userId": 5638
+    },
+    {
+      "id": "78226",
+      "postId": 56717,
+      "userId": 5639
+    },
+    {
+      "id": "78228",
+      "postId": 56716,
+      "userId": 5633
+    },
+    {
+      "id": "78229",
+      "postId": 56717,
+      "userId": 5634
+    },
+    {
+      "id": "78230",
+      "postId": 56716,
+      "userId": 5635
+    },
+    {
+      "id": "78231",
+      "postId": 56721,
+      "userId": 5633
+    },
+    {
+      "id": "78231",
+      "postId": 56721,
+      "userId": 5634
+    },
+    {
+      "id": "78231",
+      "postId": 56721,
+      "userId": 5635
+    },
+    {
+      "id": "78231",
+      "postId": 56721,
+      "userId": 5637
+    },
+    {
+      "id": "78231",
+      "postId": 56721,
+      "userId": 5638
+    },
+    {
+      "id": "78231",
+      "postId": 56721,
+      "userId": 5638
+    },
+    {
+      "id": "78231",
+      "postId": 56720,
+      "userId": 5638
+    },
+    {
+      "id": "78231",
+      "postId": 56720,
+      "userId": 5639
+    },
+    {
+      "id": "78231",
+      "postId": 56720,
+      "userId": 5640
+    },
+    {
+      "id": "78231",
+      "postId": 56720,
+      "userId": 5634
+    },
+    {
+      "id": "782311",
+      "postId": 56719,
+      "userId": 5632
+    }
+  ],
+  "comments": [
+    {
+      "id": "47385",
+      "userId": 5634,
+      "postId": 56715,
+      "comment": "I need this abs"
+    },
+    {
+      "id": "47386",
+      "userId": 5640,
+      "postId": 56715,
+      "comment": "Cute >.<"
+    },
+    {
+      "id": "47387",
+      "userId": 5639,
+      "postId": 56715,
+      "comment": "Cool"
+    },
+    {
+      "id": "47388",
+      "userId": 5635,
+      "postId": 56715,
+      "comment": "Let her cook"
+    },
+    {
+      "id": "47389",
+      "userId": 5638,
+      "postId": 56715,
+      "comment": ":D this is on fire"
+    },
+    {
+      "id": "47390",
+      "userId": 5633,
+      "postId": 56716,
+      "comment": "OMG Cool"
+    },
+    {
+      "id": "47391",
+      "userId": 5632,
+      "postId": 56715,
+      "comment": "Yup! I agree with u all guys :P"
+    },
+    {
+      "id": "47392",
+      "userId": 5637,
+      "postId": 56721,
+      "comment": "Bro this is insane"
+    },
+    {
+      "id": "47393",
+      "userId": 5634,
+      "postId": 56721,
+      "comment": "OMG GIGACHAD"
+    },
+    {
+      "id": "47394",
+      "userId": 5640,
+      "postId": 56721,
+      "comment": "WOW :0"
+    },
+    {
+      "id": "47395",
+      "userId": 5636,
+      "postId": 56721,
+      "comment": ":0"
+    },
+    {
+      "id": "47396",
+      "userId": 5639,
+      "postId": 56721,
+      "comment": "Fake natty bro"
+    },
+    {
+      "id": "47397",
+      "userId": 5632,
+      "postId": 56720,
+      "comment": "very cute"
+    },
+    {
+      "id": "47398",
+      "userId": 5634,
+      "postId": 56718,
+      "comment": "No way you think you're big than me XD"
+    },
+    {
+      "id": "47399",
+      "userId": 5635,
+      "postId": 56718,
+      "comment": "Team #Isabela"
+    },
+    {
+      "id": "47399",
+      "userId": 5637,
+      "postId": 56718,
+      "comment": "Team #Isabela"
+    },
+    {
+      "id": "47399",
+      "userId": 5639,
+      "postId": 56718,
+      "comment": "Team #Isabela"
+    },
+    {
+      "id": "47400",
+      "userId": 5632,
+      "postId": 56718,
+      "comment": "c'mon dudes :("
+    },
+    {
+      "id": "47400",
+      "userId": 5640,
+      "postId": 56718,
+      "comment": "of course #TeamIsabela"
+    }
+  ],
+  "post": [
+    {
+      "id": "56715",
+      "userId": 5638,
+      "content": "Going to gym!",
+      "photoUrl": "https://i.pinimg.com/564x/e6/fc/40/e6fc40ac5b7883b4ae8112634feeccd5.jpg"
+    },
+    {
+      "id": "56716",
+      "userId": 5640,
+      "content": "I  buy this all for my first yoga class :)",
+      "photoUrl": "https://i.pinimg.com/736x/fd/bf/51/fdbf51218ad90f6256f6e671d28ab3b6.jpg"
+    },
+    {
+      "id": "56717",
+      "userId": 5634,
+      "content": "No pain no gain.",
+      "photoUrl": "https://i.pinimg.com/564x/32/21/24/32212469d5731e0607b04adb85bd9380.jpg"
+    },
+    {
+      "id": "56718",
+      "userId": 5632,
+      "content": "Isabela, this is the real ones",
+      "photoUrl": "https://i.pinimg.com/736x/88/5d/72/885d727d3b9b59051c3c60cec5032da8.jpg"
+    },
+    {
+      "id": "56719",
+      "userId": 5637,
+      "content": "Lucas at the gym :0",
+      "photoUrl": "https://i.pinimg.com/564x/46/8c/14/468c14595bd19a9d228492993317eb7e.jpg"
+    },
+    {
+      "id": "56720",
+      "userId": 5636,
+      "content": "<3",
+      "photoUrl": "https://i.pinimg.com/236x/ed/73/26/ed7326f1b27768c60ecb3ec4fc7bbad6.jpg"
+    },
+    {
+      "id": "56721",
+      "userId": 5633,
+      "content": "Mode Toji Fushiguro",
+      "photoUrl": "https://i.pinimg.com/736x/42/16/97/4216977e09b85248a5e0f666eac3adba.jpg"
+    },
+    {
+      "id": "56722",
+      "userId": 5641,
+      "content": "My new tattoo",
+      "photoUrl": "https://i.pinimg.com/564x/c3/b8/df/c3b8dfbad5dffa8af18f136da1783eb2.jpg"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "106520",
+      "userId": 5632,
+      "categoryId": 3,
+      "completion": true,
+      "startTime": "10:00",
+      "endTime": "12:40",
+      "message": "Add your text",
+      "title": "Bake an apple cake  ",
+      "startDate": "2024-06-01",
+      "endDate": "2024-07-02",
+      "priority": true
+    },
+    {
+      "id": "106521",
+      "userId": 5632,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "message": "AJAX",
+      "title": "DIW",
+      "startDate": "2024-06-01",
+      "endDate": "2024-07-02",
+      "priority": false
+    },
+    {
+      "id": "106522",
+      "userId": 5633,
+      "categoryId": 1,
+      "completion": true,
+      "startTime": "09:10",
+      "endTime": "10:15",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-07-02",
+      "priority": true
+    },
+    {
+      "id": "106523",
+      "userId": 5633,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "06:30",
+      "endTime": "08:15",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-04",
+      "endDate": "2024-06-04",
+      "priority": false
+    },
+    {
+      "id": "106524",
+      "userId": 5633,
+      "categoryId": 1,
+      "completion": true,
+      "startTime": "20:20",
+      "endTime": "21:15",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-03",
+      "endDate": "2024-06-03",
+      "priority": false
+    },
+    {
+      "id": "106525",
+      "userId": 5634,
+      "categoryId": 3,
+      "completion": true,
+      "startTime": "07:20",
+      "endTime": "09:15",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-07-02",
+      "endDate": "2024-07-02",
+      "priority": false
+    },
+    {
+      "id": "106526",
+      "userId": 5634,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "10:20",
+      "endTime": "11:15",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-02",
+      "endDate": "2024-06-02",
+      "priority": false
+    },
+    {
+      "id": "106527",
+      "userId": 5635,
+      "categoryId": 1,
+      "completion": true,
+      "startTime": "10:40",
+      "endTime": "11:00",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01",
+      "priority": false
+    },
+    {
+      "id": "106528",
+      "userId": 5635,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "12:30",
+      "endTime": "13:00",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-02",
+      "priority": false
+    },
+    {
+      "id": "106529",
+      "userId": 5635,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "16:40",
+      "endTime": "17:00",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01",
+      "priority": true
+    },
+    {
+      "id": "106530",
+      "userId": 5636,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "21:40",
+      "endTime": "22:30",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01",
+      "priority": false
+    },
+    {
+      "id": "106533",
+      "userId": 5636,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "16:40",
+      "endTime": "17:00",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01",
+      "priority": true
+    },
+    {
+      "id": "106534",
+      "userId": 5637,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "20:40",
+      "endTime": "21:30",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01",
+      "priority": false
+    },
+    {
+      "id": "106535",
+      "userId": 5632,
+      "categoryId": 4,
+      "completion": false,
+      "startTime": "18:00",
+      "endTime": "19:45",
+      "message": "Finalizei o trabalho de CRUD do hotel descanso garantido.",
+      "title": "AEDS",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01",
+      "priority": false
+    },
+    {
+      "id": "106536",
+      "userId": 5632,
+      "categoryId": 3,
+      "completion": true,
+      "startTime": "17:00",
+      "endTime": "19:50",
+      "message": "Add your text",
+      "title": "Whey",
+      "startDate": "2024-06-01",
+      "endDate": "2024-06-01",
+      "priority": true
+    },
+    {
+      "id": "106537",
+      "userId": 5632,
+      "categoryId": 1,
+      "completion": true,
+      "startTime": "13:00",
+      "endTime": "18:00",
+      "message": "Add your text",
+      "title": "Gym",
+      "startDate": "2024-06-02",
+      "endDate": "2024-06-02",
+      "priority": true
+    },
+    {
+      "id": "106538",
+      "userId": 5632,
+      "categoryId": 2,
+      "completion": true,
+      "startTime": "17:00",
+      "endTime": "19:50",
+      "message": "Add your text",
+      "title": "Whey",
+      "startDate": "2024-07-03",
+      "endDate": "2024-07-03",
+      "priority": false
+    },
+    {
+      "id": "106539",
+      "userId": 5632,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "10:30",
+      "endTime": "12:00",
+      "message": "Add your text",
+      "title": "TIAW Pitch",
+      "startDate": "2024-07-04",
+      "endDate": "2024-07-03",
+      "priority": true
+    },
+    {
+      "id": "106544",
+      "userId": 5632,
+      "categoryId": 5,
+      "completion": true,
+      "startTime": "08:30",
+      "endTime": "10:00",
+      "message": "Add your text",
+      "title": "TIAW Pitch",
+      "startDate": "2024-07-04",
+      "endDate": "2024-07-04",
+      "priority": false
+    },
+    {
+      "id": "106545",
+      "userId": 5632,
+      "categoryId": 4,
+      "completion": true,
+      "startTime": "14:30",
+      "endTime": "17:00",
+      "message": "Add your text",
+      "title": "TIAW Fail",
+      "startDate": "2024-07-04",
+      "endDate": "2024-07-04",
+      "priority": false
+    },
+    {
+      "id": "41446",
+      "userId": "5632",
+      "categoryId": 7,
+      "completion": false,
+      "startTime": "00:00",
+      "endTime": "00:00",
+      "message": "Add your text",
+      "title": "Add your title",
+      "startDate": "2024-07-03",
+      "endDate": "2024-07-03",
+      "priority": true
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Sports"
+    },
+    {
+      "id": "2",
+      "name": "Health"
+    },
+    {
+      "id": "3",
+      "name": "Nutrition"
+    },
+    {
+      "id": "4",
+      "name": "Study"
+    },
+    {
+      "id": "5",
+      "name": "Entertainment"
+    },
+    {
+      "id": "6",
+      "name": "Finance"
+    },
+    {
+      "id": "7",
+      "name": "Art"
+    },
+    {
+      "id": "8",
+      "name": "Work"
+    },
+    {
+      "id": "9",
+      "name": "Home"
+    },
+    {
+      "id": "10",
+      "name": "BadHabit"
+    },
+    {
+      "id": "11",
+      "name": "Read"
+    },
+    {
+      "id": "12",
+      "name": "Other"
+    }
+  ],
+  "ranking": [
+    {
+      "id": "1",
+      "categoryId": 1,
+      "points": 380
+    },
+    {
+      "id": "2",
+      "categoryId": 2,
+      "points": 450
+    },
+    {
+      "id": "3",
+      "categoryId": 3,
+      "points": 320
+    },
+    {
+      "id": "4",
+      "categoryId": 4,
+      "points": 370
+    },
+    {
+      "id": "5",
+      "categoryId": 5,
+      "points": 300
+    },
+    {
+      "id": "6",
+      "categoryId": 6,
+      "points": 390
+    },
+    {
+      "id": "7",
+      "categoryId": 7,
+      "points": 330
+    },
+    {
+      "id": "8",
+      "categoryId": 8,
+      "points": 410
+    },
+    {
+      "id": "9",
+      "categoryId": 9,
+      "points": 310
+    },
+    {
+      "id": "10",
+      "categoryId": 10,
+      "points": 170
+    },
+    {
+      "id": "11",
+      "categoryId": 11,
+      "points": 340
+    },
+    {
+      "id": "12",
+      "categoryId": 12,
+      "points": 290
+    }
+  ]
+}

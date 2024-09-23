@@ -1,18 +1,45 @@
-# Nome do projeto
+# HabitEase (ADHD) <img src="codigo/public/assets/images/logo_HabitEase.svg" width="50">
 
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
-## Alunos integrantes da equipe
+HabitEase is a mobile task web application aimed at people with ADHD. Its main differences include a minimalist interface, task performance graphs, incentives for the user to always use the application with a ranking system and social network.
 
-* Pénelope Cristine Loures Antunes
+**Simplify your tasks, conquer your day.**
+
+## Students
+
 * Bruna Costa Markowisk
-* Maria Eduarda Constância Rocha Moreira
+* Cauã Homero Gonçalves Rodrigues
 
-## Professores responsáveis
+  
+
+## Professors
 
 * Rommel Vieira Carneiro
 * Simone Alves Nogueira
 
-## Instruções de utilização
+## Instructions for use
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+if you want to try with our database, try use this user:
+user: gabriel@mail.com
+password: gabriel123
+ 
+Click [here](https://plf-es-2024-1-ti1-0385100-inclusao-de.onrender.com/view/login.html).
+
+#### How to run application if the link above is not working:
+In Vs Code terminal:
+1. npm install
+2. download live server extension for Vs Code. Check this [page](https://github.com/ritwickdey/vscode-live-server-plus-plus)
+3. npm start or npm run dev to initialize JSON Server. Check package-lock.json for more details.
+4. run application login.html with live server.
+
+## NOTE
+
+Under Construction!
+
+
+
+
+
+
+
+

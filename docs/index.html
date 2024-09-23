@@ -8,7 +8,7 @@
   <link href="assets/images/favicon.png" rel="icon">
   <title>Trabalho Interdisciplinar - Documentação</title>
   <meta name="description" content="Documentação do projeto da disciplina de Trabalho Interdisciplinar">
-  <meta name="author" content="Rommel Carneiro (WebTech)">
+  <meta name="author" content="Maria Moreira (Trabalho Interdiciplinar de Desenvolvimento Web)">
 
   <!-- Stylesheet ========================= -->
   <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -59,6 +59,7 @@
       <div class="idocs-navigation bg-light">
         <ul class="nav flex-column ">
           <li class="nav-item"><a class="nav-link active" href="#ti_intro">Introdução</a> </li>
+          <!--da para colocar tds os links para partes especificas com o id no href="" ;3-->
           <li class="nav-item"><a class="nav-link" href="#ti_contexto">Contexto</a></li>
           <li class="nav-item"><a class="nav-link" href="#ti_concepcao">Concepção</a>
             <ul class="nav flex-column">
@@ -94,21 +95,21 @@
           <!-- Introdução ============================ -->
           <section id="ti_intro">
             <h2>Introdução</h2>
-            <p class="lead">Informações básicas do projeto como nome e membros da equipe.</p>
+            <p class="lead">Nosso projeto se chama HabitEase. Somos uma equipe formada por três pessoas, todos desenvolvedores e estudantes de Engenharia de Software na PUC Minas - Praça da Liberdade. O projeto tem foco em solucionar problemas de inclusão de neurodivergentes.</p>
 
             <section id="ti_intro_info">
               <h4>Informações Gerais</h4>
               <div class="row">
                 <div class="col-12">
                   <ul class="list-unstyled">
-                    <li><strong>Projeto:</strong> [NOME DO PROJETO]</li>
-                    <li><strong>Repositório GitHub:</strong> <a href="https://github.com/WebTech-PUC-Minas/ti1-template">Template Trabalho Interdisciplinar</a>
+                    <li><strong>Projeto:</strong> HabitEase</li>
+                    <li><strong>Repositório GitHub:</strong> <a href="https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti1-0385100-inclusao-de-neurodivergentes-grupo-2">Template Trabalho Interdisciplinar</a>
                     </li>
                     <li><strong>Membros da equipe:</strong>
                       <ul>
-                        <li><a href="https://github.com/fulano">Fulano</a><span class="exemplo">EXEMPLO</span></li>
-                        <li><a href="https://github.com/beltrano">Beltrano</a></li>
-                        <li><a href="https://github.com/cicrano">Cicrano</a></li>
+                        <li><a href="https://github.com/Brunamark">Bruna Markowisk</a></li>
+                        <li><a href="https://github.com/cauahomero">Cauã Homero</a></li>
+                        <li><a href="https://github.com/mecrym">Maria Eduarda Moreira</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -120,44 +121,50 @@
           <hr class="divider">
 
           <!-- Contexto ============================ -->
-          <section id="ti_contexto">
             <h2>Contexto</h2>
-            <p class="lead">Detalhes sobre o espaço de problema, justificativas e os objetivos do projeto.</p>
+            <p class="lead">pessoas com TDAH (Transtorno de Déficit de Atenção) na sociedade. Partindo do pressuposto de que a sociedade atual nem sempre está adaptada para acolher essas pessoas, pretendemos desenvolver uma plataforma específica que atenda às suas necessidades únicas.</p>
+
             <section>
-              <h5>Problema
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseProblema">Info</button></h5>
+              <h5>Problema</h5>
               <div class="alert alert-warning collapse" role="alert" id="collapseProblema">
                 Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
               </div>
-              <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+              <p>No contexto contemporâneo, as pessoas neurodivergentes, especialmente aquelas diagnosticadas com Transtorno de Déficit de Atenção e Hiperatividade (TDAH), enfrentam uma série de desafios em diferentes aspectos de suas vidas. Desde o desempenho acadêmico até as relações interpessoais e a inserção no mercado de trabalho, os sintomas característicos do TDAH, como instabilidade profissional, procrastinação, dificuldade de concentração e falta de organização, impactam significativamente a qualidade de vida desses indivíduos.</p>
+              <p>A falta de soluções específicas e adequadas para pessoas com TDAH agrava ainda mais esses desafios, dificultando seu funcionamento eficaz em diferentes contextos sociais e profissionais. As empresas e organizações também enfrentam obstáculos ao lidar com funcionários que têm TDAH, incluindo questões relacionadas ao desempenho no trabalho e à gestão de equipes.</p>
+              <p>Diante desse cenário, é crucial desenvolver soluções inovadoras que atendam às necessidades específicas das pessoas com TDAH e promovam sua inclusão efetiva na sociedade. Por meio de uma plataforma dedicada, espera-se oferecer suporte personalizado e ferramentas que auxiliem esses indivíduos a superar os desafios impostos pelo transtorno e alcançar seu pleno potencial em diferentes áreas da vida.</p>
             </section>
 
             <section>
-              <h5>Objetivos
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseObjetivos">Info</button></h5>
+              <h5>Objetivos</h5>
               <div class="alert alert-warning collapse" role="alert" id="collapseObjetivos">
                 Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
               </div>
-              <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+              <p>O cerne do objetivo deste projeto reside na criação de uma plataforma dedicada, um espaço virtual que não apenas reconhece, mas também incorpora as particularidades e necessidades únicas das pessoas com TDAH. Este espaço propõe-se a ser muito mais do que uma simples ferramenta de organização; é um ambiente pensado e construído para oferecer suporte personalizado e ferramentas especializadas, ajudando essas pessoas a terem um controle maior de seu foco e de suas tarefas diárias.</p>
+              <p>A importância dessa plataforma específica reside no fato de que as soluções genéricas disponíveis muitas vezes não atendem efetivamente às demandas desses indivíduos. Ao oferecer um ambiente adaptado, busca-se minimizar os impactos negativos que a falta de soluções adequadas traz para a vida dessas pessoas, incluindo queda na autoestima e a síndrome do impostor decorrente da falta de apoio.</p>
+              <p>Além disso, compreende-se que as empresas e organizações enfrentam desafios específicos ao lidar com funcionários que têm TDAH. Por isso, nossa plataforma não se limita apenas ao âmbito pessoal; ela também visa aprimorar a performance e a gestão desses profissionais no ambiente de trabalho.</p>
+              <p>A colaboração ativa dos usuários ao longo do desenvolvimento é um pilar fundamental do projeto. Tendo como base que ninguém compreende melhor as necessidades e desafios do que aqueles que vivenciam o TDAH diariamente. Por isso, buscamos ouvir e incorporar suas experiências e perspectivas em todas as etapas do processo.</p>
+              <p>Através dessa plataforma, esperamos não apenas reduzir o estresse e proporcionar uma gestão mais eficiente de tarefas e rotinas, mas também capacitar as pessoas com TDAH a alcançarem seu potencial máximo em todas as áreas da vida. Nossa visão é de uma sociedade mais inclusiva, onde todos, independentemente de suas diferenças, possam prosperar e contribuir plenamente.</p>
             </section>
 
             <section>
-              <h5>Justificativa
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseJustificativa">Info</button></h5>
+              <h5>Justificativa</h5>
               <div class="alert alert-warning collapse" role="alert" id="collapseJustificativa">
                 Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software. O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
               </div>
-              <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+              <p>Atualmente, existem muitas plataformas e aplicativos voltados para o controle de hábitos e tarefas, mas muito poucas são direcionadas ao público neurodivergênte. As principais queixas levantadas por essa parcela da população foram a dificuldade em direcionar o foco e em concluir e controlar o fluxo de tarefas, que por serem as mais agravantes, serão o foco para o desenvolvimento do projeto.</p>
+              <p>Através de uma plataforma direcionada, é possível proporcionar um ambiente adaptado às particularidades do TDAH, oferecendo estratégias e recursos específicos para auxiliar na organização, na gestão de tempo, no desenvolvimento de habilidades socioemocionais e na melhoria do desempenho acadêmico e profissional. Além disso, esse software pode facilitar a comunicação e a colaboração entre os usuários, promovendo a troca de experiências e o apoio mútuo.</p>
+              <p>Em suma, a criação de um software direcionado para a resolução dos desafios enfrentados pelas pessoas com TDAH é não apenas uma necessidade premente, mas também uma oportunidade de promover a inclusão e o bem-estar desses indivíduos, capacitando-os a alcançar seu potencial máximo e contribuir plenamente para a sociedade.</p>
             </section>
 
             <section>
-              <h5>Público-alvo
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapsePublico">Info</button></h5>
+              <h5>Público-alvo</h5>
               <div class="alert alert-warning collapse" role="alert" id="collapsePublico">
                 Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
                 Adicione informações sobre o público-alvo por meio de uma descrição textual, ou diagramas de personas, mapa de stakeholders, ou como o grupo achar mais conveniente.
               </div>
-              <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+              <p>O público-alvo do projeto são pessoas com Transtorno de Déficit de Atenção e Hiperatividade (TDAH), que podem ser crianças, adolescentes ou adultos que enfrentam dificuldades decorrentes desse transtorno em várias áreas da vida, indiferente do gênero. </p>
+              <p>De acordo com estudos renomados, como o realizado por Faraone et al. (2015)¹, o TDAH é um transtorno neurobiológico que afeta a capacidade de atenção, concentração e controle de impulsos. Outro estudo relevante, conduzido por Barkley (2006)², destaca que o TDAH pode impactar significativamente o desempenho acadêmico, profissional e as relações interpessoais dos indivíduos afetados.</p>
+              <p>O público-alvo também inclui empresas e organizações que lidam com funcionários que têm TDAH. Artigos como o de Halmøy et al. (2009)demonstram os desafios enfrentados por empresas na gestão de equipes e no desempenho no trabalho de indivíduos com TDAH.</p>
             </section>
 
           </section>
@@ -166,8 +173,8 @@
           <!-- Concepção ============================ -->
           <section id="ti_concepcao">
             <h2>Concepção (Design Thinking)</h2>
-            <p class="lead">Detalhes do processo de discovery do projeto.
-            <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseConcepcao">Info</button></p>
+            <p class="lead">Durante o processo de descoberta do projeto, utilizamos diversas estratégias para compreender a situação do nosso público-alvo: entrevistas qualitativas, Matriz de Alinhamento CSD, definição de personas, brainstorming, entre outras. Com essa compreensão em mãos e após várias reuniões em grupo para definir a melhor maneira de expor nossas ideias aos clientes, conseguimos estabelecer uma base sólida de projeto e especificações. O contato constante entre os membros da equipe e os clientes foi crucial para o desenvolvimento do estado atual do projeto. Abaixo estão detalhadas as etapas do processo:
+            </p>
             <div class="alert alert-warning collapse" role="alert" id="collapseConcepcao">
               <p>Apresente o processo de discovery do projeto. Com foco na experiência do usuário, esse processo abrange a compreensão do contexto do problema e das características do usuário, a definição do problema, a geração de ideias, a prototipagem e a elaboração de uma proposta de solução</p>
             </div>
@@ -175,20 +182,18 @@
             <section id="ti_processo_dt">
               <h4>Processo de Design Thinking</h4>
               <p>O arquivo que se segue apresenta o resultado desse processo.
-                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseProcesso">Info</button>
               </p>
               <div class="alert alert-warning collapse" role="alert" id="collapseProcesso">
                 <p>Apresente o processo de Design Thinking realizado pelo grupo e documentado por meio do software Miro. No documento apresentado, devem ser incluídos: (1) a matriz CSD, (2) o mapa de stakeholders, (3) as personas, (4) as respectivas propostas de valor e (5) o processo de ideação identificando as ideias levantadas e sua priorização.</p>
               </div>
-              <object data="assets/files/processo-dt.pdf" type="application/pdf" width="100%" height="500px">
+              <object data="assets/files/miro_neurodivergência.pdf" type="application/pdf" width="100%" height="500px">
                 <p>Não foi possível apresentar o arquivo PDF. Faça o download e abra no seu computador: <a href="/assets/files/processo-dt.pdf">Download</a></p>
               </object>
             </section>
 
             <section id="ti_especificacoes">
               <h4>Especificações do Projeto</h4>
-              <p>Documentação das especificações do projeto.
-                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseEspecificacao">Info</button>
+              <p>Os usuários mostraram com grande clareza quais funções do aplicativo seriam mais úteis para eles, dessa forma, com base nas histórias de usuário e os outros detalhes das entrevistas, o entendimento e a criação dos requisitos do projeto foi bem fluida. Abaixo segue as histórias e requisitos.
               </p>
               <div class="alert alert-warning collapse" role="alert" id="collapseEspecificacao">
                 <p>Apresente as especificações do projeto, incluindo as histórias de usuário e os requisitos funcionais e não funcionais.</p>
@@ -197,7 +202,6 @@
               <section>
                 <h5>Histórias de Usuários</h5>
                 <p>Com base na análise das personas foram identificadas as seguintes histórias de usuários:
-                  <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseHistorias">Info</button>
                 </p>
                 <div class="alert alert-warning collapse" role="alert" id="collapseHistorias">
                   <p>Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.</p>
@@ -205,21 +209,31 @@
                 <table class="table">
                   <thead>
                       <tr>
-                          <th scope="col">EU COMO...<code>PERSONA</code></th>
-                          <th scope="col">QUERO/PRECISO...<code>FUNCIONALIDADE</code></th>
-                          <th scope="col">PARA...<code>MOTIVO/VALOR</code></th>
+                          <th scope="col">EU COMO...</th>
+                          <th scope="col">QUERO/PRECISO...</th>
+                          <th scope="col">PARA...</th>
                       </tr>
                   </thead>
                   <tbody>
                       <tr>
-                          <th scope="row">Usuário do sistema</th>
-                          <td>Registrar minhas tarefas<span class="exemplo">EXEMPLO</span></td>
-                          <td>Não esquecer de fazê-las</td>
+                          <th scope="row">Estudante de Eng. Mecatronica</th>
+                          <td>Me organizar melhor</td>
+                          <td>Ter melhor desempenho no trabalho/faculdade</td>
                       </tr>
                       <tr>
-                          <th scope="row">Administrador</th>
-                          <td>Alterar permissões<span class="exemplo">EXEMPLO</span></td>
-                          <td>Permitir que possam administrar contas</td>
+                          <th scope="row">FullStack Dev</th>
+                          <td>Manejar melhor o tempo</td>
+                          <td>Ter mais tempo livre e controle de tarefas</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Estudante em Eng. de Software</th>
+                          <td>Minimizar o efeito do TDAH</td>
+                          <td>Melhorar relações profissionais e pessoais</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Estudante de Computação</th>
+                          <td>Avisos e lembretes</td>
+                          <td>Não se esquecer de obrigações e compromissos</td>
                       </tr>
                   </tbody>
                 </table>
@@ -228,7 +242,6 @@
               <section>
                 <h5>Requisitos</h5>
                 <p>As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
-                  <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseRequisitos">Info</button>
                 </p>
                 <div class="alert alert-warning collapse" role="alert" id="collapseRequisitos">
                   <p>Com base nas Histórias de Usuário, enumere os requisitos da sua
@@ -254,12 +267,42 @@
                   <tbody>
                       <tr>
                           <th scope="row">RF-001</th>
-                          <td>Permitir que o usuário cadastre tarefas<span class="exemplo">EXEMPLO</span></td>
+                          <td>Permitir ao usuário cadastrar novas tarefas</td>
                           <td>ALTA</td>
                       </tr>
                       <tr>
                           <th scope="row">RF-002</th>
-                          <td>Emitir um relatório de tarefas no mês<span class="exemplo">EXEMPLO</span></td>
+                          <td>Aplicativo deve ter sistema de ranqueamento</td>
+                          <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-003</th>
+                          <td>Aplicativo deve automatizar tarefas</td>
+                          <td>ALTA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-004</th>
+                          <td>Aplicativo deve gerar gráfico de desempenho</td>
+                          <td>ALTA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-005</th>
+                          <td>Deve ser possível postar conteúdos com fotos e curtidas no app</td>
+                          <td>BAIXA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-006</th>
+                          <td>Aplicativo deve ter um bloco de notas</td>
+                          <td>BAIXA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-007</th>
+                          <td>Aplicativo deve ter opção de ocultar elementos de navegação</td>
+                          <td>ALTA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RF-008</th>
+                          <td>Gamificação com sistema de pontos</td>
                           <td>MÉDIA</td>
                       </tr>
                   </tbody>
@@ -277,14 +320,44 @@
                   <tbody>
                       <tr>
                           <th scope="row">RNF-001</th>
-                          <td>O sistema deve ser responsivo para rodar em um dispositivos móvel<span class="exemplo">EXEMPLO</span></td>
-                          <td>MÉDIA</td>
+                          <td>O sistema deve ser focado em dispositivos móveis</td>
+                          <td>ALTA</td>
                       </tr>
                       <tr>
                           <th scope="row">RNF-002</th>
-                          <td>Deve processar requisições do usuário em no máximo 3s<span class="exemplo">EXEMPLO</span></td>
+                          <td>O aplicativo deve ocupar pouca memória</td>
+                          <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RNF-003</th>
+                          <td>O aplicativo deve ter uma interface minimalista</td>
+                          <td>ALTA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RNF-004</th>
+                          <td>O aplicativo deve ter descrição especificando que é para neurodivergentes</td>
                           <td>BAIXA</td>
                       </tr>
+                      <tr>
+                          <th scope="row">RNF-005</th>
+                          <td>O aplicativo deve ter processamento rápido</td>
+                          <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RNF-006</th>
+                          <td>O sistema não deve perder as informações dos usuários</td>
+                          <td>MÉDIA</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">RNF-007</th>
+                          <td>Aplicativo deve enviar notificações de push</td>
+                          <td>ALTA</td>
+                    </tr>
+                    <tr>
+                          <th scope="row">RNF-008</th>
+                          <td>Aplicativo deve possuir Darkmode</td>
+                          <td>ALTA</td>
+                    </tr>
                   </tbody>
                 </table>
               </section>
@@ -292,8 +365,7 @@
 
             <section id="ti_projeto_interfaces">
               <h4>Projeto de Interface</h4>
-              <p>Artefatos relacionados com a interface e a interacão do usuário na proposta de solução.
-                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseInterface">Info</button>
+              <p>O aplicativo vai proporcionar ao usuário uma tela de login, uma tela inicial onde ele poderá ver suas tarefas divididas por horário do dia e dias da semana, dentro dessas divisões será possível modificar, adicionar e visualizar com mais detalhes as tarefas.As tarefas terão ícones específicos para identificação por meio de categorias.Os usuários frisaram que o aplicativo deveria ser minimalista então a opção de esconder a navbar está disponível. Os usuários também demonstraram interesse em uma tela como um bloco de notas então essa tela também existirá, as coisas escritas no bloco não serão salvas pelo aplicativo. Seguem abaixo os modelos para visualização.
               </p>
               <div class="alert alert-warning collapse" role="alert" id="collapseInterface">
                 <p>Apresente a ideia de interface que está sendo prevista para o projeto. Inclua os wireframes, o user/screen flow e o protótipo interativo.</p>
@@ -302,27 +374,26 @@
               <section>
                 <h5>User/Screen Flow e Protótipo interativo</h5>
                 <p>Artefatos relacionados com a interface e a interacão do usuário na solução proposta.
-                  <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseUserFlow">Info</button>
+
                 </p>
                 <div class="alert alert-warning collapse" role="alert" id="collapseUserFlow">
                   <p>O fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe. <img  class="img-fluid" src="assets/images/exemplo-userflow.png" alt="Exemplo de fluxo de usuário">
                   </p>
                   <p>Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Veja o exemplo a seguir.<br>
-                    <iframe title="Protótipo interativo" src="https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false" width="600px" height="360px" allowtransparency="true" frameborder="0"></iframe>
+                    <embed title="Protótipo interativo" src="https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false" width="600px" height="360px" allowtransparency="true" frameborder="0"></embed>
                   </p>
                 </div>
-                <p>......  COLOQUE AQUI O DIAGRAMA DE USER FLOW E O LINK PARA O PROTÓTIPO INTERATIVO ......</p>
+                <p><a href="https://www.figma.com/file/3L1wwYK3kIn9adXAHY8VSz/UserFlow?type=design&node-id=0%3A1&mode=dev&t=1vBwzea3QIZh9di9-1" target="_blank" ><img src="/docs/assets/images/userFlow.jpg"alt=""></a></p>
               </section>
 
               <section>
                 <h5>Wireframes</h5>
                 <p>Protótipo de telas do sistema em baixa fidelidade (rascunhos).
-                  <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseWireframes">Info</button>
                 </p>
                 <div class="alert alert-warning collapse" role="alert" id="collapseWireframes">
                   <p>Os Wireframes são protótipos das telas da aplicação usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante ao layout de elementos fundamentais na interface. <img  class="img-fluid" src="assets/images/exemplo-wireframe.png" alt="Exemplo de wireframe"></p>
                 </div>
-                <p>......  COLOQUE AQUI OS PROTÓTIPO DE TELAS E SUA DESCRIÇÃO ......</p>
+                <p><iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FlgFns4LLjjRbV9nznjE9sI%2FTIAW-Software%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DxKaZvosoJQAOw7Iv-1" allowfullscreen></iframe></p>
               </section>
 
             </section>
@@ -333,8 +404,7 @@
           <!-- Metodologia ============================ -->
           <section id="ti_metodologia">
             <h2>Metodologia</h2>
-            <p class="lead">Detalhes sobre a organização do grupo e o ferramental empregado.
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseMetodologia">Info</button>
+            <p class="lead">O grupo utilizou metodologia ágil Scrum, com a equipe sendo auto-organizada. Dessa forma, não tínhamos Scrum Master e PO, que são papéis padrões do Scrum, porque todos os membros são desenvolvedores. A produtividade e eficiência do grupo foram alcançadas pela forma como utilizamos as ferramentas disponíveis e pela dinâmica na gestão de projetos, que foi bastante fluida para toda a equipe. Seguem mais detalhes sobre os processos.
             </p>
             <div class="alert alert-warning collapse" role="alert"  id="collapseMetodologia">
               <p>Nesta parte do documento, você deve apresentar a metodologia adotada pelo grupo, descrevendo o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada agestão de configuração do projeto via GitHub.</p>
@@ -344,7 +414,6 @@
             <section>
               <h4 id="ti_ferramentas">Ferramentas</h4>
               <p>Relação de ferramentas empregadas pelo grupo durante o projeto.
-                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseFerramentas">Info</button>
               </p>
               <div class="alert alert-warning collapse" role="alert" id="collapseFerramentas">
                 <p>Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, ferramentas de comunicação, ferramentas de diagramação, plataformas de hospedagem, entre outras.</p>
@@ -361,22 +430,32 @@
                     <tr>
                         <td>Processo de Design Thinking</td>
                         <td>Miro</td>
-                        <td><a href="https://miro.com/XXXXXXX">https://miro.com/XXXXXXX</a><span class="exemplo">EXEMPLO</span></td>
+                        <td><a href="https://miro.com/app/board/uXjVKdAiZcI=/">https://miro.com/app/board/uXjVKdAiZcI=/</a></td>
                     </tr>
                     <tr>
                         <td>Repositório de código</td>
                         <td>GitHub</td>
-                        <td><a href="https://github.com/XXXXXXX">https://github.com/XXXXXXX</a><span class="exemplo">EXEMPLO</span></td>
-                    </tr>
-                    <tr>
-                        <td>Hospedagem do site</td>
-                        <td>Heroku</td>
-                        <td><a href="https://XXXXXXX.herokuapp.com">https://XXXXXXX.herokuapp.com</a><span class="exemplo">EXEMPLO</span></td>
-                    </tr>
+                        <td><a href="https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2024-1-ti1-0385100-inclusao-de-neurodivergentes-grupo-2.git">https://github.com/ICEI-PUC-Minas[...]</a></td>
+                      </tr>
+                      <tr>
+                          <td>Editor de código</td>
+                          <td>VisualStudioCode</td>
+                          <td><a href="https://code.visualstudio.com">https://code.visualstudio.com</a></td>
+                      </tr>
                     <tr>
                         <td>Protótipo Interativo</td>
-                        <td>MavelApp ou Figma</td>
-                        <td><a href="https://figma.com/XXXXXXX">https://figma.com/XXXXXXX</a><span class="exemplo">EXEMPLO</span></td>
+                        <td>Figma</td>
+                        <td><a href="https://www.figma.com/file/lgFns4LLjjRbV9nznjE9sI/TIAW-Software?type=design&mode=design">https://www.figma.com/file/[...]</a></td>
+                    </tr>
+                    <tr>
+                        <td>Comunicação Interna</td>
+                        <td>Discord</td>
+                        <td><a href="https://discord.com">https://discord.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Comunicação Mista (Equipe e Cliente)</td>
+                        <td>Google Meet</td>
+                        <td><a href="https://meet.google.com">https://meet.google.com</a></td>
                     </tr>
                 </tbody>
               </table>
@@ -384,28 +463,20 @@
 
             <section id="ti_gestao_projeto">
               <h4>Gestão do Projeto</h4>
-              <p>Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
-                <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapsePapeis">Info</button>
+              <p>Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas.
               </p>
-              <div class="alert alert-warning collapse" role="alert" id="collapsePapeis">
-                <p>Apresente a divisão de papéis e tarefas entre os membros do grupo. Informe quem é o Scrum Master, o Product Owner e os desenvolvedores. Informe também quem é o responsável pela documentação do projeto.</p>
-                <p>Apresente o quadro de gerenciamento do time (Kanban), seu formato e as experiências na utilização dessa ferramenta (GitHub Projects) </p>
               </div>
-              <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+              <p>O grupo é formado por 4 membros, todos desenvolvedores, e a equipe é auto-organizada. As tarefas foram divididas com base na experiência e interesse de cada um. Ficou acordado que a Bruna desenvolveria o wireframe, a Penélope (membro que saiu do grupo) ficaria responsável pelo User Flow, enquanto eu (Cauã) e a Maria nos dedicaríamos à documentação. Apesar da divisão inicial dessas tarefas, todos colaboramos solicitando ajuda uns aos outros em ideias de design, correções ortográficas e testes de compreensão, por exemplo.</p>
+              <img class="img-fluid" src="assets/images/projectsDone.jpg" alt="">
             </section>
 
 
             <section id="ti_controle_versao">
               <h4>Controle de Versão</h4>
               <p>Estrutura do fluxo de trabalho no ambiente do GitHub.
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseVersao">Info</button>
               </p>
-              <div class="alert alert-warning collapse" role="alert" id="collapseVersao">
-                <p>Discuta como a configuração do projeto foi feita na ferramenta de versionamento (GitHub). Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.<br>
-                  <img class="img-fluid" src="assets/images/exemplo-workflow.png" alt="">
-                </p>
-              </div>
-              <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+              <p>Como explicado na gestão de projetos, o dinamismo na forma como os membros da equipe trabalharam resultou em horários distintos para a conclusão das atividades e tarefas necessárias. Por isso, todas as mudanças foram diretamente commitadas no branch Master. Optamos por seguir um caminho de pequenos passos, dividindo cada implementação para entender exatamente o que foi alterado e quando. Isso ajudou significativamente a evitar problemas no gerenciamento de issues, pois tínhamos pouquíssimas ocorrências que eram resolvidas após reuniões da equipe, quando necessário.</p>
+              <img class="img-fluid" src="assets/images/contextocommit.jpg" alt="">
             </section>
           </section>
           <hr class="divider">
@@ -414,12 +485,6 @@
           <section id="ti_solucao">
             <h2>Solução</h2>
             <p class="lead">Esta seção apresenta todos os detalhes da solução criada no projeto.
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseSolucao">Info</button>
-            </p>
-            <div class="alert alert-warning collapse" role="alert" id="collapseSolucao">
-              <p>Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.</p>
-              <p>Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.</p>
-            </div>
 
             <section id="ti_video">
               <h4>Video do Projeto</h4>
@@ -430,36 +495,146 @@
                 <p>O video de apresentação é voltado para que o público externo possa conhecer a solução. O formato é livre, sendo importante que seja apresentado o problema e a solução numa linguagem descomplicada e direta.</p>
                 <p>Utilize o recurso de compartilhamento via embed e inclua o vídeo logo abaixo.</p>
               </div>
-              <p>......  COLOQUE AQUI O SEU VIDEO ......</p>
+              
+              <h5>Vídeo de Apresentação HabitEase</h5>
+              <video controls style="width: 70%;">
+                <source src="assets/videos/tiaw.mp4" type="video/mp4">
+              </video>
             </section>
 
             <section id="ti_funcionalidades">
               <h4>Funcionalidades</h4>
-              <p>Esta seção apresenta as funcionalidades da solução.
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseFuncionalidades">Info</button>
-              </p>
-              <div class="alert alert-warning collapse" role="alert" id="collapseFuncionalidades">
-                <p>Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários quanto aos administradores da solução.</p>
-                <p>Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.</p>
-              </div>
-
+              <p>Nesta seção, apresentaremos as funcionalidades que optamos por integrar, considerando que algumas delas foram descartadas ao longo do desenvolvimento.
               <section>
-                <h5>Funcionalidade 1 - Cadastro de Contatos<span class="exemplo">EXEMPLO</span></h5>
-                <p>Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema</p>
+                
+                <h5>Funcionalidade 1 - Home-Page</h5>
+                <p>Mostra um calendario com as tarefas a fazer e um botão para abrir as tarefas</p>
                 <ul class="list-unstyled">
-                  <li><strong>Estrutura de dados: </strong><a href="#ti_ed_contatos">Contatos</a></li>
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
                   <li><strong>Instruções de acesso: </strong><ul>
                     <li>Abra o site e efetue o login</li>
-                    <li>Acesse o menu principal e escolha a opção Cadastros </li>
-                    <li>Em seguida, escolha a opção Contatos</li>
+                    <li>Clique em algum dia especifico</li>
+                    <li>Clique no botão de tarefas</li>
                   </ul></li>
                 </ul>
-                <p class="text-center"><img class="img-fluid" src="assets/images/exemplo-funcionalidade.png" alt="Tela Cadastro de Contatos"></p>
+                <p class="text-center"><img class="img-fluid" src="assets/images/habit.jpg" alt="Home"></p>
+ 
+                <h5>Funcionalidade 2 - Ver tarefas</h5>
+                <p>Mostra as tarefas e da a opção de edita-las ou adicionar outras</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique no botão de tarefas</li>
+                    <li>Clique em alguma tarefa ou no botão add</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/view.jpg" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 3 - Seleção de categoria</h5>
+                <p>Mostra todas as categorias disponíveis para o usuário adicionar a tarefa</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#categoryjson">Categorias</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique add na "ver tarefas"</li>
+                    <li>Selecione qualquer uma das categorias</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/selection.jpg" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 4 - Quando fazer</h5>
+                <p>Mostra botões para o usuário inserir data de inicio e de fim e definir prioridade </p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#categoryjson">Categorias</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique em alguma categoria na tela "seleção de categoria"</li>
+                    <li>Selecione a data de inicio</li>
+                    <li>Selecione a data de fim</li>
+                    <li>Ligue ou desligue a prioridade</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/quando.jpg" alt="Tela Cadastro de Contatos"></p>
+
+                <h5>Funcionalidade 5 - Burndown</h5>
+                <p>Mostra um gráfico de Burndown das tarefas concluidas no dia</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#tasksjson">Tarefas</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique na icone com 3 riscos</li>
+                    <li>Clique no Burndown</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/Burnchart.jpg" alt="Tela Cadastro de Contatos"></p>
+                
+                <h5>Funcionalidade 6 - Social</h5>
+                <p>Mostra a parte social do site, com postagens, likes, comentarios e ranking</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#postagemjson">Post</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique no icone com 3 riscos</li>
+                    <li>Clique em rank</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/social.jpg" alt="Tela Cadastro de Contatos"></p>
+                
+                <h5>Funcionalidade 7 - Comentários</h5>
+                <p>Mostra os comentarios de outros usários na postagem e te permite fazer o seu</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#comentjson">Comentarios</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Clique no icone com 3 riscos</li>
+                    <li>Selecione o periodo que deseja ver (semana, mês e ano)</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/comment.jpg" alt="Tela Cadastro de Contatos"></p>
+
+
+                <h5>Funcionalidade 8 - Ranking</h5>
+                <p>Mostra um ranking dos usuários amigos com base em tarefas feitas</p>
+                <ul class="list-unstyled">
+                  <li><strong>Estrutura de dados: </strong><a href="#rankjson">rank</a></li>
+                  <li><strong>Instruções de acesso: </strong><ul>
+                    <li>Abra o site e efetue o login</li>
+                    <li>Na tela rank</li>
+                    <li>Role o carrosel para ver a pontuação dos seus amigos assim como o pódio</li>
+                  </ul></li>
+                </ul>
+                <p class="text-center"><img class="img-fluid" src="assets/images/rank.jpg" alt="Tela Cadastro de Contatos"></p>                
               </section>
             </section>
 
+            <h5>Funcionalidade 9 - Postagem</h5>
+            <p>Possibilita ao usuário a fazer uma postagem no feed</p>
+            <ul class="list-unstyled">
+              <li><strong>Estrutura de dados: </strong><a href="#postagemjson">Post</a></li>
+              <li><strong>Instruções de acesso: </strong><ul>
+                <li>Abra o site e efetue o login</li>
+                <li>Na tela rank</li>
+                <li>Clique no + no fim da tela e siga as instruções</li>
+              </ul></li>
+            </ul>
+            <p class="text-center"><img class="img-fluid" src="assets/images/post.jpg" alt="Tela Cadastro de Contatos"></p>
+           
+            <h5>Funcionalidade 10 - Adicionar amigos</h5>
+            <p>Possibilita ao usuário a adicionar amigos</p>
+            <ul class="list-unstyled">
+              <li><strong>Estrutura de dados: </strong><a href="#friendsjson">Amigos</a></li>
+              <li><strong>Instruções de acesso: </strong><ul>
+                <li>Abra o site e efetue o login</li>
+                <li>Na tela rank</li>
+                <li>Clique no botão em formato de lupa</li>
+                <li>Digite o nome do amigo desejado e clique no icone para adicionar</li>
+              </ul></li>
+            </ul>
+            <p class="text-center"><img class="img-fluid" src="assets/images/amigos.jpg" alt="Tela Cadastro de Contatos"></p>
+           
             <!-- Estruturas de dados =============== -->
-            <section id="ti_estruturas_dados">
+            <section id="ruturas_dados">
               <h4>Estruturas de Dados</h4>
               <p>Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.
                 <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseEstruturas">Info</button>
@@ -470,35 +645,119 @@
               </div>
 
               <section>
-                <h5>Estrutura de Dados - Contatos<span class="exemplo">EXEMPLO</span></h5>
-                <p>Contatos da aplicação</p>
+                <h5 id="usuariojson">Estrutura de Dados - Usuários</h5>
+                <p>Informações dos usuários do aplicativo para login e identificação</p>
                 <pre>
                   {
-                    "id": 1,
-                    "nome": "Leanne Graham",
-                    "cidade": "Belo Horizonte",
-                    "categoria": "amigos",
-                    "email": "Sincere@april.biz",
-                    "telefone": "1-770-736-8031",
-                    "website": "hildegard.org"
+                    "id": "5632",
+                    "name": "Gabriel",
+                    "profilePhotoUrl": "https://i.pinimg.com/564x/60/0e/cd/600ecd4a3aed586febbb92918e39fce6.jpg",
+                    "email": "gabriel@mail.com",
+                    "password": "gabriel123"
                   }
                 </pre>
               </section>
 
               <section>
-                <h5>Estrutura de Dados - Usuários<span class="exemplo">EXEMPLO</span></h5>
-                <p>Registro dos usuários do sistema utilizados para login e para o perfil do sistema</p>
+                <h5 id="tasksjson">Estrutura de Dados - Tarefas</h5>
+                <p>Registro das tarefas dos usuários</p>
                 <pre>
                   {
-                    id: "eed55b91-45be-4f2c-81bc-7686135503f9"
-                    email: "admin@abc.com"
-                    id: "eed55b91-45be-4f2c-81bc-7686135503f9"
-                    login: "admin"
-                    nome: "Administrador do Sistema"
-                    senha: "123"
+                    "id": "106520",
+                    "userId": 5632,
+                    "categoryId": 3,
+                    "completion": true,
+                    "startTime": "10:00",
+                    "endTime": "12:40",
+                    "message": "Add your text",
+                    "title": "Bake an apple cake  ",
+                    "startDate": "2024-06-01",
+                    "endDate": "2024-07-02",
+                    "priority": true
                   }
                 </pre>
               </section>
+            </section>
+            <section>
+              <h5 id="likesjson">Estrutura de dados - Likes</h5>
+              <p>Informações do sistema de curtidas</p>
+              <pre>
+                {
+                  "id": "78219",
+                  "postId": 56715,
+                  "userId": 5640
+                }
+              </pre>
+            </section>
+
+            <section>
+              <h5 id="comentjson">Estrutura de dados - Comentários</h5>
+              <p>Registro dos comentarios das postagens</p>
+              <pre>
+                {
+                  "id": "47385",
+                  "userId": 5634,
+                  "postId": 56715,
+                  "comment": "I need this abs"
+                }
+              </pre>
+            </section>
+
+            <section>
+              <h5 id="postagemjson">Estrutura de dados - Postagens</h5>
+              <p>Registro das inrformações das postagens</p>
+              <pre>
+                {
+                  "id": "56715",
+                  "userId": 5638,
+                  "content": "Going to gym!",
+                  "photoUrl": "https://i.pinimg.com/564x/e6/fc/40/e6fc40ac5b7883b4ae8112634feeccd5.jpg"
+                }
+              </pre>
+            </section>
+
+            <section>
+              <h5 id="categoryjson">Estrutura de dados - Categorias</h5>
+              <p>Informações das categorias das tarefas</p>
+              <pre>
+                {
+                  "id": "1",
+                  "name": "Saúde Pessoal"
+                }
+              </pre>
+            </section>
+
+            <section>
+              <h5 id="friendsjson">Estrutura de dados - Amigos</h5>
+              <p>Registro dos amigos</p>
+              <pre>
+                {
+                  "id": "102300",
+                  "userId": 5632,
+                  "friends": [
+                    5633,
+                    5634,
+                    5635,
+                    5636,
+                    5637,
+                    5638,
+                    5639,
+                    5640
+                  ]
+                }
+              </pre>
+            </section>
+
+            <section>
+              <h5 id="pontjson">Estrutura de dados - Pontuação</h5>
+              <p>Informações sobre a lógica de pontuação das tarefas</p>
+              <pre>
+                {
+                  "id": 1,
+                  "categoryId": 1,
+                  "points": 450
+                }
+              </pre>
             </section>
 
             <!-- Módulos e APIs ================= -->
@@ -514,22 +773,26 @@
               <section>
                 <h5>Images:</h5>
                 <ul>
-                  <li>Unsplash - <a target="_blank" href="https://unsplash.com/">https://unsplash.com/</a><span class="exemplo">EXEMPLO</span></li>
+                  <li>Pexels - <a target="_blank" href="https://www.pexels.com/api/">https://www.pexels.com/api/</a></li>
                 </ul>
               </section>
 
               <section>
                 <h5>Fonts:</h5>
                 <ul>
-                  <li>Icons Font Face - <a target="_blank" href="https://fontawesome.com/">https://fontawesome.com/</a><span class="exemplo">EXEMPLO</span></li>
+                  <li>Icons Font Face - <a target="_blank" href="https://fontawesome.com/">https://fontawesome.com/</a></li>
+                  <li>Google Fonts<a target="_blank" href="https://fonts.google.com"></a>https://fonts.google.com</li>
+                  <li>Iconfinder<a target="_blank" href="https://www.iconfinder.com">https://www.iconfinder.com</a></li>
                 </ul>
               </section>
 
               <section>
                 <h5>Scripts:</h5>
                 <ul>
-                  <li>jQuery - <a target="_blank" href="http://www.jquery.com/">http://www.jquery.com/</a><span class="exemplo">EXEMPLO</span></li>
-                  <li>Bootstrap 4 - <a target="_blank" href="http://getbootstrap.com/">http://getbootstrap.com/</a><span class="exemplo">EXEMPLO</span></li>
+                  <li>Bootstrap 5 - <a target="_blank" href="https://getbootstrap.com/docs/5.3">https://getbootstrap.com/docs/5.3/</a></li>
+                  <li>Bootstrap 4 - <a target="_blank" href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
+                  <li>ChartJs - <a target="_blank" href="https://www.chartjs.org">https://www.chartjs.org</a></li>
+                  <li>JQuerry - <a target="_blank" href="https://api.jquery.com">https://api.jquery.com</a></li>
                 </ul>
               </section>
             </section>
@@ -547,46 +810,35 @@
               <p>Apresente uma lista de perguntas e respostas comuns associadas ao projeto. Inclua perguntas como: (1) detalhes de acesso e uso do projeto; (2) informações sobre a instalação e configuração da aplicação; (3) questões sobre a manutenção da aplicação; (4) detalhes sobre a integração da aplicação com outros sistemas; (5) questões sobre a segurança da aplicação.</p>
             </div>
 
-            <span class="exemplo">EXEMPLO</span>
+            
             <div class="row">
               <div class="col-lg-12">
                 <div class="accordion accordion-alterate arrow-right" id="popularTopics">
                   <div class="card">
                     <div class="card-header" id="heading1">
                       <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse1"
-                          aria-expanded="false" aria-controls="collapse1">What does royalty free mean?</a> </h5>
+                          aria-expanded="false" aria-controls="collapse1">Eu consigo olhar uma outra data no gráfico de burndown?</a> </h5>
                     </div>
                     <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
-                      <div class="card-body"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not
-                        only five centuries, but also the leap into electronic typesetting, remaining essentially
-                        unchanged. </div>
+                      <div class="card-body">Nesse primeiro momento não. Nós temos o plano de criar uma lógica para que o usuario possa escolher qualquer dia para ver seu gráfico mas no momento não implementamos isso, em breve vai ter!</div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="card-header" id="heading2">
                       <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse2"
-                          aria-expanded="false" aria-controls="collapse2">What is a single application?</a> </h5>
+                          aria-expanded="false" aria-controls="collapse2">O aplicativo está no seu estado final?</a> </h5>
                     </div>
                     <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#popularTopics">
-                      <div class="card-body"> Iisque Anim pariatur cliche reprehenderit, enim eiusmod high life
-                        accusamus terry richardson ad squid. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                        moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                        proident. Ad vegan excepteur butcher vice lomo. </div>
+                      <div class="card-body">É provável que nunca consideremos o HabitEase em um estado final, pois sempre há o que melhorar! Temos muitos planos para o futuro da nossa ferramenta, muitos deles envolvendo ajustes nas lógicas para proporcionar uma experiência melhor ao usuário. De toda forma, o céu é o limite. Usaremos o feedback de vocês, usuários, para saber para onde também poderíamos expandir nossas ideias. </div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="card-header" id="heading3">
                       <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse3"
-                          aria-expanded="false" aria-controls="collapse3">What are some examples of permitted end
-                          products?</a> </h5>
+                          aria-expanded="false" aria-controls="collapse3">Porque a interface é tão pequena no desktop?</a> </h5>
                     </div>
                     <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#popularTopics">
-                      <div class="card-body"> Iisque persius interesset his et, in quot quidam persequeris vim, ad mea
-                        essent possim iriure. Mutat tacimates id sit. Ridens mediocritatem ius an, eu nec magna
-                        imperdiet. </div>
+                      <div class="card-body">O HabitEase foi projetado com foco em dispositivos móveis, pois nos estágios iniciais de sua criação, os possíveis usuários mencionaram que preferiam uma solução mais acessível, e, nesse caso, o mais acessível seria o celular. Por isso, sua interface é menor do que a de outros sites quando acessada em um computador.</div>
                     </div>
                   </div>
                 </div>
@@ -600,11 +852,8 @@
           <section id="ti_referencias">
             <h2>Referências Bibliográficas</h2>
             <p class="lead">Esta seção apresenta as referências bibliográficas utilizadas no projeto.
-              <button type="button" class="btn btn-light btn-sm float-right" data-toggle="collapse" href="#collapseReferencias">Info</button></p>
-            <div class="alert alert-warning collapse" role="alert" id="collapseReferencias">
-              <p>Apresente as referências bibliográficas utilizadas no projeto. Inclua itens como: (1) livros, artigos, tutoriais, etc. utilizados no desenvolvimento da solução; (2) links para sites, blogs, etc. utilizados no desenvolvimento da solução.</p>
-            </div>
-            <p>......  COLOQUE AQUI O SEU TEXTO ......</p>
+            <p>Teoria das cores - <a href="https://edisciplinas.usp.br/pluginfile.php/4583241/mod_resource/content/1/cores.pdf">Moodle USP</a></p>
+            <p>Chat GPT - <a href="https://chatgpt.com">Chat GPT</a></p>
           </section>
 
         </div>

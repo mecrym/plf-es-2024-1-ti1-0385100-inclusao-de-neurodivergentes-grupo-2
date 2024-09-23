@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Change</title>
+    <link rel="stylesheet" href="../assets/css/registrationChange.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Jersey+20&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <div class="arrow-back">
+            <a href="./tasksView.html"><img src="../assets/images/arrow-back.svg" alt="" ></a>
+        </div>
+    </header>
+    <main>
+        <section class="container-type-text">
+            <h1>Type your text</h1>
+        </section>
+        <section class="container-text">
+            <div class="container-title-btn">
+                <div class="container-p">
+                    <textarea id="textTitle" cols="25" rows="1" maxlength="25">Add your title</textarea>
+                </div>
+                <div class="container-button">
+                    <button class="add" id="addText">
+                        <img id="imgBtn" src="../assets/images/plus_icon.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container-select-completion">
+            <h1>Select the completion</h1>
+        </section>
+
+        <section class="container-select">
+            <div class="container-p">
+                <p>Was the task completed?</p>
+            </div>
+            <div class="switch" id="switchButton">    
+                <input type="checkbox" id="switch" />
+                <label for="switch">Toggle</label>               
+            </div>
+        </section>
+
+       
+        <section class="add-button">
+            <a href="./tasksView.html">
+                <button class="add" id="addBtn">Done</button>
+            </a>
+        </section>
+       
+
+    </main>
+    <footer class="footer-gradient"></footer>
+    <script type="module" src="../assets/js/registrationChange.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quando</title>
+    <link rel="stylesheet" href="../assets/css/when.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+</head>
+<body>
+    <header>
+        <div class="arrow-back">
+            <a href="./categorySelection.html"><img src="../assets/images/arrow-back.svg" alt="" ></a>
+        </div>
+        <nav class="navbar">   
+            <input type="checkbox" class="menu-btn" id="menu-btn"/>
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <ul class="menu">
+                <li><a href="./habit.html"><img src="../assets/images/chart 1 (2).png" alt="icone habit"> Habit</a></li>
+                <li><a href="./social.html"><img src="../assets/images/rank 1.png" alt="icone rank"> Ranking</a></li>
+                <li><a href="./burnchart.html"><img src="../assets/images/Vector.png" alt="icone tasks"> Burndown</a></li>
+                <li><a href="./graficos.html"><img src="../assets/images/task 1.png" alt="icone Performace"> Performace</a></li>
+            </ul>            
+        </nav>
+    </header>
+    <h2>When do you want to do it?</h2>
+    <section class="when-section">
+        <div class="input-group">
+            <label class="texto" for="start-date">Start date</label>
+            <input type="date" id="start-date">
+        </div>
+        <div class="input-group">
+            <label class="texto" for="end-date">End date</label>
+            <input type="date" id="end-date">
+        </div>
+        <div class="input-group">
+            <label class="texto" for="priority">Priority</label>
+            <section class="container-select">
+                <div class="switch" id="switchButton">    
+                    <input type="checkbox" id="switch">
+                    <label for="switch">Toggle</label>               
+                </div>
+            </section>
+        </div>
+    </section>
+    
+    <section class="next-button">
+        <button class="next" id="nextBtn">Next</button>
+    </section>
+    <footer class="footer-gradient w-100"></footer>
+
+    <script type="module" src="../assets/js/when.js"></script>
+</body>
+</html>
